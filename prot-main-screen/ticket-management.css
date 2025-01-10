@@ -354,12 +354,13 @@ table {
 table .table-header{
     display: flex;
     justify-content: space-between;
-    padding: 0rem 0.5rem;
+    
     align-items: center;
 
     .table-sort{
         display: flex;
         flex-direction: column;
+        padding: 0rem 0.5rem;
 
         .fa-sort-down{
             margin-top: -0.75rem;
@@ -437,7 +438,7 @@ table tbody tr:hover {
 }
 
 footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     display: flex;
     justify-content: center;
