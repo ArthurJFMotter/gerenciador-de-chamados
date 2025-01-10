@@ -237,12 +237,10 @@ header .nav-btns-container {
     margin-bottom: 1rem;
 
     @media (max-width: 768px) {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
+        flex-direction: row;
         margin-left: -0.5rem;
         margin-right: -0.5rem;
-
+        margin-top: 0.5rem;
     }
 }
 
@@ -351,6 +349,26 @@ table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
+}
+
+table .table-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 0.5rem;
+    align-items: center;
+
+    .table-sort{
+        display: flex;
+        flex-direction: column;
+
+        .fa-sort-down{
+            margin-top: -0.75rem;
+        }
+    }
+
+    i{
+        margin: auto;
+    }
 }
 
 table th,
