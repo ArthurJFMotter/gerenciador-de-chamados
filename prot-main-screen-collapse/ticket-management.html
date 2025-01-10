@@ -38,22 +38,30 @@
                     <!-- user actions module start-->
                     <section class="user-actions">
                         <h2 class="user-info">
-                            <span>Olá, <strong> Operador Admin </strong> ! </span>
+                            <span>Olá, <strong>Operador Admin</strong>!</span>
                         </h2>
-
+        
                         <div class="nav-btns-container">
-                            <button id="lock">
-                                <span> 0 </span>
-                                <i class="fa fa-lock"></i>
-                            </button>
-                            <button id="panel">
-                                <span>Painel</span>
+                            <!-- Botão do menu colapsável -->
+                            <button id="menu-toggle">
                                 <i class="fa fa-bars"></i>
                             </button>
-                            <button id="logout">
-                                <span>Sair</span>
-                                <i class="fa fa-right-from-bracket"></i>
-                            </button>
+        
+                            <!-- Menu colapsável -->
+                            <div id="collapsible-menu" class="collapsible-menu">
+                                <button id="lock">
+                                    <span>0</span>
+                                    <i class="fa fa-lock"></i>
+                                </button>
+                                <button id="panel">
+                                    <span>Painel</span>
+                                    <i class="fa fa-table"></i>
+                                </button>
+                                <button id="logout">
+                                    <span>Sair</span>
+                                    <i class="fa fa-right-from-bracket"></i>
+                                </button>
+                            </div>
                         </div>
                     </section>
                     <!-- user actions module end-->

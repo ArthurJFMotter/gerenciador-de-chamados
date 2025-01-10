@@ -144,11 +144,58 @@ header .user-info {
     text-wrap: nowrap;
 }
 
-header .nav-btns-container {
+header nav .secondary .nav-btns-container {
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
+
+header nav .secondary .collapsible-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #151716;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    z-index: 10;
+}
+
+header nav .secondary .collapsible-menu.open {
+    display: flex;
+}
+
+
+header nav .secondary .collapsible-menu button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    margin: 4px 0;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+header .nav-btns-container #menu-toggle {
+    background-color: #007bff;
+    color: white;
+    padding: 0.66rem;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+header .nav-btns-container #menu-toggle i {
+    margin: auto;
+}
+
+header .collapsible-menu.open {
+    display: flex;
+}
+
 
 header .nav-btns-container button {
     display: flex;
