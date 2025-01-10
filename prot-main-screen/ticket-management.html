@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsible Ticket Management System</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="ticket-management.css">
+</head>
+
+<body>
+    <header>
+        <!-- navbar module start-->
+        <nav>
+            <div class="primary">
+                <!-- logo module start-->
+                <section class="logo">
+                    <img class="image-logo" src="../../images/star-alt-com.svg">
+                    <h1 class="text-logo">APLIC</h1>
+                </section>
+                <!-- navbar module end-->
+                <!-- quick search module start-->
+                <section class="search">
+                    <div class="quick-search-bar">
+
+                        <input placeholder="Busca rápida ...">
+                        <button>
+                            <i class="fa fa-magnifying-glass"></i>
+                        </button>
+
+                    </div>
+
+                </section>
+                <!-- quick search module end-->
+            </div>
+            <div class="secondary">
+                <!-- user actions module start-->
+                <section class="user-actions">
+                    <h2 class="user-info">
+                        <span>Olá, <bold> <span>Operador Admin</span> </bold> ! </span>
+                    </h2>
+
+                    <div class="nav-btns-container">
+                        <button id="lock">
+                            <span> 0 </span>
+                            <i class="fa fa-lock"></i>
+                        </button>
+                        <button id="panel">
+                            <span>Painel</span>
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="logout">
+                            <span>Sair</span>
+                            <i class="fa fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+                </section>
+                <!-- user actions module end-->
+            </div>
+        </nav>
+        <!-- navbar module end-->
+    </header>
+    <!-- type selector module start -->
+    <div class="type-selector">
+        <section class="buttons-selector">
+            <button class="active">
+                <span> Chamados </span>
+                <i class="fa fa-headset"></i>
+            </button>
+            <button>
+                <span> Arquivo </span>
+                <i class="fa fa-archive"></i>
+            </button>
+        </section>
+        <section class="selector-line"> </section>
+    </div>
+    <!-- type selector module end -->
+    <!-- ticket table start -->
+    <div class="container">
+        <!-- filter module start-->
+        <div class="filters">
+            <button class="active">Remoto <i class="fa fa-headset"></i></button>
+            <button>Presencial <i class="fa fa-person-running"></i></button>
+            <button>Hardware <i class="fa fa-screwdriver-wrench"></i></button>
+            <button>Almoxarifado <i class="fa fa-cubes"></i></button>
+            <button>Gestão de Redes <i class="fa fa-diagram-project"></i></button>
+            <button>Gestão de Telefonia <i class="fa fa-phone-volume"></i></button>
+            <button>Manutenção Redes <i class="fa fa-network-wired"></i></button>
+            <button>Manutenção Telefonia <i class="fa-solid fa-tower-cell"></i></button>
+            <button>Garantia <i class="fa fa-box"></i></button>
+            <button>Todos <i class="fa fa-magnifying-glass"></i></button>
+            <button class="alt">Imprimir <i class="fa fa-print"></i></button>
+            <button class="alt"><i class="fa fa-paintbrush"></i></i></button>
+        </div>
+        <!-- filter module end-->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Status</th>
+                    <th>Solicitante</th>
+                    <th>Solicitação</th>
+                    <th>Local</th>
+                    <th>Região</th>
+                    <th>Data</th>
+                    <th>Responsável</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>00001</td>
+                    <td>⭐</td>
+                    <td>Isabela de Melo</td>
+                    <td>Instalação de Programas</td>
+                    <td>Secretaria de setor X</td>
+                    <td>INTERNA</td>
+                    <td>01/01/2025</td>
+                    <td>Fulano de lá</td>
+                </tr>
+                <tr>
+                    <td>00002</td>
+                    <td>⭐</td>
+                    <td>Miguel dos Santos</td>
+                    <td>Recuperação de Usuário</td>
+                    <td>Central de tal lugar</td>
+                    <td>CENTRO</td>
+                    <td>04/01/2025</td>
+                    <td>Fulano de lá</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button class="navigator-btn">Anterior</button>
+            <section>
+                <button class="active">1</button>
+                <button>2</button>
+            </section>
+            <button class="navigator-btn">Próximo</button>
+        </div>
+    </div>
+    <!-- ticket table end -->
+
+    <footer>
+        <!-- footer module start-->
+        <div class="primary">
+            <section>
+                <p>Autorização: </p> <span id="autorization"> Operação </span>
+            </section>
+            <div>|</div>
+            <section>
+                <p>Ambiente: </p> <span id="ambient"> Development </span>
+            </section>
+            <div>|</div>
+            <section>
+                <p>Versão: </p> <span id="version"> 2.XX Alfa</span>
+                <button id="version-notes">Notas</button>
+            </section>
+            <div>|</div>
+        </div>
+        <div class="secondary">
+            <section>
+                <p>Company/Sector </p> <span>
+            </section>
+        </div>
+        <!-- footer module end-->
+    </footer>
+</body>
+
+</html>
