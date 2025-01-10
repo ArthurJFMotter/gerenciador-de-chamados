@@ -106,7 +106,8 @@
                 </select>
                 <span> Chamados</span>
             </section>
-            <!-- table pagination module start-->
+            <!-- table pagination module end-->
+            <!-- filter search module start-->
             <section class="table-search">
                 <div class="filter-search-bar">
                     <input placeholder="Buscar ...">
@@ -118,6 +119,9 @@
             <!-- filter search module end-->
         </div>
         <!-- secondary filter module end-->
+
+        
+        <!--ticket table start-->
         <table>
             <thead>
                 <tr>
@@ -127,6 +131,7 @@
                     <th>Solicitação</th>
                     <th>Local</th>
                     <th>Região</th>
+                    <th><i class="fa fa-list-check"></i></th>
                     <th>Data</th>
                     <th>Responsável</th>
                 </tr>
@@ -139,6 +144,7 @@
                     <td>Instalação de Programas</td>
                     <td>Secretaria de setor X</td>
                     <td>INTERNA</td>
+                    <td><input type="checkbox"></td>
                     <td>01/01/2025</td>
                     <td>Fulano de lá</td>
                 </tr>
@@ -149,6 +155,7 @@
                     <td>Recuperação de Usuário</td>
                     <td>Central de tal lugar</td>
                     <td>CENTRO</td>
+                    <td><input type="checkbox"></td>
                     <td>04/01/2025</td>
                     <td>Fulano de lá</td>
                 </tr>
@@ -156,6 +163,8 @@
             </tbody>
         </table>
         <!-- ticket table end -->
+
+
         <!-- paginator helper module start -->
         <div class="paginator-helper">
             <!-- pagination-helper module start -->
