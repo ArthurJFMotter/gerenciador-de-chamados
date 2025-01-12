@@ -24,43 +24,37 @@ header nav {
     background-color: #151716;
     color: white;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
     height: fit-content;
     padding: 0rem 0.5rem;
+}
 
-    @media (max-width: 900px) {}
+header nav .logo {
+    display: flex;
+    justify-content: start;
+    width: 20vw;
+}
 
-    .logo {
-        @media (max-width: 768px) {
-            display: flex;
-            justify-content: start;
-            width: 100%;
-        }
-    }
+header nav .search {
+    display: flex;
+    justify-content: start;
+    width: 40vw;
+}
 
-    .search {
-        @media (max-width: 768px) {
-            display: flex;
-            justify-content: start;
-            width: 100%;
-        }
-    }
-
-    .user-actions {
-        @media (max-width: 768px) {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-    }
+header nav .user-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 20vw;
 }
 
 header nav .primary {
     display: flex;
-    width: fit-content;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0rem;
 }
 
 header nav section {
@@ -83,12 +77,8 @@ header .text-logo {
 
 header .quick-search-bar {
     display: flex;
-    width: 35vw;
+    width: 100%;
     height: 2.25rem;
-
-    @media (max-width: 768px) {
-        width: 48vw;
-    }
 
     input {
         width: 90%;
@@ -116,14 +106,13 @@ header .quick-search-bar {
 
 header .user-info {
     display: flex;
+    justify-content: center;
     align-items: center;
     font-size: large;
     color: #E8E2E2;
     text-wrap: nowrap;
-
-    @media (max-width: 768px) {
-        display: none;
-    }
+    margin: 0.5rem 0rem;
+    width: 100%;
 }
 
 header nav .collapsible-menu {
@@ -171,7 +160,7 @@ header .collapsible-menu {
         font-weight: 600;
         cursor: pointer;
 
-        i{
+        i {
             margin-left: 0.25rem;
         }
     }
