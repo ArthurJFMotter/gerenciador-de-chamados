@@ -191,8 +191,13 @@ header .user-actions #menu-toggle {
     cursor: pointer;
 }
 
-header .user-actions #menu-toggle i {
-    margin: auto;
+header .user-actions #menu-toggle {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+header .user-actions #menu-toggle.active {
+    transform: rotate(90deg); /* Rotate by 180 degrees on hover */
 }
 
 .type-selector {
