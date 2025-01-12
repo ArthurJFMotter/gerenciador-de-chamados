@@ -374,7 +374,6 @@ header .user-actions #menu-toggle.active {
         font-size: medium;
     }
 }
-
 /*experimental*/
 
 .secondary-filters {
@@ -454,49 +453,72 @@ header .user-actions #menu-toggle.active {
     }
 }
 
-/*table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
+/* card-ticket */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    padding-bottom: 1rem;
 }
 
-table .table-header {
+.ticket-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+
+.ticket-card:hover {
+    transform: translateY(-4px);
+}
+
+
+.card-header {
     display: flex;
     justify-content: space-between;
-
     align-items: center;
-
-    .table-sort {
-        display: flex;
-        flex-direction: column;
-        padding: 0rem 0.5rem;
-
-        .fa-sort-down {
-            margin-top: -0.75rem;
-        }
-    }
-
-    i {
-        margin: auto;
-    }
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-table th,
-table td {
-    padding: 0.5rem;
-    text-align: center;
-    border: 1px solid #ddd;
-    text-wrap: nowrap;
+.ticket-id {
+    font-size: 1.2rem;
+    margin: 0;
 }
 
-table th {
-    background-color: #f4f4f9;
-    cursor: pointer;
+.status-icon {
+    font-size: 1.2rem;
 }
 
-table tbody tr:hover {
-    background-color: #f1f1f1;
-}*/
+.card-body {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.card-body p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.8rem;
+}
+
+.card-footer i {
+    margin-right: 0.25rem;
+}
+
+.card-check {
+    margin-left: 0.5rem;
+}
+/* card-ticket */
 
 .paginator-helper {
     display: flex;
