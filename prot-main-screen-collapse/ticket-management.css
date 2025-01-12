@@ -268,6 +268,42 @@ header .user-actions #menu-toggle.active {
     }
 }
 
+.legacy-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.33rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.legacy-filters button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #E8E2E2;
+    color: #151716;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        height: fit-content;
+        text-wrap: nowrap;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+.legacy-filters button.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.legacy-filters button.alt {
+    background-color: #161819;
+    color: #ffffff;
+}
+
 .main-filters {
     display: flex;
     flex-wrap: wrap;
