@@ -14,8 +14,12 @@ header{
 }
 
 main{
-    display: block;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
+    min-width: 100vw;
     min-height: 84.75vh;
 }
 

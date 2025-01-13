@@ -1,3 +1,146 @@
+<div class="type-selector">
+    <section class="buttons-selector">
+        <button class="active">
+            <span> Chamados </span>
+            <i class="fa fa-headset"></i>
+        </button>
+        <button>
+            <span> Arquivo </span>
+            <i class="fa fa-archive"></i>
+        </button>
+    </section>
+    <section class="selector-line"> </section>
+</div>
+<!-- type selector module end -->
+
+<div class="container">
+
+    <!-- main filter module start-->
+    <div class="legacy-filters">
+        <button class="active">Remoto <i class="fa fa-headset"></i></button>
+        <button>Presencial <i class="fa fa-person-running"></i></button>
+        <button>Hardware <i class="fa fa-screwdriver-wrench"></i></button>
+        <button>Almoxarifado <i class="fa fa-cubes"></i></button>
+        <button>Gestão de Redes <i class="fa fa-diagram-project"></i></button>
+        <button>Gestão de Telefonia <i class="fa fa-phone-volume"></i></button>
+        <button>Manutenção Redes <i class="fa fa-network-wired"></i></button>
+        <button>Manutenção Telefonia <i class="fa-solid fa-tower-cell"></i></button>
+        <button>Garantia <i class="fa fa-box"></i></button>
+        <button>Todos <i class="fa fa-magnifying-glass"></i></button>
+        <button class="alt">Imprimir <i class="fa fa-print"></i></button>
+        <button class="alt"><i class="fa fa-paintbrush"></i></button>
+    </div>
+    <!-- main filter module end-->
+
+    <!-- main filter module start-->
+    <div class="main-filters">
+        <!--experimental-->
+        <!-- collapsed filter module start-->
+
+        <!--<span>Mostrando tabela: </span>-->
+
+        <div class="collapsed-filter">
+            <select class="dropdown-filter">
+                <option>Remoto</option>
+                <option>Presencial</option>
+                <option>Hardware</option>
+                <option>Almoxarifado</option>
+                <option>Gestão de Redes</option>
+                <option>Gestão de Telefonia</option>
+                <option>Manutenção Redes</option>
+                <option>Manutenção Telefonia</option>
+                <option>Garantia</option>
+            </select>
+
+            <button>Todos <i class="fa fa-magnifying-glass"></i></button>
+            <button class="alt">Imprimir <i class="fa fa-print"></i></button>
+            <button class="alt"><i class="fa fa-paintbrush"></i></button>
+        </div>
+        <!-- collapsed filter module end-->
+        <!--experimental-->
+    </div>
+    <!-- main filter module end-->
+    <!-- secondary filter module start-->
+    <div class="secondary-filters">
+        <div class="primary">
+            <!-- table pagination module start-->
+            <section class="table-pagination">
+                <span>Mostrando </span>
+                <select class="dropdown">
+                    <option>15</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                    <option>200</option>
+                </select>
+                <span> Chamados</span>
+            </section>
+            <!-- table pagination module end-->
+        </div>
+        <div class="secondary">
+            <!-- filter search module start-->
+            <section class="table-search">
+                <div class="filter-search-bar">
+                    <input placeholder="Buscar ...">
+                    <button>
+                        <i class="fa fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </section>
+            <!-- filter search module end-->
+            <!-- view mode module start-->
+            <div class="view-mode">
+                <button id="toggle-view" (click)="toggleView()" [class.active]="!showTable">
+                    <i class="fa fa-table"></i>
+                    <span> Tabela </span>
+                </button>
+            </div>
+            <!-- view mode module end-->
+        </div>
+    </div>
+    <!-- secondary filter module end-->
+</div>
+
+<!----
+<div class="main-container" id="main-container">
+    <app-ticket-table *ngIf="showTable"></app-ticket-table>
+    <app-ticket-card *ngIf="!showTable"></app-ticket-card>
+</div>
+!---->
+<div class="container">
+    <!-- paginator helper module start -->
+    <div class="paginator-helper">
+        <!-- pagination-helper module start -->
+        <section class="text-pagination">
+            <p> Mostrando <strong> 3 </strong>
+                a <strong> 3 </strong>
+                de <strong> 3 </strong>
+                chamados </p>
+        </section>
+        <!-- pagination-helper module end -->
+        <!-- pagination module start -->
+        <section class="control-pagination">
+            <button class="navigator-btn">Anterior</button>
+            <section>
+                <button class="active">1</button>
+                <!--placeholder <button>2</button>-->
+            </section>
+            <button class="navigator-btn">Próximo</button>
+        </section>
+        <!-- pagination module end -->
+    </div>
+    <!-- paginator helper module end -->
+</div>
+
+
+
+
+
+
+
+
+
+
 .type-selector {
     display: flex;
     flex-direction: column;

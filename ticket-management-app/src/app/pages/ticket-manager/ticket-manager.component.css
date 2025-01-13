@@ -1,0 +1,6 @@
+.main-container{
+    border: solid red;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
