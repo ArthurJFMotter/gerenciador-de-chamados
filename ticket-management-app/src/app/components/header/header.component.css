@@ -1,189 +1,202 @@
- nav {
-     background-color: #151716;
-     color: white;
-     display: flex;
-     flex-direction: column;
-     align-items: flex-start;
-     width: 100%;
-     height: fit-content;
-     padding: 0rem 0.5rem;
- }
+  nav {
+      background-color: #151716;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      padding: 0.5rem 0rem;
+  }
 
- nav .logo {
-     display: flex;
-     justify-content: start;
-     width: 20vw;
- }
+  .main-container,
+  .aux-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+  }
 
- nav .search {
-     display: flex;
-     justify-content: start;
-     width: 40vw;
- }
+  .main-container section {
+      padding: 0rem 1rem;
+  }
 
- nav .user-actions {
-     display: flex;
-     justify-content: flex-end;
-     width: 20vw;
- }
+  .logo {
+      display: flex;
+      justify-content: start;
+      width: 20vw;
+  }
 
- nav .primary {
-     display: flex;
-     width: 100%;
-     justify-content: space-between;
-     align-items: center;
-     padding: 0.5rem 0rem;
- }
+  .search {
+      display: flex;
+      justify-content: start;
+      width: 40vw;
+  }
 
- nav section {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: fit-content;
-     padding: 0rem 0.5rem;
- }
+  .user-actions {
+      display: flex;
+      justify-content: flex-end;
+      width: 20vw;
+  }
 
- .image-logo {
-     max-width: 3rem;
-     max-height: 3rem;
- }
+  .primary {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0rem;
+  }
 
- .text-logo {
-     font-size: large;
-     font-weight: bold;
- }
+  section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      padding: 0rem 0.5rem;
+  }
 
- .quick-search-bar {
-     display: flex;
-     width: 100%;
-     height: 2.25rem;
+  .image-logo {
+      max-width: 3rem;
+      max-height: 3rem;
+  }
 
-     input {
-         width: 90%;
-         border-radius: 64px 0px 0px 64px;
-         border: none;
-         background-color: white;
-         border-color: rgba(0, 0, 0, 0.5);
+  .text-logo {
+      font-size: large;
+      font-weight: bold;
+  }
 
-         text-indent: 16px;
-     }
+  .quick-search-bar {
+      display: flex;
+      width: 100%;
+      height: 2.25rem;
 
-     button {
-         border-color: rgba(0, 0, 0, 0.5);
-         border-radius: 0px 64px 64px 0px;
-         background-color: #007bff;
-         color: #ffffff;
-         padding: 0rem 0.75rem;
+      input {
+          width: 90%;
+          border-radius: 64px 0px 0px 64px;
+          border: none;
+          background-color: white;
+          border-color: rgba(0, 0, 0, 0.5);
 
-         i {
-             margin-right: 0.25rem;
-         }
-     }
+          text-indent: 16px;
+      }
 
- }
+      button {
+          border-color: rgba(0, 0, 0, 0.5);
+          border-radius: 0px 64px 64px 0px;
+          background-color: #007bff;
+          color: #ffffff;
+          padding: 0rem 0.75rem;
 
- .user-info {
-     display: flex;
-     justify-content: start;
-     align-items: center;
-     font-size: large;
-     color: #E8E2E2;
-     text-wrap: nowrap;
-     margin: 0.5rem 0rem;
-     width: fit-content;
-     text-indent: 0.5rem;
- }
+          i {
+              margin-right: 0.25rem;
+          }
+      }
 
- .user-actions-btns {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     width: fit-content;
- }
+  }
 
- nav .collapsible-menu {
-     display: none;
- }
+  .user-info {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      font-size: large;
+      color: #E8E2E2;
+      text-wrap: nowrap;
+      margin: 0.5rem 0rem;
+      width: fit-content;
+      text-indent: 0.5rem;
+  }
 
- nav .collapsible-menu.open {
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-     align-items: center;
-     width: 100%;
-     background-color: rgba(255, 255, 255, 0.075);
-     border-radius: 8px;
-     padding: 0.5rem 0rem;
-     margin-bottom: 0.5rem;
-     z-index: 10;
- }
+  .user-actions-btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+  }
 
- nav .collapsible-menu button {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     border-radius: 8px;
-     border-color: rgba(0, 0, 0, 0.5);
-     padding: 0.5rem;
-     margin: 0.25rem 0rem;
-     margin-inline: 0.25rem;
-     font-weight: 600;
-     cursor: pointer;
- }
+  .collapsible-menu {
+      display: none;
+  }
 
- .collapsible-menu.open {
-     display: flex;
- }
+  .collapsible-menu.open {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.075);
+      border-radius: 8px;
+      padding: 0.5rem 0rem;
+      margin-bottom: 0.5rem;
+      z-index: 10;
+  }
 
- .collapsible-menu {
-     button {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         border-radius: 8px;
-         border-color: rgba(0, 0, 0, 0.5);
-         padding: 0.5rem;
-         margin-inline: 4px;
-         font-weight: 600;
-         cursor: pointer;
+  .collapsible-menu button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      border-color: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem;
+      margin: 0.25rem 0rem;
+      margin-inline: 0.25rem;
+      font-weight: 600;
+      cursor: pointer;
+  }
 
-         i {
-             margin-left: 0.25rem;
-         }
-     }
+  .collapsible-menu.open {
+      display: flex;
+      margin: 1rem;
+  }
 
-     #lock {
-         color: #151716;
-         background-color: #EED202;
-     }
+  .collapsible-menu {
+      button {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 8px;
+          border-color: rgba(0, 0, 0, 0.5);
+          padding: 0.5rem;
+          margin-inline: 4px;
+          font-weight: 600;
+          cursor: pointer;
 
-     #panel {
-         color: #E8E2E2;
-         background-color: #007bff;
-     }
+          i {
+              margin-left: 0.25rem;
+          }
+      }
 
-     #logout {
-         color: #E8E2E2;
-         background-color: #FF2C2C;
-     }
- }
+      #lock {
+          color: #151716;
+          background-color: #EED202;
+      }
 
- .user-actions #menu-toggle {
-     background-color: #007bff;
-     color: white;
-     padding: 0.66rem;
-     border-radius: 100%;
-     width: 2.5rem;
-     height: 2.5rem;
-     cursor: pointer;
- }
+      #panel {
+          color: #E8E2E2;
+          background-color: #007bff;
+      }
 
- .user-actions #menu-toggle {
-     transform: rotate(0deg);
-     transition: transform 0.3s ease;
- }
+      #logout {
+          color: #E8E2E2;
+          background-color: #FF2C2C;
+      }
+  }
 
- .user-actions #menu-toggle.active {
-     transform: rotate(90deg);
-     /* Rotate by 180 degrees on hover */
- }
+  .user-actions #menu-toggle {
+      background-color: #007bff;
+      color: white;
+      padding: 0.66rem;
+      border-radius: 100%;
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+  }
+
+  .user-actions #menu-toggle {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+  }
+
+  .user-actions #menu-toggle.active {
+      transform: rotate(90deg);
+      /* Rotate by 180 degrees on hover */
+  }

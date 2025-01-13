@@ -6,11 +6,11 @@
 }
 
 header{
-    position: relative;
+    background-color: #E8E2E2;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    min-width: 100%;
+    width: fit-content;
 }
 
 footer {
