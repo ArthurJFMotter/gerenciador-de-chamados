@@ -1,0 +1,46 @@
+/* table-ticket */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+table .table-header {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+    .table-sort {
+        display: flex;
+        flex-direction: column;
+        padding: 0rem 0.5rem;
+
+        .fa-sort-down {
+            margin-top: -0.75rem;
+        }
+    }
+
+    i {
+        margin: auto;
+    }
+}
+
+table th,
+table td {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    text-wrap: nowrap;
+}
+
+table th {
+    background-color: #f4f4f9;
+    cursor: pointer;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* table-ticket */

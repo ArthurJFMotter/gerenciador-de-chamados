@@ -1,1 +1,104 @@
-<p>ticket-table works!</p>
+ <!--ticket table start-->
+ <table id="ticket-table">
+    <thead>
+        <tr>
+            <th>
+                <section class="table-header" (click)="sortRows(0)">
+                    #
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header" (click)="sortRows(1)">
+                    Status
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header" (click)="sortRows(2)">
+                    Solicitante
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header" (click)="sortRows(3)">
+                    Solicitação
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header" (click)="sortRows(4)">
+                    Local
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header" (click)="sortRows(5)">
+                    Região
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header">
+                    <i class="fa fa-list-check"></i>
+                </section>
+            </th>
+            <th>
+                <section class="table-header" (click)="sortRows(7)">
+                    Data
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header">
+                    <i class="fa-regular fa-clock"></i>
+                </section>
+            </th>
+            <th>
+                <section class="table-header" (click)="sortRows(9)">
+                    Responsável
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
+                </section>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ticket of tickets">
+            <td>{{ticket.id}}</td>
+             <td [innerHTML]="ticket.status"></td>
+            <td>{{ticket.requester}}</td>
+            <td>{{ticket.request}}</td>
+            <td>{{ticket.location}}</td>
+            <td>{{ticket.region}}</td>
+            <td><input type="checkbox"></td>
+            <td>{{ticket.date}}</td>
+            <td>{{ticket.time}}</td>
+            <td>{{ticket.responsible}}</td>
+        </tr>
+    </tbody>
+</table>
+<!-- ticket table end -->

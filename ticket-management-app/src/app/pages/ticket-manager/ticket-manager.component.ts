@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketTableComponent } from '../../components/ticket-table/ticket-table.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-manager',
-  imports: [],
+  imports: [CommonModule, TicketTableComponent],
   templateUrl: './ticket-manager.component.html',
   styleUrl: './ticket-manager.component.css'
 })
