@@ -269,6 +269,7 @@ header .user-actions #menu-toggle.active {
     }
 }
 
+/*legacy filter buttons */
 .legacy-filters {
     display: flex;
     flex-wrap: wrap;
@@ -304,6 +305,7 @@ header .user-actions #menu-toggle.active {
     background-color: #161819;
     color: #ffffff;
 }
+/*legacy filter buttons */
 
 .main-filters {
     display: flex;
@@ -374,11 +376,9 @@ header .user-actions #menu-toggle.active {
         font-size: medium;
     }
 }
-
 /*experimental*/
 
 .secondary-filters {
-    border: solid;
     display: flex;
     justify-content: space-between;
     align-items: center;
