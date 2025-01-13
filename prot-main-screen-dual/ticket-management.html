@@ -132,47 +132,51 @@
                 <!-- collapsed filter module end-->
                 <!--experimental-->
             </div>
-             <!-- main filter module end-->
-              <!-- view mode module start-->
-            <div class="view-mode">
-                  <button id="toggle-view" class="active">
-                      <i class="fa fa-table"></i>
-                      <span> Tabela </span>
-                  </button>
-            </div>
-           <!-- view mode module end-->
+            <!-- main filter module end-->
             <!-- secondary filter module start-->
             <div class="secondary-filters">
-                <!-- table pagination module start-->
-                <section class="table-pagination">
-                    <span>Mostrando </span>
-                    <select class="dropdown">
-                        <option>15</option>
-                        <option>25</option>
-                        <option>50</option>
-                        <option>100</option>
-                        <option>200</option>
-                    </select>
-                    <span> Chamados</span>
-                </section>
-                <!-- table pagination module end-->
-                <!-- filter search module start-->
-                <section class="table-search">
-                    <div class="filter-search-bar">
-                        <input placeholder="Buscar ...">
-                        <button>
-                            <i class="fa fa-magnifying-glass"></i>
+                <div class="primary">
+                    <!-- table pagination module start-->
+                    <section class="table-pagination">
+                        <span>Mostrando </span>
+                        <select class="dropdown">
+                            <option>15</option>
+                            <option>25</option>
+                            <option>50</option>
+                            <option>100</option>
+                            <option>200</option>
+                        </select>
+                        <span> Chamados</span>
+                    </section>
+                    <!-- table pagination module end-->
+                </div>
+                <div class="secondary">
+                    <!-- filter search module start-->
+                    <section class="table-search">
+                        <div class="filter-search-bar">
+                            <input placeholder="Buscar ...">
+                            <button>
+                                <i class="fa fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </section>
+                    <!-- filter search module end-->
+                    <!-- view mode module start-->
+                    <div class="view-mode">
+                        <button id="toggle-view" class="active">
+                            <i class="fa fa-table"></i>
+                            <span> Tabela </span>
                         </button>
                     </div>
-                </section>
-                <!-- filter search module end-->
+                    <!-- view mode module end-->
+                </div>
             </div>
             <!-- secondary filter module end-->
         </div>
 
         <div class="main-container" id="main-container">
-             <!--ticket table start-->
-             <table id="ticket-table">
+            <!--ticket table start-->
+            <table id="ticket-table">
                 <thead>
                     <tr>
                         <th>
@@ -306,7 +310,7 @@
                     <div class="card-header">
                         <h3 class="ticket-id">#00001</h3>
                         <section class="responsible-info">
-                            <p class="responsible">Ciclano daqui</p> 
+                            <p class="responsible">Ciclano daqui</p>
                             <i class="fa fa-lock"></i>
                         </section>
                         <i class="fa fa-star status-icon" style="color: red;"></i>
@@ -328,7 +332,7 @@
                     <div class="card-header">
                         <h3 class="ticket-id">#00002</h3>
                         <section class="responsible-info">
-                            <p class="responsible">Fulana de cá</p> 
+                            <p class="responsible">Fulana de cá</p>
                             <i class="fa fa-lock"></i>
                         </section>
                         <i class="fa fa-circle status-icon" style="color: yellow;"></i>
@@ -350,7 +354,7 @@
                     <div class="card-header">
                         <h3 class="ticket-id">#00003</h3>
                         <section class="responsible-info">
-                            <p class="responsible">Fulano de lá</p> 
+                            <p class="responsible">Fulano de lá</p>
                             <i class="fa fa-lock"></i>
                         </section>
                         <i class="fa fa-circle status-icon" style="color: green;"></i>

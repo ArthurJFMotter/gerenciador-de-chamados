@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM carregado");
     const menuToggle = document.getElementById("menu-toggle");
     const collapsibleMenu = document.getElementById("collapsible-menu");
@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Function to toggle the collapsable menu
-    menuToggle.addEventListener("click", function() {
+    menuToggle.addEventListener("click", function () {
         collapsibleMenu.classList.toggle("open");
         menuToggle.classList.toggle("active");
     });
 
 
-   // Function to toggle between table and card view
-    toggleViewButton.addEventListener("click", function() {
+    // Function to toggle between table and card view
+    toggleViewButton.addEventListener("click", function () {
         // Toggle active class on the view toggle button
         toggleViewButton.classList.toggle("active");
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Change view mode according to current view
         toggleViewButton.innerHTML = (ticketTable.style.display === "none")
             ? '<i class="fa fa-table"></i> <span> Tabela </span>'
-            : '<i class="fa fa-th-large"></i> <span> Cards </span>';
+            : '<i class="fa fa-rectangle-list"></i> <span> Cartões </span>';
     });
 
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-     function sortRows(columnIndex, order) {
+    function sortRows(columnIndex, order) {
         const tbody = ticketTable.querySelector('tbody');
         const rows = Array.from(tbody.querySelectorAll('tr'));
 
@@ -57,21 +57,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const cellA = rowA.querySelectorAll('td')[columnIndex].textContent.trim();
             const cellB = rowB.querySelectorAll('td')[columnIndex].textContent.trim();
 
-            if(columnIndex === 0) { // Sort numeric values
-              const numA = parseInt(cellA, 10);
-              const numB = parseInt(cellB, 10);
-              return order === 'asc' ? numA - numB : numB - numA;
+            if (columnIndex === 0) { // Sort numeric values
+                const numA = parseInt(cellA, 10);
+                const numB = parseInt(cellB, 10);
+                return order === 'asc' ? numA - numB : numB - numA;
             }
 
             return order === 'asc' ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
         });
-         // Clear table rows
-         tbody.innerHTML = '';
-         // Re-render table rows
-         rows.forEach(row => tbody.appendChild(row));
+        // Clear table rows
+        tbody.innerHTML = '';
+        // Re-render table rows
+        rows.forEach(row => tbody.appendChild(row));
     }
 
-     //Initial setup: Hide table, show cards on page load
+    //Initial setup: Hide table, show cards on page load
     ticketTable.style.display = "none";
     cardGrid.style.display = "grid";
 
