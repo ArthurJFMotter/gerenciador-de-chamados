@@ -378,17 +378,19 @@ header .user-actions #menu-toggle.active {
 /*experimental*/
 
 .secondary-filters {
+    border: solid;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
     justify-self: center;
-    width: fit-content;
+    width: 100%;
 
     @media (max-width: 768px) {
+        justify-content: center;
         flex-direction: column;
         /*flex-direction: column-reverse;*/
-        width: 100%;
+        
     }
 
     .primary,
@@ -396,7 +398,7 @@ header .user-actions #menu-toggle.active {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40vw;
+        width: fit-content;
 
         @media (max-width: 768px) {
             width: 100%;
@@ -446,7 +448,6 @@ header .user-actions #menu-toggle.active {
 .secondary-filters .table-search {
     .filter-search-bar {
         display: flex;
-        padding: 0rem 1rem;
     }
 
     input {
@@ -480,6 +481,7 @@ header .user-actions #menu-toggle.active {
     display: flex;
     justify-content: start;
     align-items: center;
+    margin-left: 1rem;
 
     @media (max-width: 768px) {
         justify-content: center;
