@@ -1,29 +1,33 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    font-size: x-small;
+    background-color: #161819;
+    color: #E8E2E2;
+    
+    @media (max-width: 768px) {
+        display: grid;
+    }
+}
+
+.aux-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+
+    @media (max-width: 768px) {
+        margin: auto;
+    }
+}
+
 div {
     @media (max-width: 768px) {
         display: none;
     }
 }
-
-.primary {
-    display: flex;
-    align-items: center;
-
-    @media (max-width: 768px) {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-.secondary {
-    display: flex;
-    align-items: center;
-
-    @media (max-width: 768px) {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
 
 section {
     display: flex;
