@@ -1,12 +1,10 @@
 .main-container{
-    border: solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .container {
-    border: solid blue;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +19,6 @@
 }
 
 .aux-container{
-    border: solid blue;
     flex: 1;
     padding: 0.5rem 1.5rem;
     overflow-x: scroll;
