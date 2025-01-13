@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsible Ticket Management System</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="ticket-management.css">
+    <link rel="stylesheet" href="card-ticket.css">
+    <script src="ticket-management.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <!-- navbar module start-->
+            <nav>
+                <div class="primary">
+                    <!-- logo module start-->
+                    <section class="logo">
+                        <img class="image-logo" src="../../images/star-alt-com.svg">
+                        <h1 class="text-logo">APLIC</h1>
+                    </section>
+                    <!-- navbar module end-->
+
+                    <!-- quick search module start-->
+                    <section class="search">
+                        <div class="quick-search-bar">
+                            <input placeholder="Busca rápida ...">
+                            <button>
+                                <i class="fa fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </section>
+                    <!-- quick search module end-->
+
+                    <!-- user actions module start-->
+                    <section class="user-actions">
+                        <!-- Botão do menu colapsável -->
+                        <button id="menu-toggle">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                    </section>
+                    <!-- user actions module end-->
+                </div>
+                <!-- collapsable menu module start -->
+                <div id="collapsible-menu" class="collapsible-menu">
+                    <h2 class="user-info">
+                        <span>Olá, <strong>Operador Admin</strong>!</span>
+                    </h2>
+                    <div class="user-actions-btns">
+                        <button id="lock">
+                            <span>0</span>
+                            <i class="fa fa-lock"></i>
+                        </button>
+                        <button id="panel">
+                            <span>Painel</span>
+                            <i class="fa fa-table"></i>
+                        </button>
+                        <button id="logout">
+                            <span>Sair</span>
+                            <i class="fa fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- collapsable menu module end -->
+            </nav>
+            <!-- navbar module end-->
+        </header>
+        <!-- type selector module start -->
+        <div class="type-selector">
+            <section class="buttons-selector">
+                <button class="active">
+                    <span> Chamados </span>
+                    <i class="fa fa-headset"></i>
+                </button>
+                <button>
+                    <span> Arquivo </span>
+                    <i class="fa fa-archive"></i>
+                </button>
+            </section>
+            <section class="selector-line"> </section>
+        </div>
+        <!-- type selector module end -->
+
+        <div class="container">
+
+            <!-- main filter module start-->
+            <div class="legacy-filters">
+                <button class="active">Remoto <i class="fa fa-headset"></i></button>
+                <button>Presencial <i class="fa fa-person-running"></i></button>
+                <button>Hardware <i class="fa fa-screwdriver-wrench"></i></button>
+                <button>Almoxarifado <i class="fa fa-cubes"></i></button>
+                <button>Gestão de Redes <i class="fa fa-diagram-project"></i></button>
+                <button>Gestão de Telefonia <i class="fa fa-phone-volume"></i></button>
+                <button>Manutenção Redes <i class="fa fa-network-wired"></i></button>
+                <button>Manutenção Telefonia <i class="fa-solid fa-tower-cell"></i></button>
+                <button>Garantia <i class="fa fa-box"></i></button>
+                <button>Todos <i class="fa fa-magnifying-glass"></i></button>
+                <button class="alt">Imprimir <i class="fa fa-print"></i></button>
+                <button class="alt"><i class="fa fa-paintbrush"></i></i></button>
+            </div>
+            <!-- main filter module end-->
+
+            <!-- main filter module start-->
+            <div class="main-filters">
+                <!--experimental-->
+                <!-- collapsed filter module start-->
+
+                <!--<span>Mostrando tabela: </span>-->
+
+                <div class="collapsed-filter">
+                    <select class="dropdown-filter">
+                        <option>Remoto</option>
+                        <option>Presencial</option>
+                        <option>Hardware</option>
+                        <option>Almoxarifado</option>
+                        <option>Gestão de Redes</option>
+                        <option>Gestão de Telefonia</option>
+                        <option>Manutenção Redes</option>
+                        <option>Manutenção Telefonia</option>
+                        <option>Garantia</option>
+                    </select>
+
+                    <button>Todos <i class="fa fa-magnifying-glass"></i></button>
+                    <button class="alt">Imprimir <i class="fa fa-print"></i></button>
+                    <button class="alt"><i class="fa fa-paintbrush"></i></i></button>
+                </div>
+                <!-- collapsed filter module end-->
+                <!--experimental-->
+            </div>
+             <!-- main filter module end-->
+              <!-- view mode module start-->
+            <div class="view-mode">
+                  <button id="toggle-view" class="active">
+                      <i class="fa fa-table"></i>
+                      <span> Tabela </span>
+                  </button>
+            </div>
+           <!-- view mode module end-->
+            <!-- secondary filter module start-->
+            <div class="secondary-filters">
+                <!-- table pagination module start-->
+                <section class="table-pagination">
+                    <span>Mostrando </span>
+                    <select class="dropdown">
+                        <option>15</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>200</option>
+                    </select>
+                    <span> Chamados</span>
+                </section>
+                <!-- table pagination module end-->
+                <!-- filter search module start-->
+                <section class="table-search">
+                    <div class="filter-search-bar">
+                        <input placeholder="Buscar ...">
+                        <button>
+                            <i class="fa fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </section>
+                <!-- filter search module end-->
+            </div>
+            <!-- secondary filter module end-->
+        </div>
+
+        <div class="main-container" id="main-container">
+             <!--ticket table start-->
+             <table id="ticket-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <section class="table-header">
+                                #
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                Status
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                Solicitante
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                Solicitação
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                Local
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                Região
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                <i class="fa fa-list-check"></i>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                Data
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                <i class="fa-regular fa-clock"></i>
+                            </section>
+                        </th>
+                        <th>
+                            <section class="table-header">
+                                Responsável
+                                <div class="table-sort">
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down"></i>
+                                </div>
+                            </section>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00001</td>
+                        <td><i class="fa fa-star" style="color: red;"></i></td>
+                        <td>Isabela de Melo</td>
+                        <td>Instalação de Programas</td>
+                        <td>Secretaria de setor X</td>
+                        <td>INTERNA</td>
+                        <td><input type="checkbox"></td>
+                        <td>01/01/2025</td>
+                        <td>1h 33m</td>
+                        <td>Ciclano daqui</td>
+                    </tr>
+                    <tr>
+                        <td>00002</td>
+                        <td><i class="fa fa-circle" style="color: yellow;"></i></td>
+                        <td>Miguel dos Santos</td>
+                        <td>Recuperação de Usuário</td>
+                        <td>Central de tal lugar</td>
+                        <td>CENTRO</td>
+                        <td><input type="checkbox"></td>
+                        <td>04/01/2025</td>
+                        <td>2d 5h</td>
+                        <td>Fulana de cá</td>
+                    </tr>
+                    <tr>
+                        <td>00003</td>
+                        <td><i class="fa fa-circle" style="color: green;"></i></td>
+                        <td>João da Silva</td>
+                        <td>Instalação de impressora</td>
+                        <td>Hospital daquele canto ali</td>
+                        <td>NORTE</td>
+                        <td><input type="checkbox"></td>
+                        <td>28/12/2024</td>
+                        <td>4m</td>
+                        <td>Fulano de lá</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- ticket table end -->
+
+            <!-- Card Grid Start-->
+            <div class="card-grid">
+                <div class="ticket-card">
+                    <div class="card-header">
+                        <h3 class="ticket-id">#00001</h3>
+                        <section class="responsible-info">
+                            <p class="responsible">Ciclano daqui</p> 
+                            <i class="fa fa-lock"></i>
+                        </section>
+                        <i class="fa fa-star status-icon" style="color: red;"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="requester"><strong>Solicitante:</strong> Isabela de Melo</p>
+                        <p class="request"><strong>Solicitação:</strong> Instalação de Programas</p>
+                        <p class="location"><strong>Local:</strong> Secretaria de setor X</p>
+                        <p class="region"><strong>Região:</strong> INTERNA</p>
+                        <p class="date"><strong>Data:</strong> 01/01/2025</p>
+                    </div>
+                    <div class="card-footer">
+                        <section><i class="fa fa-regular fa-clock"></i><span class="time">1h 33m</span> </section>
+                        <input type="checkbox" class="card-check">
+                    </div>
+                </div>
+
+                <div class="ticket-card">
+                    <div class="card-header">
+                        <h3 class="ticket-id">#00002</h3>
+                        <section class="responsible-info">
+                            <p class="responsible">Fulana de cá</p> 
+                            <i class="fa fa-lock"></i>
+                        </section>
+                        <i class="fa fa-circle status-icon" style="color: yellow;"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="requester"><strong>Solicitante:</strong> Miguel dos Santos</p>
+                        <p class="request"><strong>Solicitação:</strong> Recuperação de Usuário</p>
+                        <p class="location"><strong>Local:</strong> Central de tal lugar</p>
+                        <p class="region"><strong>Região:</strong> CENTRO</p>
+                        <p class="date"><strong>Data:</strong> 04/01/2025</p>
+                    </div>
+                    <div class="card-footer">
+                        <section><i class="fa fa-regular fa-clock"></i> <span class="time">2d 5h</span></section>
+                        <input type="checkbox" class="card-check">
+                    </div>
+                </div>
+
+                <div class="ticket-card">
+                    <div class="card-header">
+                        <h3 class="ticket-id">#00003</h3>
+                        <section class="responsible-info">
+                            <p class="responsible">Fulano de lá</p> 
+                            <i class="fa fa-lock"></i>
+                        </section>
+                        <i class="fa fa-circle status-icon" style="color: green;"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="requester"><strong>Solicitante:</strong> João da Silva</p>
+                        <p class="request"><strong>Solicitação:</strong> Instalação de impressora</p>
+                        <p class="location"><strong>Local:</strong> Hospital daquele canto ali</p>
+                        <p class="region"><strong>Região:</strong> NORTE</p>
+                        <p class="date"><strong>Data:</strong> 28/12/2024</p>
+                    </div>
+                    <div class="card-footer">
+                        <section><i class="fa fa-regular fa-clock"></i> <span class="time">4m</span></section>
+                        <input type="checkbox" class="card-check">
+                    </div>
+                </div>
+            </div>
+            <!-- Card Grid End -->
+        </div>
+
+        <div class="container">
+            <!-- paginator helper module start -->
+            <div class="paginator-helper">
+                <!-- pagination-helper module start -->
+                <section class="text-pagination">
+                    <p> Mostrando <strong> 3 </strong>
+                        a <strong> 3 </strong>
+                        de <strong> 3 </strong>
+                        chamados </p>
+                </section>
+                <!-- pagination-helper module end -->
+                <!-- pagination module start -->
+                <section class="control-pagination">
+                    <button class="navigator-btn">Anterior</button>
+                    <section>
+                        <button class="active">1</button>
+                        <!--placeholder <button>2</button>-->
+                    </section>
+                    <button class="navigator-btn">Próximo</button>
+                </section>
+                <!-- pagination module end -->
+            </div>
+            <!-- paginator helper module end -->
+        </div>
+
+        <footer>
+            <!-- footer module start-->
+            <div class="primary">
+                <section>
+                    <p>Autorização: </p> <span id="autorization"> Operação </span>
+                </section>
+                <div>|</div>
+                <section>
+                    <p>Ambiente: </p> <span id="ambient"> Development </span>
+                </section>
+                <div>|</div>
+                <section>
+                    <p>Versão: </p> <span id="version"> 2.XX Alfa</span>
+                    <button id="version-notes">Notas</button>
+                </section>
+                <div>|</div>
+            </div>
+            <div class="secondary">
+                <section>
+                    <p>Company/Sector </p> <span>
+                </section>
+            </div>
+            <!-- footer module end-->
+        </footer>
+    </div>
+</body>
+
+</html>
