@@ -13,6 +13,12 @@ header{
     width: fit-content;
 }
 
+main{
+    display: block;
+    width: fit-content;
+    min-height: 84.75vh;
+}
+
 footer {
     background-color: #E8E2E2;
     display: flex;

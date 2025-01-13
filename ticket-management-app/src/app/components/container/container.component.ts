@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-container',
@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './container.component.html',
   styleUrl: './container.component.css'
 })
-export class ContainerComponent {
+export class ContainerComponent implements OnInit {
+  showTable: boolean = false;
 
+  ngOnInit(): void {
+  }
+
+  toggleView() {
+    this.showTable = !this.showTable;
+  }
 }
