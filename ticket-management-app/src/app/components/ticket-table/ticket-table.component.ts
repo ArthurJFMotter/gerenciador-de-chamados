@@ -23,7 +23,7 @@ export class TicketTableComponent implements OnInit {
   tickets: Ticket[] = [
     {
       id: '00001',
-      status: '<i class="fa fa-star" style="color: red;"></i>',
+      status: 'priority',
       requester: 'Isabela de Melo',
       request: 'Instalação de Programas',
       location: 'Secretaria de setor X',
@@ -34,7 +34,7 @@ export class TicketTableComponent implements OnInit {
     },
     {
       id: '00002',
-      status: '<i class="fa fa-circle" style="color: yellow;"></i>',
+      status: 'open',
       requester: 'Miguel dos Santos',
       request: 'Recuperação de Usuário',
       location: 'Central de tal lugar',
@@ -45,7 +45,7 @@ export class TicketTableComponent implements OnInit {
     },
     {
       id: '00003',
-      status: '<i class="fa fa-circle" style="color: green;"></i>',
+      status: 'closed',
       requester: 'João da Silva',
       request: 'Instalação de impressora',
       location: 'Hospital daquele canto ali',
@@ -59,8 +59,7 @@ export class TicketTableComponent implements OnInit {
   sortColumn: number | null = null;
   sortOrder: 'asc' | 'desc' = 'asc';
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   sortRows(columnIndex: number) {
     if (this.sortColumn === columnIndex) {
@@ -74,7 +73,7 @@ export class TicketTableComponent implements OnInit {
       const cellA = Object.values(a)[columnIndex] as string;
       const cellB = Object.values(b)[columnIndex] as string;
 
-      if (columnIndex === 0) { // Sort numeric values
+      if (columnIndex === 0) {
         const numA = parseInt(cellA, 10);
         const numB = parseInt(cellB, 10);
         return this.sortOrder === 'asc' ? numA - numB : numB - numA;
@@ -82,9 +81,5 @@ export class TicketTableComponent implements OnInit {
 
       return this.sortOrder === 'asc' ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
     });
-  }
-
-  getSafeHTML(html: string): any {
-    return html;
   }
 }

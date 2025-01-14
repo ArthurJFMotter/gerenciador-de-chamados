@@ -1,5 +1,5 @@
- <!--ticket table start-->
- <table id="ticket-table">
+<!--ticket table start-->
+<table id="ticket-table">
     <thead>
         <tr>
             <th>
@@ -93,7 +93,11 @@
     <tbody>
         <tr *ngFor="let ticket of tickets">
             <td>{{ticket.id}}</td>
-             <td [innerHTML]="ticket.status"></td>
+            <td>
+                <i *ngIf="ticket.status === 'priority'" class="fa fa-star" style="color: #FF2C2C;"></i>
+                <i *ngIf="ticket.status === 'open'" class="fa fa-circle" style="color: #EED202;"></i>
+                <i *ngIf="ticket.status === 'closed'" class="fa fa-circle" style="color: #6CC173;"></i>
+            </td>
             <td>{{ticket.requester}}</td>
             <td>{{ticket.request}}</td>
             <td>{{ticket.location}}</td>

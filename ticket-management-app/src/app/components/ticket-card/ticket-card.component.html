@@ -1,13 +1,15 @@
- <!-- Card Grid Start-->
- <div class="card-grid">
+<!-- Card Grid Start-->
+<div class="card-grid">
     <div class="ticket-card" *ngFor="let ticket of tickets">
         <div class="card-header">
             <h3 class="ticket-id">#{{ticket.id}}</h3>
             <section class="responsible-info">
                 <p class="responsible">{{ticket.responsible}}</p>
-                <i class="fa fa-lock"></i>
+                <i *ngIf="ticket.responsible" class="fa fa-lock"></i>
             </section>
-           <span [innerHTML]="ticket.status" class="status-icon"></span>
+            <i *ngIf="ticket.status === 'priority'" class="fa fa-star" style="color: #FF2C2C;"></i>
+            <i *ngIf="ticket.status === 'open'" class="fa fa-circle" style="color: #EED202;"></i>
+            <i *ngIf="ticket.status === 'closed'" class="fa fa-circle" style="color: #6CC173;"></i>
         </div>
         <div class="card-body">
             <p class="requester"><strong>Solicitante:</strong> {{ticket.requester}}</p>
