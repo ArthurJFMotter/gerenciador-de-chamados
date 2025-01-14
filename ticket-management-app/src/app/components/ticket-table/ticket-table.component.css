@@ -1,8 +1,10 @@
 /* table-ticket */
 table {
-    width: 100%;
+    min-width: 95vw;
     border-collapse: collapse;
     background-color: white;
+
+    margin: auto;
 }
 
 table .table-header {
