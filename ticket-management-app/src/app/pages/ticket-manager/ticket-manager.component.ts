@@ -10,7 +10,7 @@ import { TicketCardComponent } from '../../components/ticket-card/ticket-card.co
   styleUrl: './ticket-manager.component.css'
 })
 export class TicketManagerComponent implements OnInit {
-  showTable: boolean = false;
+  showTable: boolean = true;
 
   ngOnInit(): void {
   }

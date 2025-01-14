@@ -92,9 +92,15 @@
                 <!-- filter search module end-->
                 <!-- view mode module start-->
                 <div class="view-mode">
-                    <button id="toggle-view" (click)="toggleView()" [class.active]="!showTable">
-                        <i class="fa fa-table"></i>
-                        <span> Tabela </span>
+                    <button id="toggle-view" (click)="toggleView()" [class.active]="showTable">
+                        <section *ngIf="showTable">
+                            <i class="fa fa-table"></i>
+                            <span> Tabela </span>
+                        </section>
+                        <section *ngIf="!showTable">
+                            <i class="fa fa-rectangle-list"></i>
+                            <span> Cartões </span>
+                        </section>
                     </button>
                 </div>
                 <!-- view mode module end-->
