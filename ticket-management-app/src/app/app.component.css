@@ -4,30 +4,32 @@
     display: flex;
     flex-direction: column;
     margin: 0;
+    overflow-x: hidden;
 }
 
-header{
+app-header{
     background-color: #E8E2E2;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
+    width: 100%;
 }
 
-main{
+app-ticket-manager{
     background-color: #ffffff;
     display: flex;
     justify-content: center;
-    max-width: 100vw;
+    align-items: center;
+    width: 100%;
     min-height: 84.75vh;
 }
 
-footer {
+app-footer {
     background-color: #E8E2E2;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
+    width: 100%;
     position: relative;
     bottom: 0;
 }
