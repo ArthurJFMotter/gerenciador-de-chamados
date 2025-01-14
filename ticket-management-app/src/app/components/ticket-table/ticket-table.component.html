@@ -57,12 +57,7 @@
                 </section>
             </th>
             <th>
-                <section class="table-header">
-                    <i class="fa fa-list-check"></i>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(7)">
+                <section class="table-header" (click)="sortRows(6)">
                     Data
                     <div class="table-sort">
                         <i class="fa fa-sort-up"></i>
@@ -71,17 +66,26 @@
                 </section>
             </th>
             <th>
-                <section class="table-header">
+                <section class="table-header" (click)="sortRows(7)">
                     <i class="fa-regular fa-clock"></i>
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
                 </section>
             </th>
             <th>
-                <section class="table-header" (click)="sortRows(9)">
+                <section class="table-header" (click)="sortRows(8)">
                     Responsável
                     <div class="table-sort">
                         <i class="fa fa-sort-up"></i>
                         <i class="fa fa-sort-down"></i>
                     </div>
+                </section>
+            </th>
+            <th>
+                <section class="table-header">
+                    <i class="fa fa-list-check"></i>
                 </section>
             </th>
         </tr>
@@ -94,10 +98,10 @@
             <td>{{ticket.request}}</td>
             <td>{{ticket.location}}</td>
             <td>{{ticket.region}}</td>
-            <td><input type="checkbox"></td>
             <td>{{ticket.date}}</td>
             <td>{{ticket.time}}</td>
             <td>{{ticket.responsible}}</td>
+            <td><input type="checkbox"></td>
         </tr>
     </tbody>
 </table>
