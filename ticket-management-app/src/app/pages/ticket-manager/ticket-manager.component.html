@@ -3,51 +3,9 @@
     <app-tabs-selector></app-tabs-selector>
     <!-- tabs module start -->
     <div class="container">
-        <!-- legacy filter module start -->
-        <div class="legacy-filters">
-            <button class="active">Remoto <i class="fa fa-headset"></i></button>
-            <button>Presencial <i class="fa fa-person-running"></i></button>
-            <button>Hardware <i class="fa fa-screwdriver-wrench"></i></button>
-            <button>Almoxarifado <i class="fa fa-cubes"></i></button>
-            <button>Gestão de Redes <i class="fa fa-diagram-project"></i></button>
-            <button>Gestão de Telefonia <i class="fa fa-phone-volume"></i></button>
-            <button>Manutenção Redes <i class="fa fa-network-wired"></i></button>
-            <button>Manutenção Telefonia <i class="fa-solid fa-tower-cell"></i></button>
-            <button>Garantia <i class="fa fa-box"></i></button>
-            <button>Todos <i class="fa fa-magnifying-glass"></i></button>
-            <button class="alt">Imprimir <i class="fa fa-print"></i></button>
-            <button class="alt"><i class="fa fa-paintbrush"></i></button>
-        </div>
-        <!-- legacy filter module end-->
 
-        <!-- main filter module start-->
-        <div class="main-filters">
-            <!--experimental-->
-            <!-- collapsed filter module start-->
-
-            <!--<span>Mostrando tabela: </span>-->
-
-            <div class="collapsed-filter">
-                <select class="dropdown-filter">
-                    <option>Remoto</option>
-                    <option>Presencial</option>
-                    <option>Hardware</option>
-                    <option>Almoxarifado</option>
-                    <option>Gestão de Redes</option>
-                    <option>Gestão de Telefonia</option>
-                    <option>Manutenção Redes</option>
-                    <option>Manutenção Telefonia</option>
-                    <option>Garantia</option>
-                </select>
-
-                <button>Todos <i class="fa fa-magnifying-glass"></i></button>
-                <button class="alt">Imprimir <i class="fa fa-print"></i></button>
-                <button class="alt"><i class="fa fa-paintbrush"></i></button>
-            </div>
-            <!-- collapsed filter module end-->
-            <!--experimental-->
-        </div>
-        <!-- main filter module end-->
+        <app-category-filters></app-category-filters>
+        
         <!-- secondary filter module start-->
         <div class="secondary-filters">
             <div class="primary">

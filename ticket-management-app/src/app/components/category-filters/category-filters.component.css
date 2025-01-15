@@ -1,0 +1,108 @@
+/*legacy filter buttons */
+.legacy-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.33rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.legacy-filters button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #E8E2E2;
+    color: #151716;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        height: fit-content;
+        text-wrap: nowrap;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+.legacy-filters button.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.legacy-filters button.alt {
+    background-color: #161819;
+    color: #ffffff;
+}
+/*legacy filter buttons */
+
+.main-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.33rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+        flex-direction: row;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        margin-top: 0.5rem;
+    }
+}
+
+.main-filters .collapsed-filter {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: flex;
+        width: 100%;
+        justify-content: start;
+    }
+
+    button {
+        margin-inline: 0.25rem;
+    }
+}
+
+.main-filters button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #E8E2E2;
+    color: #151716;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        height: fit-content;
+        text-wrap: nowrap;
+        /*padding: 0.75rem 1.5rem;*/
+        padding: 0.75rem 1rem;
+    }
+}
+
+.main-filters button.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.main-filters button.alt {
+    background-color: #161819;
+    color: #ffffff;
+}
+
+/*experimental*/
+.main-filters .dropdown-filter {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+        margin-inline: 0.5rem;
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0.25);
+        width: fit-content;
+        padding: 0.125rem 0.25rem;
+        font-size: large;
+        font-size: medium;
+    }
+}
+/*experimental*/
