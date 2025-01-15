@@ -1,0 +1,134 @@
+.secondary-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-self: center;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        justify-content: center;
+        flex-direction: column;
+        /*flex-direction: column-reverse;*/
+    }
+
+    .primary,
+    .secondary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    .primary {
+        @media (max-width: 768px) {
+            margin: 1rem 0rem;
+        }
+    }
+
+    .secondary {
+        @media (max-width: 768px) {
+            justify-content: space-between;
+        }
+    }
+}
+
+.table-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        font-size: large;
+
+        @media (max-width: 768px) {
+            font-size: medium;
+        }
+    }
+
+    .dropdown {
+        margin-inline: 0.5rem;
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0.25);
+        width: 4.25rem;
+        padding: 0.125rem 0.25rem;
+        font-size: large;
+
+        @media (max-width: 768px) {
+            font-size: medium;
+        }
+    }
+}
+
+.table-search {
+    .filter-search-bar {
+        display: flex;
+    }
+
+    input {
+        border-radius: 4px 0px 0px 4px;
+        border-color: rgba(0, 0, 0, 0.25);
+        width: 90%;
+        padding: 0.125rem 0.5rem;
+        font-size: large;
+
+        @media (max-width: 768px) {
+            font-size: medium;
+            padding: 0.5rem;
+        }
+    }
+
+    button {
+        border-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0px 8px 8px 0px;
+        background-color: #161819;
+        color: #ffffff;
+        padding: 0rem 0.75rem;
+        cursor: pointer;
+
+        i {
+            margin-right: 0.125rem;
+        }
+    }
+}
+
+.view-mode {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 1rem;
+
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+
+    #toggle-view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: none;
+        background-color: #ddd;
+        padding: 0.5rem;
+        font-size: large;
+        cursor: pointer;
+        color: #151716;
+
+        @media (max-width: 768px) {
+            font-size: medium;
+        }
+    }
+
+    #toggle-view.active {
+        background-color: #007bff;
+        color: #ffffff;
+    }
+
+    #toggle-view i{
+        margin-right: 0.25rem;
+    }
+}

@@ -4,12 +4,15 @@ import { CommonModule } from '@angular/common';
 import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
 import { TabsSelectorComponent } from '../../components/tabs-selector/tabs-selector.component';
 import { CategoryFiltersComponent } from '../../components/category-filters/category-filters.component';
+import { TicketFiltersComponent } from '../../components/ticket-filters/ticket-filters.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-ticket-manager',
   imports: [CommonModule,
     TabsSelectorComponent,
     CategoryFiltersComponent,
+    TicketFiltersComponent,
     TicketTableComponent,
     TicketCardComponent],
   templateUrl: './ticket-manager.component.html',
@@ -17,11 +20,17 @@ import { CategoryFiltersComponent } from '../../components/category-filters/cate
 })
 export class TicketManagerComponent implements OnInit {
   showTable: boolean = true;
+  private destroy$ = new Subject<void>();
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+}
 
-  toggleView() {
-    this.showTable = !this.showTable;
-  }
+handleShowTableChange(showTable: boolean){
+  this.showTable = showTable;
+}
+
+ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+}
 }

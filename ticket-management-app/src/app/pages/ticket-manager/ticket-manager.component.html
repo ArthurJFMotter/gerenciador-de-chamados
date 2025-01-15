@@ -3,54 +3,12 @@
     <app-tabs-selector></app-tabs-selector>
     <!-- tabs module start -->
     <div class="container">
-
+        <!-- category filter module start -->
         <app-category-filters></app-category-filters>
-        
-        <!-- secondary filter module start-->
-        <div class="secondary-filters">
-            <div class="primary">
-                <!-- table pagination module start-->
-                <section class="table-pagination">
-                    <span>Mostrando </span>
-                    <select class="dropdown">
-                        <option>15</option>
-                        <option>25</option>
-                        <option>50</option>
-                        <option>100</option>
-                        <option>200</option>
-                    </select>
-                    <span> Chamados</span>
-                </section>
-                <!-- table pagination module end-->
-            </div>
-            <div class="secondary">
-                <!-- filter search module start-->
-                <section class="table-search">
-                    <div class="filter-search-bar">
-                        <input placeholder="Buscar ...">
-                        <button>
-                            <i class="fa fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </section>
-                <!-- filter search module end-->
-                <!-- view mode module start-->
-                <div class="view-mode">
-                    <button id="toggle-view" (click)="toggleView()" [class.active]="showTable">
-                        <section *ngIf="showTable">
-                            <i class="fa fa-table"></i>
-                            <span> Tabela </span>
-                        </section>
-                        <section *ngIf="!showTable">
-                            <i class="fa fa-rectangle-list"></i>
-                            <span> Cartões </span>
-                        </section>
-                    </button>
-                </div>
-                <!-- view mode module end-->
-            </div>
-        </div>
-        <!-- secondary filter module end-->
+        <!-- category filter module end -->
+        <!-- ticket filter module start -->
+        <app-ticket-filters (showTableChange)="handleShowTableChange($event)"></app-ticket-filters>
+        <!-- ticket filter module end -->
     </div>
 
     <!--main-ticket-content module start-->
