@@ -4,7 +4,7 @@ table {
     border-collapse: collapse;
     background-color: white;
 
-    margin: auto;
+    margin: 1rem auto;
 }
 
 table .table-header {

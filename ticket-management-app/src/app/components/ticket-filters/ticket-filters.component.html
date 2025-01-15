@@ -1,23 +1,21 @@
-<!-- secondary filter module start-->
-<div class="secondary-filters">
-    <div class="primary">
-        <!-- table pagination module start-->
-        <section class="table-pagination">
-            <span>Mostrando </span>
-            <select class="dropdown">
-                <option>15</option>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-                <option>200</option>
-            </select>
-            <span> Chamados</span>
-        </section>
-        <!-- table pagination module end-->
-    </div>
-    <div class="secondary">
+<!-- table filters module start-->
+<div class="table-filters">
+    <!-- table pagination module start-->
+    <section class="filter-container" id="table-pagination">
+        <span>Mostrando </span>
+        <select class="dropdown">
+            <option>15</option>
+            <option>25</option>
+            <option>50</option>
+            <option>100</option>
+            <option>200</option>
+        </select>
+        <span> Chamados</span>
+    </section>
+    <!-- table pagination module end-->
+    <div class="aux-filter-container">
         <!-- filter search module start-->
-        <section class="table-search">
+        <section class="filter-container" id="table-search">
             <div class="filter-search-bar">
                 <input placeholder="Buscar ...">
                 <button>
@@ -27,19 +25,19 @@
         </section>
         <!-- filter search module end-->
         <!-- view mode module start-->
-        <div class="view-mode">
+        <section class="filter-container" id="view-mode">
             <button id="toggle-view" (click)="toggleView()" [class.active]="showTable">
-                <section *ngIf="showTable">
+                <div *ngIf="showTable">
                     <i class="fa fa-table"></i>
                     <span> Tabela </span>
-                </section>
-                <section *ngIf="!showTable">
+                </div>
+                <div *ngIf="!showTable">
                     <i class="fa fa-rectangle-list"></i>
                     <span> Cartões </span>
-                </section>
+                </div>
             </button>
-        </div>
+        </section>
         <!-- view mode module end-->
     </div>
 </div>
-<!-- secondary filter module end-->
+<!-- table filters module end-->
