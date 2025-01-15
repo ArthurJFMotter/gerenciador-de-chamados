@@ -6,15 +6,19 @@ import { TabsSelectorComponent } from '../../components/tabs-selector/tabs-selec
 import { CategoryFiltersComponent } from '../../components/category-filters/category-filters.component';
 import { TicketFiltersComponent } from '../../components/ticket-filters/ticket-filters.component';
 import { Subject } from 'rxjs';
+import { PaginationComponent } from '../../components/pagination/pagination.component';
 
 @Component({
   selector: 'app-ticket-manager',
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     TabsSelectorComponent,
     CategoryFiltersComponent,
     TicketFiltersComponent,
     TicketTableComponent,
-    TicketCardComponent],
+    TicketCardComponent,
+    PaginationComponent
+  ],
   templateUrl: './ticket-manager.component.html',
   styleUrl: './ticket-manager.component.css'
 })
@@ -22,15 +26,15 @@ export class TicketManagerComponent implements OnInit {
   showTable: boolean = true;
   private destroy$ = new Subject<void>();
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+  }
 
-handleShowTableChange(showTable: boolean){
-  this.showTable = showTable;
-}
+  handleShowTableChange(showTable: boolean) {
+    this.showTable = showTable;
+  }
 
-ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
-}
+  }
 }
