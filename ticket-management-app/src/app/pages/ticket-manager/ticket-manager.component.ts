@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { TicketTableComponent } from '../../components/ticket-table/ticket-table.component';
 import { CommonModule } from '@angular/common';
 import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
+import { TabsSelectorComponent } from '../../components/tabs-selector/tabs-selector.component';
 
 @Component({
   selector: 'app-ticket-manager',
-  imports: [CommonModule, TicketTableComponent, TicketCardComponent],
+  imports: [CommonModule,
+    TabsSelectorComponent,
+    TicketTableComponent,
+    TicketCardComponent],
   templateUrl: './ticket-manager.component.html',
   styleUrl: './ticket-manager.component.css'
 })
