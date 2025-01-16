@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './tabs-selector.component.css'
 })
 export class TabsSelectorComponent {
+  tabs = [
+    { label: 'Chamados', icon: 'fa fa-headset' },
+    { label: 'Arquivo', icon: 'fa fa-archive' },
+  ];
 
+  selectedTab: number = 0; // Default selected tab
+
+  selectTab(index: number): void {
+    this.selectedTab = index; // Update the selected tab index
+  }
 }

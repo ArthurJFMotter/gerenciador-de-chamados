@@ -1,15 +1,19 @@
-<!-- type selector module start -->
-<div class="type-selector">
-    <section class="buttons-selector">
-        <button class="active">
-            <span> Chamados </span>
-            <i class="fa fa-headset"></i>
-        </button>
-        <button>
-            <span> Arquivo </span>
-            <i class="fa fa-archive"></i>
-        </button>
+<!-- tab selector module start -->
+<div class="tab-selector">
+    <section class="tab-buttons-row">
+      <button
+        class="tab-buttons"
+        *ngFor="let tab of tabs; let i = index"
+        [ngStyle]="{
+             'background-color': selectedTab === i ? '#007bff' : '#E8E2E2' ,
+                'color': selectedTab === i ? '#ffffff' : '#151716'
+            }"
+        (click)="selectTab(i)"
+      >
+        <span>{{ tab.label }}</span>
+        <i [class]="tab.icon"></i>
+      </button>
     </section>
-    <section class="selector-line"> </section>
-</div>
-<!-- type selector module end -->
+    <section class="tab-line"></section>
+  </div>
+<!-- tab selector module end -->
