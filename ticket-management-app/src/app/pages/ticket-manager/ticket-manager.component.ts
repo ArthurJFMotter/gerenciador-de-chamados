@@ -7,6 +7,7 @@ import { CategoryFiltersComponent } from '../../components/category-filters/cate
 import { TicketFiltersComponent } from '../../components/ticket-filters/ticket-filters.component';
 import { Subject } from 'rxjs';
 import { PaginationComponent } from '../../components/pagination/pagination.component';
+import { AuxiliarButtonsComponent } from '../../components/auxiliar-buttons/auxiliar-buttons.component';
 
 @Component({
   selector: 'app-ticket-manager',
@@ -15,6 +16,7 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
     TabsSelectorComponent,
     CategoryFiltersComponent,
     TicketFiltersComponent,
+    AuxiliarButtonsComponent,
     TicketTableComponent,
     TicketCardComponent,
     PaginationComponent

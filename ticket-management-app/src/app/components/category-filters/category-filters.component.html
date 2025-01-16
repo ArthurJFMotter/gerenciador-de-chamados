@@ -1,45 +1,20 @@
-<!-- legacy filter module start -->
+<!-- Legacy Filter Module start -->
 <div class="legacy-filters">
-    <button class="active">Remoto <i class="fa fa-headset"></i></button>
-    <button>Presencial <i class="fa fa-person-running"></i></button>
-    <button>Hardware <i class="fa fa-screwdriver-wrench"></i></button>
-    <button>Almoxarifado <i class="fa fa-cubes"></i></button>
-    <button>Gestão de Redes <i class="fa fa-diagram-project"></i></button>
-    <button>Gestão de Telefonia <i class="fa fa-phone-volume"></i></button>
-    <button>Manutenção Redes <i class="fa fa-network-wired"></i></button>
-    <button>Manutenção Telefonia <i class="fa-solid fa-tower-cell"></i></button>
-    <button>Garantia <i class="fa fa-box"></i></button>
-    <button>Todos <i class="fa fa-magnifying-glass"></i></button>
-    <button class="alt">Imprimir <i class="fa fa-print"></i></button>
-    <button class="alt"><i class="fa fa-paintbrush"></i></button>
+    <button *ngFor="let filter of filters; let i = index" [ngClass]="{'active': filter.active}"
+        (click)="activateFilter(i)">
+        {{ filter.label }} <i [class]="filter.icon" aria-hidden="true"></i>
+    </button>
 </div>
-<!-- legacy filter module end-->
+<!-- Legacy Filter Module end -->
 
-<!-- main filter module start-->
+<!-- Main Filter Module start -->
 <div class="main-filters">
-    <!--experimental-->
-    <!-- collapsed filter module start-->
-
-    <!--<span>Mostrando tabela: </span>-->
-
     <div class="collapsed-filter">
-        <select class="dropdown-filter">
-            <option>Remoto</option>
-            <option>Presencial</option>
-            <option>Hardware</option>
-            <option>Almoxarifado</option>
-            <option>Gestão de Redes</option>
-            <option>Gestão de Telefonia</option>
-            <option>Manutenção Redes</option>
-            <option>Manutenção Telefonia</option>
-            <option>Garantia</option>
+        <select class="dropdown-filter" aria-label="Filter Options" (change)="onDropdownChange($event)">
+            <option *ngFor="let filter of filters" [value]="filter.label" [selected]="filter.active">
+                {{ filter.label }}
+            </option>
         </select>
-
-        <button>Todos <i class="fa fa-magnifying-glass"></i></button>
-        <button class="alt">Imprimir <i class="fa fa-print"></i></button>
-        <button class="alt"><i class="fa fa-paintbrush"></i></button>
     </div>
-    <!-- collapsed filter module end-->
-    <!--experimental-->
 </div>
-<!-- main filter module end-->
+<!-- Main Filter Module end -->
