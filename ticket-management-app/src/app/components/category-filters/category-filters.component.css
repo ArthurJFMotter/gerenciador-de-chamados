@@ -1,61 +1,88 @@
-/* Legacy Filters */
-.legacy-filters {
+/* Legacy */
+.desktop-filters {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 }
 
-.legacy-filters button {
+.desktop-filters button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 8px;
     background-color: #E8E2E2;
     color: #151716;
     cursor: pointer;
-    font-size: medium;
 }
 
-.legacy-filters button.active {
+.desktop-filters button.active {
     background-color: #007bff;
     color: #ffffff;
 }
 
-/* Main Filters */
-.main-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.main-filters .collapsed-filter {
+/* new */
+.mobile-filters {
     display: none;
-    flex-direction: row;
-    align-items: center;
-}
 
-.main-filters .dropdown-filter {
-    display: none;
-    border-radius: 4px;
-    padding: 0.25rem 0.5rem;
-    font-size: medium;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-    .legacy-filters {
-        display: none;
-    }
-
-    .main-filters .collapsed-filter {
+    @media (max-width: 768px) {
         display: flex;
-        gap: 0.5rem;
-        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: fit-content;
+        width: fit-content;
+        padding: 1rem;
     }
 
-    .main-filters .dropdown-filter {
-        display: block;
-        flex-grow: 1;
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        span{
+            text-wrap: nowrap;
+        }
     }
+}
+
+.mobile-filters .toggle-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0rem 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #151716;
+    cursor: pointer;
+    min-width: 12rem;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.mobile-filters .collapsed-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.mobile-filters .collapsed-menu button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #E8E2E2;
+    color: #151716;
+    cursor: pointer;
+}
+
+.mobile-filters .collapsed-menu button.active {
+    background-color: #007bff;
+    color: #ffffff;
 }

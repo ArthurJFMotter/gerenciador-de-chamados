@@ -1,20 +1,30 @@
-<!-- Legacy Filter Module start -->
-<div class="legacy-filters">
+<!-- Desktop Filters module start -->
+<div class="desktop-filters">
     <button *ngFor="let filter of filters; let i = index" [ngClass]="{'active': filter.active}"
         (click)="activateFilter(i)">
         {{ filter.label }} <i [class]="filter.icon" aria-hidden="true"></i>
     </button>
 </div>
-<!-- Legacy Filter Module end -->
+<!-- Desktop Filters module end -->
 
-<!-- Main Filter Module start -->
-<div class="main-filters">
-    <div class="collapsed-filter">
-        <select class="dropdown-filter" aria-label="Filter Options" (change)="onDropdownChange($event)">
-            <option *ngFor="let filter of filters" [value]="filter.label" [selected]="filter.active">
-                {{ filter.label }}
-            </option>
-        </select>
+<!-- Mobile Filters module start -->
+<div class="mobile-filters">
+    <section>
+        <span>Fila atual: </span>
+        <!-- Collapsible Menu dropdown start -->
+        <button class="toggle-menu" (click)="toggleMenu()">
+            {{ selectedFilter }} <i class="fa" [ngClass]="isMenuOpen ? 'fa-chevron-up' : 'fa-chevron-down'"
+                aria-hidden="true"></i>
+        </button>
+        <!-- Collapsible Menu dropdown end -->
+    </section>
+    <!-- Collapsible Menu start -->
+    <div class="collapsed-menu" *ngIf="isMenuOpen">
+        <button *ngFor="let filter of filters; let i = index" [ngClass]="{'active': filter.active}"
+            (click)="activateFilter(i)">
+            {{ filter.label }} <i [class]="filter.icon" aria-hidden="true"></i>
+        </button>
     </div>
+    <!-- Collapsible Menu end -->
 </div>
-<!-- Main Filter Module end -->
+<!-- Mobile Filters module end -->

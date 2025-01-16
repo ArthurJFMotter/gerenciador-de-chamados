@@ -23,9 +23,12 @@ export class CategoryFiltersComponent {
 
   selectedFilter = this.filters.find((filter) => filter.active)?.label || 'Remoto';
 
+  isMenuOpen = false;
+
   activateFilter(index: number): void {
     this.filters.forEach((filter, i) => filter.active = i === index);
-    this.selectedFilter = this.filters[index].label;
+    this.selectedFilter = this.filters[index].label; 
+    this.isMenuOpen = false;
   }
 
   onDropdownChange(event: Event): void {
@@ -34,5 +37,9 @@ export class CategoryFiltersComponent {
     if (index !== -1) {
       this.activateFilter(index);
     }
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
