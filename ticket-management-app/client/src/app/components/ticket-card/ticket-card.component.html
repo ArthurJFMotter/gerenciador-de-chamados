@@ -12,7 +12,7 @@
             <i *ngIf="ticket.status === 'closed'" class="fa fa-circle" style="color: #6CC173;"></i>
         </div>
         <div class="card-body">
-            <p class="requester"><strong>Solicitante:</strong> {{ticket.requester}}</p>
+            <p class="requester"><strong>Solicitante:</strong> {{ticket.requester.name}}</p>
             <p class="request"><strong>Solicitação:</strong> {{ticket.request}}</p>
             <p class="location"><strong>Local:</strong> {{ticket.location.locationName}}</p>
             <p class="region"><strong>Região:</strong> {{ticket.location.region}}</p>
