@@ -30,7 +30,7 @@ export class TicketManagerComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
   allTickets: Ticket[] = [];
   filteredTickets: Ticket[] = [];
-  selectedQueue = new BehaviorSubject<string>('');
+  selectedQueue = new BehaviorSubject<string>('remote');
   loading = true;
   error: string | null = null;
 
