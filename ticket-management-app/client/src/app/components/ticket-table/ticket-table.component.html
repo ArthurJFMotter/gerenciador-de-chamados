@@ -91,7 +91,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ticket of tickets">
+        <tr *ngFor="let ticket of tickets; let i = index" [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
             <td>{{ticket.id}}</td>
             <td>
                 <i *ngIf="ticket.status === 'priority'" class="fa fa-star" style="color: #FF2C2C;"></i>
