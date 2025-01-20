@@ -1,22 +1,25 @@
-<!-- paginator helper module start -->
 <div class="paginator-helper">
     <!-- pagination-helper module start -->
     <section class="text-pagination">
-        <p> Mostrando <strong> 3 </strong>
-            a <strong> 3 </strong>
-            de <strong> 3 </strong>
-            chamados </p>
+        <p>
+            Mostrando
+            <strong> {{ startItem }} </strong>
+            a
+            <strong> {{ endItem }} </strong>
+            de
+            <strong> {{ totalItems }} </strong>
+            chamados
+        </p>
     </section>
     <!-- pagination-helper module end -->
     <!-- pagination module start -->
     <section class="control-pagination">
-        <button class="navigator-btn">Anterior</button>
+        <button class="navigator-btn" [disabled]="currentPage === 1">Anterior</button>
         <section>
-            <button class="active">1</button>
+           <button class="active"> {{ currentPage }} </button>
             <!--placeholder <button>2</button>-->
         </section>
-        <button class="navigator-btn">Próximo</button>
+        <button class="navigator-btn" [disabled]="endItem >= totalItems">Próximo</button>
     </section>
     <!-- pagination module end -->
 </div>
-<!-- paginator helper module end -->

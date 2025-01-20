@@ -35,7 +35,7 @@
     <!-- OBS: este modulo pode mudar de lugar-->
     <div *ngIf="!loading && !error && filteredTickets.length > 0" class="container">
         <!-- pagination module start -->
-        <app-pagination></app-pagination>
+        <app-pagination [tickets]="filteredTickets"></app-pagination>
         <!-- pagination module end -->
     </div>
     <!-- OBS: este modulo pode mudar de lugar-->
