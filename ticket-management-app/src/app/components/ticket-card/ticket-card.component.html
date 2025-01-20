@@ -14,12 +14,12 @@
         <div class="card-body">
             <p class="requester"><strong>Solicitante:</strong> {{ticket.requester}}</p>
             <p class="request"><strong>Solicitação:</strong> {{ticket.request}}</p>
-            <p class="location"><strong>Local:</strong> {{ticket.location}}</p>
-            <p class="region"><strong>Região:</strong> {{ticket.region}}</p>
-            <p class="date"><strong>Data:</strong> {{ticket.date}}</p>
+            <p class="location"><strong>Local:</strong> {{ticket.location.locationName}}</p>
+            <p class="region"><strong>Região:</strong> {{ticket.location.region}}</p>
+            <p class="date"><strong>Data:</strong> {{ticket.startDate}}</p>
         </div>
         <div class="card-footer">
-            <section><i class="fa fa-regular fa-clock"></i><span class="time">{{ticket.time}}</span> </section>
+            <section><i class="fa fa-regular fa-clock"></i><span class="time">{{ticket.lastInteraction}}</span> </section>
             <input type="checkbox" class="card-check">
         </div>
     </div>

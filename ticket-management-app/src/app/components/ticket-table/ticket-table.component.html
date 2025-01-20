@@ -98,12 +98,12 @@
                 <i *ngIf="ticket.status === 'open'" class="fa fa-circle" style="color: #EED202;"></i>
                 <i *ngIf="ticket.status === 'closed'" class="fa fa-circle" style="color: #6CC173;"></i>
             </td>
-            <td>{{ticket.requester}}</td>
+            <td>{{ticket.requester.name}}</td>
             <td>{{ticket.request}}</td>
-            <td>{{ticket.location}}</td>
-            <td>{{ticket.region}}</td>
-            <td>{{ticket.date}}</td>
-            <td>{{ticket.time}}</td>
+            <td>{{ticket.location.locationName}}</td>
+            <td>{{ticket.location.region}}</td>
+            <td>{{ticket.startDate}}</td>
+            <td>{{ticket.lastInteraction}}</td>
             <td>{{ticket.responsible}}</td>
             <td><input type="checkbox"></td>
         </tr>
