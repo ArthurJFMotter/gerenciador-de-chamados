@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
 
 @Component({
@@ -10,26 +10,14 @@ import { Ticket, TicketService } from '../../services/ticket.service';
 })
 export class TicketTableComponent implements OnInit {
   ticketService = inject(TicketService);
-  tickets: Ticket[] = [];
+  @Input() tickets: Ticket[] = [];
 
   sortColumn: number | null = null;
   sortOrder: 'asc' | 'desc' = 'asc';
 
   ngOnInit(): void {
-    this.loadTickets();
-  }
 
-  loadTickets(): void {
-    this.ticketService.getTickets().subscribe(
-      (tickets: Ticket[]) => {
-        this.tickets = tickets;
-      },
-      (error: any) => {
-        console.error('Error loading tickets:', error);
-      }
-    );
   }
-
 
   sortRows(columnIndex: number) {
     if (this.sortColumn === columnIndex) {

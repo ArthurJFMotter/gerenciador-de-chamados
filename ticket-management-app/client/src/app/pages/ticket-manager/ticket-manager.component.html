@@ -4,7 +4,7 @@
     <!-- tabs module start -->
     <div class="container">
         <!-- category filter module start -->
-        <app-category-filters></app-category-filters>
+        <app-category-filters (queueSelected)="updateQueue($event)"></app-category-filters>
         <!-- category filter module end -->
         <div class="div-container">
             <!-- ticket filter module start -->
@@ -17,7 +17,7 @@
     </div>
     <!--main-ticket-content module start-->
     <div class="aux-container">
-        <app-ticket-table *ngIf="showTable"></app-ticket-table>
+        <app-ticket-table *ngIf="showTable" [tickets]="filteredTickets"></app-ticket-table>
         <app-ticket-card *ngIf="!showTable"></app-ticket-card>
     </div>
     <!--main-ticket-content module end-->
