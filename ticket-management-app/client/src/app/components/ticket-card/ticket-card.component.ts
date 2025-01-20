@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
 
 @Component({
@@ -10,21 +10,10 @@ import { Ticket, TicketService } from '../../services/ticket.service';
 })
 export class TicketCardComponent implements OnInit {
   ticketService = inject(TicketService);
-    tickets: Ticket[] = [];
-  
-    ngOnInit(): void {
-      this.loadTickets();
-    }
-  
-    loadTickets(): void {
-      this.ticketService.getTickets().subscribe(
-        (tickets: Ticket[]) => {
-          this.tickets = tickets;
-        },
-        (error: any) => {
-          console.error('Error loading tickets:', error);
-        }
-      );
-    }
-  
+  @Input() tickets: Ticket[] = [];
+
+  ngOnInit(): void {
+
+  }
+
 }

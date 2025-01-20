@@ -17,12 +17,23 @@
     </div>
     <!--main-ticket-content module start-->
     <div class="aux-container">
-        <app-ticket-table *ngIf="showTable" [tickets]="filteredTickets"></app-ticket-table>
-        <app-ticket-card *ngIf="!showTable"></app-ticket-card>
+        <div *ngIf="loading">Loading tickets...</div>
+        <div *ngIf="error">Error: {{ error }}</div>
+        <div *ngIf="!loading && !error">
+            <div *ngIf="filteredTickets.length > 0; else noTickets">
+                <app-ticket-table *ngIf="showTable" [tickets]="filteredTickets"></app-ticket-table>
+                <app-ticket-card *ngIf="!showTable" [tickets]="filteredTickets"></app-ticket-card>
+            </div>
+            <ng-template #noTickets>
+                <div class="noTickets">
+                    <p>Sem Tickets no Momento :P</p>
+                </div>
+            </ng-template>
+        </div>
     </div>
     <!--main-ticket-content module end-->
     <!-- OBS: este modulo pode mudar de lugar-->
-    <div class="container">
+    <div *ngIf="!loading && !error && filteredTickets.length > 0" class="container">
         <!-- pagination module start -->
         <app-pagination></app-pagination>
         <!-- pagination module end -->
