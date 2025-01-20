@@ -13,9 +13,9 @@ export class TabsSelectorComponent {
     { label: 'Arquivo', icon: 'fa fa-archive' },
   ];
 
-  selectedTab: number = 0; // Default selected tab
+  selectedTab: number = 0;
 
   selectTab(index: number): void {
-    this.selectedTab = index; // Update the selected tab index
+    this.selectedTab = index;
   }
 }
