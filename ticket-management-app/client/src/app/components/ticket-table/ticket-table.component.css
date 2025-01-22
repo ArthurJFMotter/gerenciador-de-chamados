@@ -7,24 +7,19 @@ table {
     margin: 1.5rem auto;
 }
 
-table .table-header {
+.table-header {
     display: flex;
-    justify-content: space-between;
-
+    justify-content: center;
     align-items: center;
+}
 
-    .table-sort {
-        display: flex;
-        flex-direction: column;
-        padding: 0rem 0.5rem;
+.table-sort {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0.5rem;
 
-        .fa-sort-down {
-            margin-top: -0.75rem;
-        }
-    }
-
-    i {
-        margin: auto;
+    .fa-sort-down {
+        margin-top: -0.75rem;
     }
 }
 

@@ -1,110 +1,33 @@
 <!--ticket table start-->
-<table id="ticket-table">
+<table class="table">
     <thead>
         <tr>
-            <th>
-                <section class="table-header" (click)="sortRows(0)">
-                    #
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(1)">
-                    Status
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(2)">
-                    Solicitante
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(3)">
-                    Solicitação
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(4)">
-                    Local
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(5)">
-                    Região
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(6)">
-                    Data
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(7)">
-                    <i class="fa-regular fa-clock"></i>
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
-                <section class="table-header" (click)="sortRows(8)">
-                    Responsável
-                    <div class="table-sort">
-                        <i class="fa fa-sort-up"></i>
-                        <i class="fa fa-sort-down"></i>
-                    </div>
-                </section>
-            </th>
-            <th>
+            <th *ngFor="let column of displayedColumns">
                 <section class="table-header">
-                    <i class="fa fa-list-check"></i>
+                    {{ columnConfig[column].name }}
+                    <div class="table-sort">
+                        <i class="fa fa-sort-up"></i>
+                        <i class="fa fa-sort-down"></i>
+                    </div>
                 </section>
             </th>
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ticket of tickets; let i = index" [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
-            <td>{{ticket.id}}</td>
+        <tr *ngFor="let row of tickets; let i = index" [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
+            <td>{{ row.id }}</td>
             <td>
-                <i *ngIf="ticket.status === 'priority'" class="fa fa-star" style="color: #FF2C2C;"></i>
-                <i *ngIf="ticket.status === 'open'" class="fa fa-circle" style="color: #EED202;"></i>
-                <i *ngIf="ticket.status === 'closed'" class="fa fa-circle" style="color: #6CC173;"></i>
+                <i *ngIf="row.status === 'priority'" class="fa fa-star" style="color: #FF2C2C;"></i>
+                <i *ngIf="row.status === 'open'" class="fa fa-circle" style="color: #EED202;"></i>
+                <i *ngIf="row.status === 'closed'" class="fa fa-circle" style="color: #6CC173;"></i>
             </td>
-            <td>{{ticket.requester.name}}</td>
-            <td>{{ticket.request}}</td>
-            <td>{{ticket.location.locationName}}</td>
-            <td>{{ticket.location.region}}</td>
-            <td>{{ticket.startDate}}</td>
-            <td>{{ticket.lastInteraction}}</td>
-            <td>{{ticket.responsible}}</td>
+            <td>{{ row.requester?.name }}</td>
+            <td>{{ row.request }}</td>
+            <td>{{ row.location?.locationName }}</td>
+            <td>{{ row.location?.region }}</td>
+            <td>{{ row.startDate }}</td>
+            <td>{{ row.lastInteraction }}</td>
             <td><input type="checkbox"></td>
         </tr>
     </tbody>
