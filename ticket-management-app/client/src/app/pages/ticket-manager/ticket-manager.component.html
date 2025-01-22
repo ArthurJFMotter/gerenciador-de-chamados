@@ -8,8 +8,9 @@
         <!-- category filter module end -->
         <div class="div-container">
             <!-- ticket filter module start -->
-            <app-ticket-filters (showTableChange)="handleShowTableChange($event)"></app-ticket-filters>
+            <app-ticket-filters></app-ticket-filters>
             <!-- ticket filter module end -->
+            <app-view-buttons (showTableChange)="handleShowTableChange($event)"></app-view-buttons>
             <!-- aux button module start -->
             <app-auxiliar-buttons></app-auxiliar-buttons>
             <!-- aux button module end -->

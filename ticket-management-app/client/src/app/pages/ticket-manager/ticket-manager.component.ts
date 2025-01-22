@@ -9,6 +9,7 @@ import { BehaviorSubject, catchError, of, Subject, takeUntil } from 'rxjs';
 import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { AuxiliarButtonsComponent } from '../../components/auxiliar-buttons/auxiliar-buttons.component';
 import { Ticket, TicketService } from '../../services/ticket.service';
+import { ViewButtonsComponent } from '../../components/view-buttons/view-buttons.component';
 
 @Component({
   selector: 'app-ticket-manager',
@@ -20,7 +21,8 @@ import { Ticket, TicketService } from '../../services/ticket.service';
     AuxiliarButtonsComponent,
     TicketTableComponent,
     TicketCardComponent,
-    PaginationComponent
+    PaginationComponent,
+    ViewButtonsComponent
   ],
   templateUrl: './ticket-manager.component.html',
   styleUrl: './ticket-manager.component.css'

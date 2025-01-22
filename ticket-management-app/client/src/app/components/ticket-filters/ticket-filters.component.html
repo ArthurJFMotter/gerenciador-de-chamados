@@ -1,6 +1,6 @@
 <!-- table filters module start-->
 <div class="table-filters">
-    <!-- table pagination module start-->
+    <!-- table pagination module start--
     <section class="filter-container" id="table-pagination">
         <span>Mostrando </span>
         <select class="dropdown">
@@ -24,20 +24,6 @@
             </div>
         </section>
         <!-- filter search module end-->
-        <!-- view mode module start-->
-        <section class="filter-container" id="view-mode">
-            <button id="toggle-view" (click)="toggleView()" [class.active]="showTable">
-                <div *ngIf="showTable">
-                    <span> Tabela </span>
-                    <i class="fa fa-table"></i>
-                </div>
-                <div *ngIf="!showTable">
-                    <span> Cartões </span>
-                    <i class="fa fa-rectangle-list"></i>
-                </div>
-            </button>
-        </section>
-        <!-- view mode module end-->
     </div>
 </div>
 <!-- table filters module end-->
