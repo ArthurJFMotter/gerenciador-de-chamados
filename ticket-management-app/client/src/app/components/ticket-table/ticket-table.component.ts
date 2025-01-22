@@ -22,7 +22,7 @@ export class TicketTableComponent implements OnInit {
   }
   
   columnConfig: { [key: string]: ColumnConfig } = {
-    id: {label: 'id', name:'#'},
+    id: {label: 'id', name:'#ID'},
     status: {label: 'status', name:'Status'},
     requestername: {label: 'requesterName', name:'Solicitante'},
     request: {label: 'request', name:'Solicitação'},
