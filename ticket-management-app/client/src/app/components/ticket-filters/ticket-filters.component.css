@@ -1,8 +1,11 @@
 .filter-search-bar {
     display: flex;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
 
     input {
-        border-radius: 4px 0px 0px 4px;
+        border-radius: 8px 0px 0px 8px;
         border-color: rgba(0, 0, 0, 0.25);
         width: 90%;
         padding: 0.33rem;
@@ -25,4 +28,10 @@
             margin-right: 0.125rem;
         }
     }
+}
+
+.filter-search-bar:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.125);
+    border: solid 1px rgba(0, 0, 0, 0.5);
+    transform: translateY(1px);
 }
