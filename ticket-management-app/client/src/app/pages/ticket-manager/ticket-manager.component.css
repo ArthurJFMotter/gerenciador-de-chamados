@@ -27,6 +27,15 @@
         width: fit-content;
         justify-content: center;
     }
+
+    .aux-div-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        gap: 0.75rem;
+        min-height: 3rem;
+    }
 }
 
 .aux-container{
