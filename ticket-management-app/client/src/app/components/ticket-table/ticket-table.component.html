@@ -6,7 +6,7 @@
             <th *ngFor="let column of displayedColumns">
                 <section class="table-header">
                     <div class="th-info">
-                        <span>{{ columnConfig[column].name }}</span>
+                        
                         <i *ngIf="columnConfig[column].label === 'id'" 
                             class="fa-solid fa-hashtag"></i>
                         <i *ngIf="columnConfig[column].label === 'status'" 
@@ -25,6 +25,7 @@
                             class="fa fa-calendar-days"></i>
                         <i *ngIf="columnConfig[column].label === 'selection'" 
                             class="fa-solid fa-list-check"></i>
+                            <span>{{ columnConfig[column].name }}</span>
                     </div>
 
                     <div *ngIf="columnConfig[column].label !== 'selection'" class="table-sort">
