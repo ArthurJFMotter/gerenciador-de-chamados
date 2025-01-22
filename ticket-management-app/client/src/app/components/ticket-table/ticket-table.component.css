@@ -9,37 +9,40 @@ table {
 
 .table-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    @media (min-width: 1100px) {
-        span {
-            display: block;
-        }
+    i{
+        margin: auto;
+    }
 
-        i {
-            display: none;
+    .th-info{
+        display: flex;
+        width: fit-content;
+        gap: 0.25rem;
+
+        @media (min-width: 1100px) {
+            span {
+                display: block;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            span {
+                display: none;
+            }
         }
     }
 
-    @media (max-width: 768px) {
-        span {
-            display: none;
+    .table-sort {
+        display: flex;
+        flex-direction: column;
+        padding: 0rem 0.5rem;
+        width: fit-content;
+    
+        .fa-sort-down {
+            margin-top: -0.75rem;
         }
-
-        i {
-            display: block;
-        }
-    }
-}
-
-.table-sort {
-    display: flex;
-    flex-direction: column;
-    padding: 0rem 0.5rem;
-
-    .fa-sort-down {
-        margin-top: -0.75rem;
     }
 }
 

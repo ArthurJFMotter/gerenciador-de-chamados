@@ -22,15 +22,15 @@ export class TicketTableComponent implements OnInit {
   }
   
   columnConfig: { [key: string]: ColumnConfig } = {
-    id: {label: 'id', name:'#ID'},
+    id: {label: 'id', name:''},
     status: {label: 'status', name:'Status'},
     requestername: {label: 'requesterName', name:'Solicitante'},
     request: {label: 'request', name:'Solicitação'},
     locationname: {label: 'locationName', name:'Localização'},
     locationregion: {label: 'locationRegion', name:'Região'},
     startdate: {label: 'startDate', name:'Data'},
-    lastinteraction: {label: 'lastInteraction', name:'Última Interação'},
-    selection: {label: 'selection', name:'Seleção'},
+    lastinteraction: {label: 'lastInteraction', name:''},
+    selection: {label: 'selection', name:''},
   };
   displayedColumns: string[] = Object.keys(this.columnConfig);
 }

@@ -5,17 +5,28 @@
         <tr>
             <th *ngFor="let column of displayedColumns">
                 <section class="table-header">
-                    <span>{{ columnConfig[column].name }}</span>
-                    <i *ngIf="columnConfig[column].label === 'id'" class="fa-solid fa-hashtag"></i>
-                    <i *ngIf="columnConfig[column].label === 'status'" class="fa-solid fa-triangle-exclamation"></i>
-                    <i *ngIf="columnConfig[column].label === 'requesterName'" class="fa fa-user"></i>
-                    <i *ngIf="columnConfig[column].label === 'request'" class="fa-solid fa-receipt"></i>
-                    <i *ngIf="columnConfig[column].label === 'locationName'" class="fa-solid fa-location-dot"></i>
-                    <i *ngIf="columnConfig[column].label === 'locationRegion'" class="fa-solid fa-map-location-dot"></i>
-                    <i *ngIf="columnConfig[column].label === 'lastInteraction'" class="fa-solid fa-clock"></i>
-                    <i *ngIf="columnConfig[column].label === 'startDate'" class="fa fa-calendar-days"></i>
-                    <i *ngIf="columnConfig[column].label === 'selection'" class="fa-solid fa-list-check"></i>
-                    
+                    <div class="th-info">
+                        <span>{{ columnConfig[column].name }}</span>
+                        <i *ngIf="columnConfig[column].label === 'id'" 
+                            class="fa-solid fa-hashtag"></i>
+                        <i *ngIf="columnConfig[column].label === 'status'" 
+                            class="fa-solid fa-circle-exclamation"></i>
+                        <i *ngIf="columnConfig[column].label === 'requesterName'" 
+                            class="fa fa-user"></i>
+                        <i *ngIf="columnConfig[column].label === 'request'" 
+                            class="fa-solid fa-receipt"></i>
+                        <i *ngIf="columnConfig[column].label === 'locationName'" 
+                            class="fa-solid fa-location-dot"></i>
+                        <i *ngIf="columnConfig[column].label === 'locationRegion'"
+                            class="fa-solid fa-map-location-dot"></i>
+                        <i *ngIf="columnConfig[column].label === 'lastInteraction'" 
+                            class="fa-solid fa-clock"></i>
+                        <i *ngIf="columnConfig[column].label === 'startDate'" 
+                            class="fa fa-calendar-days"></i>
+                        <i *ngIf="columnConfig[column].label === 'selection'" 
+                            class="fa-solid fa-list-check"></i>
+                    </div>
+
                     <div *ngIf="columnConfig[column].label !== 'selection'" class="table-sort">
                         <i class="fa fa-sort-up"></i>
                         <i class="fa fa-sort-down"></i>
