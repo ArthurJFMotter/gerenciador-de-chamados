@@ -1,14 +1,18 @@
 .filter-search-bar {
-    display: flex;
-    border: none;
     border-radius: 8px;
+    display: flex;
+    width: 33vw;
     transition: transform 0.2s ease-in-out;
+
+    @media (max-width: 768px) {
+        width: 50vw;
+    }
 
     input {
         border-radius: 8px 0px 0px 8px;
         border-color: rgba(0, 0, 0, 0.25);
-        width: 90%;
-        padding: 0.33rem;
+        width: 100%;
+        padding: 0.5rem;
         font-size: large;
 
         @media (max-width: 768px) {
@@ -21,8 +25,8 @@
         border-radius: 0px 8px 8px 0px;
         background-color: #161819;
         color: #ffffff;
-        padding: 0rem 0.75rem;
         cursor: pointer;
+        padding: 0.5rem 0.75rem;
 
         i {
             margin-right: 0.125rem;
