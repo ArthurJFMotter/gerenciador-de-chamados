@@ -14,7 +14,7 @@ export class PaginationComponent implements OnChanges {
   endItem: number = 0;
   totalItems: number = 0;
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 15;
 
  ngOnChanges(changes: SimpleChanges): void {
    if (changes['tickets']) {

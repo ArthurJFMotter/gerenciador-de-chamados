@@ -166,5 +166,194 @@
     },
     "communication": [],
     "history": []
+  },
+  {
+    "id": "00009",
+    "request": "Configuração de Email",
+    "status": "open",
+    "queue": "on site",
+    "startDate": "02/01/2025",
+    "lastInteraction": "1d 3h",
+    "responsible": "Carlos Silva",
+    "requester": {
+      "name": "João Pereira",
+      "cellphone": "123456789",
+      "phone": null
+    },
+    "location": {
+      "locationName": "Sala de Reuniões",
+      "region": "INTERNA",
+      "complement": "Próximo à recepção"
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00010",
+    "request": "Manutenção em Impressora",
+    "status": "priority",
+    "queue": "on site",
+    "startDate": "03/01/2025",
+    "lastInteraction": "4h",
+    "responsible": "Ana Costa",
+    "requester": {
+      "name": "Maria Souza",
+      "cellphone": null,
+      "phone": "987654321"
+    },
+    "location": {
+      "locationName": "Sala de TI",
+      "region": "INTERNA",
+      "complement": "Andar Térreo"
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00011",
+    "request": "Atualização de Software",
+    "status": "open",
+    "queue": "remote",
+    "startDate": "04/01/2025",
+    "lastInteraction": "3d 2h",
+    "responsible": null,
+    "requester": {
+      "name": "Lucas Mendes",
+      "cellphone": "1122334455",
+      "phone": null
+    },
+    "location": {
+      "locationName": "Setor Administrativo",
+      "region": "INTERNA",
+      "complement": null
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00012",
+    "request": "Recuperação de Senha",
+    "status": "priority",
+    "queue": "remote",
+    "startDate": "05/01/2025",
+    "lastInteraction": "5h",
+    "responsible": "Felipe Andrade",
+    "requester": {
+      "name": "Carla Nunes",
+      "cellphone": null,
+      "phone": "3344556677"
+    },
+    "location": {
+      "locationName": "Secretaria Geral",
+      "region": "INTERNA",
+      "complement": null
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00013",
+    "request": "Conexão de Rede Lenta",
+    "status": "closed",
+    "queue": "on site",
+    "startDate": "06/01/2025",
+    "lastInteraction": "6h",
+    "responsible": null,
+    "requester": {
+      "name": "Fernanda Oliveira",
+      "cellphone": "9988776655",
+      "phone": null
+    },
+    "location": {
+      "locationName": "Sala de Treinamento",
+      "region": "EXTERNA",
+      "complement": null
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00014",
+    "request": "Instalação de Projetor",
+    "status": "open",
+    "queue": "on site",
+    "startDate": "07/01/2025",
+    "lastInteraction": "2d",
+    "responsible": null,
+    "requester": {
+      "name": "Rafael Almeida",
+      "cellphone": "5566778899",
+      "phone": null
+    },
+    "location": {
+      "locationName": "Auditório",
+      "region": "INTERNA",
+      "complement": null
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00015",
+    "request": "Backup de Arquivos",
+    "status": "priority",
+    "queue": "remote",
+    "startDate": "08/01/2025",
+    "lastInteraction": "12h",
+    "responsible": "Thiago Martins",
+    "requester": {
+      "name": "Aline Santos",
+      "cellphone": null,
+      "phone": "2233445566"
+    },
+    "location": {
+      "locationName": "Sala de Arquivo",
+      "region": "INTERNA",
+      "complement": "Próximo ao Almoxarifado"
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00016",
+    "request": "Troca de Monitor",
+    "status": "open",
+    "queue": "on site",
+    "startDate": "09/01/2025",
+    "lastInteraction": "3d",
+    "responsible": null,
+    "requester": {
+      "name": "Victor Silva",
+      "cellphone": "6677889900",
+      "phone": null
+    },
+    "location": {
+      "locationName": "Departamento Financeiro",
+      "region": "INTERNA",
+      "complement": null
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00017",
+    "request": "Configuração de VPN",
+    "status": "closed",
+    "queue": "remote",
+    "startDate": "10/01/2025",
+    "lastInteraction": "8h",
+    "responsible": "Paulo Lima",
+    "requester": {
+      "name": "Elaine Costa",
+      "cellphone": "4455667788",
+      "phone": null
+    },
+    "location": {
+      "locationName": "Home Office",
+      "region": "EXTERNA",
+      "complement": null
+    },
+    "communication": [],
+    "history": []
   }
 ]
