@@ -1,25 +1,40 @@
-<div class="paginator-helper">
-    <!-- pagination-helper module start -->
-    <section class="text-pagination">
-        <p>
-            Mostrando
-            <strong> {{ startItem }} </strong>
-            a
-            <strong> {{ endItem }} </strong>
-            de
-            <strong> {{ totalItems }} </strong>
-            chamados
-        </p>
-    </section>
-    <!-- pagination-helper module end -->
-    <!-- pagination module start -->
-    <section class="control-pagination">
-        <button class="navigator-btn" [disabled]="currentPage === 1">Anterior</button>
-        <section>
-           <button class="active"> {{ currentPage }} </button>
-            <!--placeholder <button>2</button>-->
+<!-- table pagination module start-->
+<div class="paginator-container">
+    <div class="paginator-aux">
+        <span>Mostrar </span>
+        <select class="dropdown">
+            <option>15</option>
+            <option>25</option>
+            <option>50</option>
+            <option>100</option>
+            <option>200</option>
+        </select>
+        <span> Chamados</span>
+    </div>
+    <!-- table pagination module end-->
+    <div class="paginator-helper">
+        <!-- pagination-helper module start -->
+        <section class="text-pagination">
+            <p>
+                Mostrando
+                <strong> {{ startItem }} </strong>
+                a
+                <strong> {{ endItem }} </strong>
+                de
+                <strong> {{ totalItems }} </strong>
+                chamados
+            </p>
         </section>
-        <button class="navigator-btn" [disabled]="endItem >= totalItems">Próximo</button>
-    </section>
-    <!-- pagination module end -->
+        <!-- pagination-helper module end -->
+        <!-- pagination module start -->
+        <section class="pagination-controls">
+            <button class="navigator-btn" [disabled]="currentPage === 1">Anterior</button>
+            <section>
+                <button class="active"> {{ currentPage }} </button>
+                <!--placeholder <button>2</button>-->
+            </section>
+            <button class="navigator-btn" [disabled]="endItem >= totalItems">Próximo</button>
+        </section>
+        <!-- pagination module end -->
+    </div>
 </div>
