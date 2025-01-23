@@ -1,5 +1,5 @@
   nav {
-      background-color: #151716;
+      background-color: var(--tertiary-color);
       color: white;
       display: flex;
       flex-direction: column;
@@ -76,7 +76,8 @@
           width: 100%;
           border-radius: 64px 0px 0px 64px;
           border: none;
-          background-color: white;
+          background-color: var(--bg-color);
+          color: var(--alt-text-color);
 
           text-indent: 16px;
       }

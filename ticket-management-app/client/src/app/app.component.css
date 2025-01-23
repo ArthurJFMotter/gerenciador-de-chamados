@@ -5,31 +5,36 @@
     flex-direction: column;
     margin: 0;
     overflow-x: hidden;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 app-header{
-    background-color: #E8E2E2;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 app-ticket-manager{
-    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: baseline;
     width: 100%;
     min-height: 91.2vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 app-footer {
-    background-color: #E8E2E2;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     position: relative;
     bottom: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }

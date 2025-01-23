@@ -2,18 +2,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: var(--bg-color);
 }
 
 :root {
-    --bg-color: #ffffff;        /* Default light background */
-    --text-color: #000000;      /* Default light text color */
-    --primary-color: #007bff;   /* Example primary color */
-  }
-  
-  /* Dark mode override */
-  .dark-theme {
-    --bg-color: #121212;        /* Dark background */
-    --text-color: #ffffff;      /* Dark text color */
-    --primary-color: #66b3ff;  /* Adjusted primary for dark */
-  }
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --alt-text-color: #e4e3e4;
+    --primary-color: #007bff;
+    --secondary-color: #E8E2E2;
+    --tertiary-color: #202122;
+}
+
+/* Dark mode override */
+.dark-theme {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --alt-text-color: #2b2929;
+    --primary-color: #84aad3;
+    --secondary-color: #bebebe;
+    --tertiary-color: #161819;
+}
