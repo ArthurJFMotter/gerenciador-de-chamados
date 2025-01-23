@@ -12,6 +12,7 @@ body {
     --primary-color: #007bff;
     --secondary-color: #E8E2E2;
     --tertiary-color: #202122;
+    --quartenary-color: #f5f2f2;
 }
 
 /* Dark mode override */
@@ -22,4 +23,5 @@ body {
     --primary-color: #84aad3;
     --secondary-color: #3f3f3f;
     --tertiary-color: #161819;
+    --quartenary-color: #181818;
 }
