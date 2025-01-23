@@ -24,7 +24,9 @@
     gap: 0.5rem;
 
     .dropdown{
-        border: 1px solid #161819;
+        background-color: var(--bg-color);
+        border: 1px solid var(--text-color);
+        color: var(--text-color);;
         border-radius: 8px;
         font-size: medium;
         padding: 0.25rem;
@@ -75,8 +77,8 @@
 }
 
 .pagination-controls section button {
-    background-color: #E8E2E2;
-    color: #161819;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 16px;
     height: 2.5rem;
@@ -86,7 +88,7 @@
 }
 
 .pagination-controls section button.active {
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -99,7 +101,8 @@
 .pagination-controls .navigator-btn {
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--secondary-color);
+    color: var(--text-color);;
     cursor: pointer;
     margin: 0rem 0.5rem;
     padding: 0rem 1.5rem;

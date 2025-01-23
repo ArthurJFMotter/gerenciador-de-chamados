@@ -12,7 +12,7 @@ button:hover {
 .clear-btn {
     padding: 0.5rem 1rem;
     border: none;
-    color: #E8E2E2;
+    color: #ffffff;
     cursor: pointer;
     font-size: medium;
     text-wrap: nowrap;
@@ -33,11 +33,11 @@ button:hover {
 }
 
 .print-btn {
-    background-color: #151716;
+    background-color: var(--tertiary-color);
     border-radius: 8px 0px 0px 8px;
 }
 
 .clear-btn {
-    background-color: #242725;
+    background-color: var(--tertiary-color);
     border-radius: 0px 8px 8px 0px;
 }
