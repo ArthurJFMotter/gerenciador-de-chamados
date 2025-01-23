@@ -36,6 +36,9 @@ export class TicketManagerComponent implements OnInit, OnDestroy {
   loading = true;
   error: string | null = null;
 
+  currentPage: number = 1;
+  pageSize: number = 15;
+
   ticketService = inject(TicketService);
 
   ngOnInit(): void {
@@ -70,6 +73,7 @@ export class TicketManagerComponent implements OnInit, OnDestroy {
     } else {
       this.filteredTickets = [...this.allTickets];
     }
+    this.currentPage = 1; // Reset page on filter
   }
 
   handleShowTableChange(showTable: boolean) {
@@ -78,6 +82,16 @@ export class TicketManagerComponent implements OnInit, OnDestroy {
 
   updateQueue(queue: string) {
     this.selectedQueue.next(queue)
+  }
+
+  onPageChanged(event: { page: number; pageSize: number }): void {
+    this.currentPage = event.page;
+    this.pageSize = event.pageSize;
+  }
+
+  onPageSizeChanged(pageSize: number): void {
+    this.pageSize = pageSize;
+    this.currentPage = 1; // Reset to first page
   }
 
   ngOnDestroy(): void {

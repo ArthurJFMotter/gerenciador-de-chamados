@@ -26,7 +26,12 @@
         <div *ngIf="error">Error: {{ error }}</div>
         <div *ngIf="!loading && !error">
             <div *ngIf="filteredTickets.length > 0; else noTickets">
-                <app-ticket-table *ngIf="showTable" [tickets]="filteredTickets"></app-ticket-table>
+                <app-ticket-table
+                  *ngIf="showTable"
+                  [allTickets]="filteredTickets"
+                  [currentPage]="currentPage"
+                  [pageSize]="pageSize"
+                ></app-ticket-table>
                 <app-ticket-card *ngIf="!showTable" [tickets]="filteredTickets"></app-ticket-card>
             </div>
             <ng-template #noTickets>
@@ -41,7 +46,11 @@
     <!-- OBS: este modulo pode mudar de lugar-->
     <div *ngIf="!loading && !error && filteredTickets.length > 0" class="container">
         <!-- pagination module start -->
-        <app-pagination [tickets]="filteredTickets"></app-pagination>
+        <app-pagination
+          [tickets]="filteredTickets"
+          (pageChanged)="onPageChanged($event)"
+          (pageSizeChanged)="onPageSizeChanged($event)"
+        ></app-pagination>
         <!-- pagination module end -->
     </div>
     <!-- OBS: este modulo pode mudar de lugar-->
