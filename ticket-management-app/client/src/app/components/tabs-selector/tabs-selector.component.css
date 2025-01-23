@@ -10,13 +10,14 @@
 }
 
 .tab-buttons-row {
-    border: solid #E8E2E2;
+    border: solid var(--secondary-color);
     border-radius: 12px 12px 0px 12px;
     border-top: 0;
     border-right: 0;
 
     .tab-buttons {
-        background-color: #E8E2E2;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
         border-color: rgba(0, 0, 0, 0.125);
         cursor: pointer;
         font-size: larger;
@@ -34,8 +35,8 @@
     }
 
     .tab-buttons-selected {
-        background-color: #007bff;
-        color: #ffffff;
+        background-color: var(--primary-color);
+        color:#ffffff;;
     }
 
     .tab-buttons-first {

@@ -16,8 +16,8 @@
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 8px;
-    background-color: #E8E2E2;
-    color: #151716;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
@@ -29,7 +29,7 @@
 }
 
 .desktop-filters button.active {
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #ffffff;
 }
 
