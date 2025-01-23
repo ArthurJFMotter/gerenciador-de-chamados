@@ -12,16 +12,16 @@ table {
     justify-content: space-between;
     align-items: center;
 
-    i{
-        margin: auto;
-    }
-
     .th-info{
         display: flex;
-        justify-content: center;
         align-items: center;
         width: fit-content;
-        gap: 0.5rem;
+        justify-content: center;
+        margin: auto;
+
+        i{
+            margin-inline: 0.5rem;
+        }
 
         @media (min-width: 1100px) {
             span {

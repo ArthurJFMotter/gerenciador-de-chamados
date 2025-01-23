@@ -16,8 +16,8 @@ interface ColumnConfig {
 export class TicketTableComponent implements OnInit, OnChanges {
   ticketService = inject(TicketService);
 
-  @Input() allTickets: Ticket[] = []; // Renamed to allTickets
-  displayedTickets: Ticket[] = []; // Tickets to display on the current page
+  @Input() allTickets: Ticket[] = []; 
+  displayedTickets: Ticket[] = []; 
   @Input() currentPage: number = 1;
   @Input() pageSize: number = 15;
 
