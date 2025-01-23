@@ -4,8 +4,8 @@
     align-items: center;
     width: 100vw;
     font-size: small;
-    background-color: #161819;
-    color: #E8E2E2;
+    background-color: var(--tertiary-color);
+    color: #ffffff;
     
     @media (max-width: 768px) {
         display: grid;
