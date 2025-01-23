@@ -20,11 +20,17 @@
 
         <!-- user actions module start-->
         <section class="user-actions">
-            <!-- Botão do menu colapsável -->
+            <!-- theme button -->
+            <button id="theme-toggle" (click)="toggleTheme()">
+                <i *ngIf="!(themeService.isDarkMode$ | async)" class="fa fa-sun"></i>
+                <i *ngIf="(themeService.isDarkMode$ | async)" class="fa fa-moon"></i>
+            </button>
+            <!-- theme button -->
+            <!-- colapsable menu button -->
             <button id="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
                 <i class="fa fa-bars"></i>
             </button>
-
+            <!-- colapsable menu button -->
         </section>
         <!-- user actions module end-->
     </div>

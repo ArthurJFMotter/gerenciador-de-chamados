@@ -4,3 +4,16 @@ body {
     padding: 0;
     background-color: #f4f4f9;
 }
+
+:root {
+    --bg-color: #ffffff;        /* Default light background */
+    --text-color: #000000;      /* Default light text color */
+    --primary-color: #007bff;   /* Example primary color */
+  }
+  
+  /* Dark mode override */
+  .dark-theme {
+    --bg-color: #121212;        /* Dark background */
+    --text-color: #ffffff;      /* Dark text color */
+    --primary-color: #66b3ff;  /* Adjusted primary for dark */
+  }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { AplicationThemeService } from '../../services/aplication-theme.service';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-
+  themeService = inject(AplicationThemeService);
   isMenuOpen: boolean = false;
 
   ngOnInit(): void {
   }
 
-
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
 }

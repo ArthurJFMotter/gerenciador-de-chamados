@@ -213,3 +213,20 @@
   .user-actions #menu-toggle.active {
       transform: rotate(-90deg);
   }
+
+  #theme-toggle {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 0.66rem;
+    border-radius: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    margin-inline: 0.5rem;
+  }
+
+  #theme-toggle:hover {
+      box-shadow: 0 5px 10px rgba(255, 255, 255, 0.25);
+      transform: translateY(1px);
+  }
