@@ -16,8 +16,8 @@ interface ColumnConfig {
 export class TicketTableComponent implements OnInit, OnChanges {
   ticketService = inject(TicketService);
 
-  @Input() allTickets: Ticket[] = []; 
-  displayedTickets: Ticket[] = []; 
+  @Input() allTickets: Ticket[] = [];
+  displayedTickets: Ticket[] = [];
   @Input() currentPage: number = 1;
   @Input() pageSize: number = 15;
 
@@ -68,6 +68,10 @@ export class TicketTableComponent implements OnInit, OnChanges {
       const valueA = this.getValue(a, column);
       const valueB = this.getValue(b, column);
 
+      if (typeof valueA === 'number' && typeof valueB === 'number') {
+        return this.sortAscending ? valueA - valueB : valueB - valueA;
+      }
+
       if (valueA < valueB) return this.sortAscending ? -1 : 1;
       if (valueA > valueB) return this.sortAscending ? 1 : -1;
       return 0;
@@ -91,9 +95,22 @@ export class TicketTableComponent implements OnInit, OnChanges {
       case 'startDate':
         return new Date(ticket.startDate);
       case 'lastInteraction':
-        return new Date(ticket.lastInteraction);
+        console.log(`Parsing lastInteraction duration: ${ticket.lastInteraction}`);
+        return this.parseDuration(ticket.lastInteraction);
       default:
         return '';
     }
+  }
+
+  private parseDuration(duration: string): number {
+    const now = Date.now();
+    const match = duration.match(/(?:(\d+)d)?\s*(?:(\d+)h)?/);
+    if (!match) return now; // Default to now if format is invalid
+
+    const days = parseInt(match[1] || '0', 10);
+    const hours = parseInt(match[2] || '0', 10);
+
+    const totalMilliseconds = (days * 24 + hours) * 60 * 60 * 1000;
+    return now - totalMilliseconds;
   }
 }
