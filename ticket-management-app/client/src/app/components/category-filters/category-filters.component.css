@@ -71,7 +71,7 @@
     color: var(--text-color);
     cursor: pointer;
     min-width: 12rem;
-    border: 2px solid rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--text-color);
 }
 
 .mobile-filters .collapsed-menu {
