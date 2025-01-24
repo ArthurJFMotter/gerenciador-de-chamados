@@ -6,12 +6,20 @@ table {
     margin: 1.5rem auto;
 }
 
+thead th {
+    background-color: var(--quartenary-color);
+}
+
+thead th:hover {
+    border: 0.125rem solid var(--text-color);
+}
+
 .table-header {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
 
-    .th-info{
+    .th-info {
         display: flex;
         align-items: center;
         width: fit-content;
@@ -19,7 +27,7 @@ table {
         margin: auto;
         color: var(--text-color);
 
-        i{
+        i {
             margin-inline: 0.5rem;
         }
 
@@ -28,7 +36,7 @@ table {
                 display: block;
             }
         }
-    
+
         @media (max-width: 768px) {
             span {
                 display: none;
@@ -41,7 +49,7 @@ table {
         flex-direction: column;
         padding: 0rem 0.5rem;
         width: fit-content;
-    
+
         .fa-sort-down {
             margin-top: -0.75rem;
         }
@@ -56,13 +64,13 @@ table td {
     text-wrap: nowrap;
 }
 
-table th {
+table tbody th {
     background-color: var(--secondary-color);
     cursor: pointer;
 }
 
 table tbody tr:hover {
-    background-color: var(--secondary-color);
+    border: 0.125rem solid var(--primary-color);
 }
 
 .even-row {
