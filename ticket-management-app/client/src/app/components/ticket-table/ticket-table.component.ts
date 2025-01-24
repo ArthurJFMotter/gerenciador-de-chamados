@@ -2,11 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
 
-interface ColumnConfig {
-  label: string;
-  name: string;
-}
-
 @Component({
   selector: 'app-ticket-table',
   imports: [CommonModule],
@@ -42,11 +37,11 @@ export class TicketTableComponent implements OnInit, OnChanges {
   columnConfig: { [key: string]: { label: string; name: string } } = {
     id: { label: 'id', name: '' },
     status: { label: 'status', name: 'Status' },
-    requesterName: { label: 'requesterName', name: 'Requester Name' },
-    request: { label: 'request', name: 'Request' },
-    locationName: { label: 'locationName', name: 'Location Name' },
-    locationRegion: { label: 'locationRegion', name: 'Location Region' },
-    startDate: { label: 'startDate', name: 'Start Date' },
+    requesterName: { label: 'requesterName', name: 'Solicitante' },
+    request: { label: 'request', name: 'Solicitação' },
+    locationName: { label: 'locationName', name: 'Local' },
+    locationRegion: { label: 'locationRegion', name: 'Região' },
+    startDate: { label: 'startDate', name: 'Data' },
     lastInteraction: { label: 'lastInteraction', name: '' },
     selection: { label: 'selection', name: '' }
   };
@@ -78,6 +73,7 @@ export class TicketTableComponent implements OnInit, OnChanges {
     });
   }
 
+
   private getValue(ticket: any, column: string): any {
     switch (column) {
       case 'id':
@@ -93,24 +89,42 @@ export class TicketTableComponent implements OnInit, OnChanges {
       case 'locationRegion':
         return ticket.location?.region;
       case 'startDate':
-        return new Date(ticket.startDate);
+        return this.formatDateToDayMonthYear(ticket.startDate);
       case 'lastInteraction':
-        console.log(`Parsing lastInteraction duration: ${ticket.lastInteraction}`);
-        return this.parseDuration(ticket.lastInteraction);
+        return this.formatDateToDayMonthYear(ticket.lastInteraction);
       default:
         return '';
     }
   }
 
-  private parseDuration(duration: string): number {
-    const now = Date.now();
-    const match = duration.match(/(?:(\d+)d)?\s*(?:(\d+)h)?/);
-    if (!match) return now; // Default to now if format is invalid
+  formatDateToDayMonthYear(dateString: string): string | null {
+    // Expected date string format: "dd/mm/yyyy - hh:mm:ss"
 
-    const days = parseInt(match[1] || '0', 10);
-    const hours = parseInt(match[2] || '0', 10);
+    if (!dateString) {
+      return null; // Or throw an error, depending on your preference
+    }
 
-    const totalMilliseconds = (days * 24 + hours) * 60 * 60 * 1000;
-    return now - totalMilliseconds;
+    try {
+      // Split the string at the space to separate the date and time parts
+      const parts = dateString.split(" - ");
+      if (parts.length !== 2) {
+        return null; // Invalid format
+      }
+
+      const datePart = parts[0];
+
+      // Validate the date format using a regular expression
+      const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+      if (!dateRegex.test(datePart)) {
+        return null; // Invalid date format
+      }
+
+
+      return datePart; // Return only the "dd/mm/yyyy" part
+
+    } catch (error) {
+      console.error("Error parsing date:", error);
+      return null; // Indicate parsing failure
+    }
   }
 }
