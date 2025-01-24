@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="ticket-management.css">
+</head>
+<body>
+    <header>
+        <h1>Painel Administrativo</h1>
+        <nav>
+            <ul>
+                <li><a href="#chamados">Chamados</a></li>
+                <li><a href="#atividades">Atividades</a></li>
+                <li><a href="#usuarios">Usuários</a></li>
+                <li><a href="#filas">Filas</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                 <li><a href="#equipamentos">Equipamentos</a></li>
+                 <li><a href="#inserviveis">Inservíveis</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="chamados">
+            <h2>Chamados</h2>
+            <div class="data-grid">
+              <table>
+                <thead>
+                   <tr>
+                    <th>ID</th>
+                    <th>Data Abertura</th>
+                    <th>Solicitante</th>
+                    <th>Status</th>
+                    <th>Resumo</th>
+                  </tr>
+                </thead>
+                  <tbody id="chamados-table">
+                        <!-- Dados dos chamados serão inseridos aqui -->
+                   </tbody>
+              </table>
+               <button class="add-button" onclick="window.location.href='/chamado/novo'">Adicionar Chamado</button>
+            </div>
+        </section>
+        <section id="atividades">
+            <h2>Atividades</h2>
+            <div class="data-grid">
+                <table>
+                <thead>
+                   <tr>
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Status</th>
+                    <th>Data Inicio</th>
+                    <th>Data Fim</th>
+                  </tr>
+                </thead>
+                <tbody id="atividades-table">
+                    <!-- Dados das atividades serão inseridos aqui -->
+                </tbody>
+              </table>
+              <button class="add-button" onclick="window.location.href='/atividade/novo'">Adicionar Atividade</button>
+            </div>
+        </section>
+         <section id="usuarios">
+            <h2>Usuários</h2>
+              <div class="data-grid">
+                 <table>
+                <thead>
+                   <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                   </tr>
+                </thead>
+                <tbody id="usuarios-table">
+                    <!-- Dados das atividades serão inseridos aqui -->
+                </tbody>
+                 </table>
+                  <button class="add-button" onclick="window.location.href='/usuario/novo'">Adicionar Usuario</button>
+             </div>
+          </section>
+
+        <section id="filas">
+            <h2>Filas</h2>
+              <div class="data-grid">
+                 <table>
+                <thead>
+                   <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                   </tr>
+                </thead>
+                 <tbody id="filas-table">
+                    <!-- Dados das atividades serão inseridos aqui -->
+                  </tbody>
+                 </table>
+                 <button class="add-button" onclick="window.location.href='/fila/novo'">Adicionar Fila</button>
+             </div>
+         </section>
+          <section id="servicos">
+             <h2>Serviços</h2>
+             <div class="data-grid">
+                 <table>
+                    <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Status</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody id="servicos-table">
+                            <!-- Dados dos serviços serão inseridos aqui -->
+                    </tbody>
+                </table>
+              <button class="add-button" onclick="window.location.href='/servico/novo'">Adicionar Serviço</button>
+            </div>
+         </section>
+        <section id="equipamentos">
+             <h2>Equipamentos</h2>
+             <div class="data-grid">
+               <table>
+                <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nº Serie</th>
+                      <th>Nº Patrimonio</th>
+                       <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody id="equipamentos-table">
+                     <!-- Dados dos serviços serão inseridos aqui -->
+                </tbody>
+              </table>
+             <button class="add-button" onclick="window.location.href='/equipamento/novo'">Adicionar Equipamento</button>
+           </div>
+        </section>
+
+         <section id="inserviveis">
+             <h2>Inservíveis</h2>
+               <div class="data-grid">
+                 <table>
+                    <thead>
+                       <tr>
+                        <th>ID</th>
+                        <th>Equipamento ID</th>
+                         <th>Data</th>
+                       </tr>
+                    </thead>
+                     <tbody id="inserviveis-table">
+                          <!-- Dados dos inserviveis serão inseridos aqui -->
+                    </tbody>
+                </table>
+              <button class="add-button" onclick="window.location.href='/inservivel/novo'">Adicionar Inservivel</button>
+              </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Sistema de Gerenciamento de Chamados</p>
+    </footer>
+    <script src="ticket-management.js"></script>
+</body>
+</html>
