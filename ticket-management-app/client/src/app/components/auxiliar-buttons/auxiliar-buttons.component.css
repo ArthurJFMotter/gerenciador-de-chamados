@@ -33,11 +33,11 @@ button:hover {
 }
 
 .print-btn {
-    background-color: var(--tertiary-color);
+    background-color: var(--quintenary-color);
     border-radius: 8px 0px 0px 8px;
 }
 
 .clear-btn {
-    background-color: var(--tertiary-color);
+    background-color: var(--quintenary-color);
     border-radius: 0px 8px 8px 0px;
 }
