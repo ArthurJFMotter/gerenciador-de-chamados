@@ -1,0 +1,23 @@
+@startuml simplified Class Diagram
+left to right direction
+actor "Usuário da Intranet" as IntranetUser
+actor "Administrador" as Admin
+actor "Responsável" as Responsible
+
+rectangle Sistema {
+  IntranetUser -- (Abrir Chamado)
+  IntranetUser -- (Consultar Chamado)
+  Responsible -- (Criar Atividade)
+    Responsible -- (Tramitar Atividade)
+    Responsible -- (Triar Chamado)
+    Responsible -- (Criar Serviço)
+    Responsible -- (Tramitar Chamado)
+
+    Admin -- (Criar Fila)
+    Admin -- (Criar Configuração Padrão)
+    Admin -- (Gerar Relatórios)
+   
+}
+
+
+@enduml

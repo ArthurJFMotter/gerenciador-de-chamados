@@ -1,0 +1,21 @@
+@startuml open Ticket
+participant "Usuário da Intranet" as User
+participant "Aplicação Cliente" as ClientApp
+participant "Servidor de Aplicação" as ServerApp
+participant "Banco de Dados" as Database
+
+User -> ClientApp: Preenche formulário de chamado
+activate ClientApp
+ClientApp -> ServerApp: Envia dados do chamado
+activate ServerApp
+ServerApp -> ServerApp: Gera número do chamado e senha aleatória
+ServerApp -> Database: Salva dados do chamado e cria atividade de triagem
+activate Database
+Database --> ServerApp: Confirmação
+deactivate Database
+ServerApp -> ServerApp: Gera mensagem de confirmação para o solicitante
+ServerApp -> ClientApp: Retorna número do chamado e senha
+deactivate ServerApp
+ClientApp -> User: Exibe número do chamado e senha para consulta
+deactivate ClientApp
+@enduml
