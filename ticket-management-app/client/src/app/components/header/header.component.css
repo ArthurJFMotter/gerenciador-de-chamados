@@ -75,7 +75,7 @@
       input {
           width: 100%;
           border-radius: 64px 0px 0px 64px;
-          border: none;
+          border: 1px solid var(--alt-text-color);
           background-color: var(--bg-color);
           color: var(--alt-text-color);
 
@@ -83,7 +83,7 @@
       }
 
       button {
-          border: 2px solid rgba(0, 0, 0, 0.5);
+          border: 1px solid var(--alt-text-color);
           border-radius: 0px 64px 64px 0px;
           background-color: var(--primary-color);
           color: #ffffff;
@@ -216,15 +216,15 @@
   }
 
   #theme-toggle {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    padding: 0.66rem;
-    border-radius: 100%;
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    margin-inline: 0.5rem;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 0.66rem;
+      border-radius: 100%;
+      border: 2px solid rgba(0, 0, 0, 0.5);
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+      margin-inline: 0.5rem;
   }
 
   #theme-toggle:hover {
