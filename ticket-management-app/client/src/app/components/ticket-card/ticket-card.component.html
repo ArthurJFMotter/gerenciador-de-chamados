@@ -4,7 +4,7 @@
         <div class="card-header">
             <h3 class="ticket-id">#{{ticket.id}}</h3>
             <section class="responsible-info">
-                <p class="responsible">{{ticket.responsible}}</p>
+                <span class="responsible">{{ticket.responsible}}</span>
                 <i *ngIf="ticket.responsible" class="fa fa-lock"></i>
             </section>
             <i *ngIf="ticket.status === 'priority'" class="fa fa-star" style="color: #FF2C2C;"></i>

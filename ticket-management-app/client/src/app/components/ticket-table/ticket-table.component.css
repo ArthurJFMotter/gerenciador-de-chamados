@@ -2,8 +2,9 @@
 table {
     min-width: 95vw;
     border-collapse: collapse;
-
     margin: 1.5rem auto;
+    border-radius: 8px; 
+    overflow: hidden;
 }
 
 thead th {
@@ -11,7 +12,7 @@ thead th {
 }
 
 thead th:hover {
-    border: 0.125rem solid var(--text-color);
+    background-color: var(--secondary-color);
 }
 
 .table-header {
@@ -56,21 +57,33 @@ thead th:hover {
     }
 }
 
+thead{
+    border: 0.2rem solid var(--secondary-color);
+    border-radius: 100%;
+}
+
+tbody{
+    border: 0.2rem solid var(--secondary-color);
+    border-radius: 100%;
+}
+
 table th,
 table td {
     padding: 0.5rem;
     text-align: center;
     border: 1px solid var(--secondary-color);
     text-wrap: nowrap;
+    
 }
 
 table tbody th {
     background-color: var(--secondary-color);
     cursor: pointer;
+    
 }
 
 table tbody tr:hover {
-    border: 0.125rem solid var(--primary-color);
+    border: 0.2rem solid var(--primary-color);
 }
 
 .even-row {
@@ -80,5 +93,4 @@ table tbody tr:hover {
 .odd-row {
     background-color: var(--quartenary-color);
 }
-
 /* table-ticket */
