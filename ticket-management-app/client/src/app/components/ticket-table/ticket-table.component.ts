@@ -53,10 +53,10 @@ export class TicketTableComponent implements OnInit, OnChanges {
     if (column === 'selection') return; // Skip sorting for 'selection'
 
     if (this.sortColumn === column) {
-      this.sortAscending = !this.sortAscending; // Toggle sorting order
+      this.sortAscending = !this.sortAscending;
     } else {
       this.sortColumn = column;
-      this.sortAscending = true; // Default to ascending order
+      this.sortAscending = true;
     }
 
     this.displayedTickets.sort((a, b) => {
@@ -74,7 +74,7 @@ export class TicketTableComponent implements OnInit, OnChanges {
   }
 
 
-  private getValue(ticket: any, column: string): any {
+  getValue(ticket: any, column: string): any {
     switch (column) {
       case 'id':
         return ticket.id;
@@ -91,7 +91,8 @@ export class TicketTableComponent implements OnInit, OnChanges {
       case 'startDate':
         return this.formatDateToDayMonthYear(ticket.startDate);
       case 'lastInteraction':
-        return this.formatDateToDayMonthYear(ticket.lastInteraction);
+        const formattedDate = this.formatDateToValidISO(ticket.lastInteraction);
+        return this.timeSince(formattedDate || "");
       default:
         return '';
     }
@@ -101,14 +102,14 @@ export class TicketTableComponent implements OnInit, OnChanges {
     // Expected date string format: "dd/mm/yyyy - hh:mm:ss"
 
     if (!dateString) {
-      return null; // Or throw an error, depending on your preference
+      return null;
     }
 
     try {
       // Split the string at the space to separate the date and time parts
       const parts = dateString.split(" - ");
       if (parts.length !== 2) {
-        return null; // Invalid format
+        return null;
       }
 
       const datePart = parts[0];
@@ -116,7 +117,7 @@ export class TicketTableComponent implements OnInit, OnChanges {
       // Validate the date format using a regular expression
       const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
       if (!dateRegex.test(datePart)) {
-        return null; // Invalid date format
+        return null;
       }
 
 
@@ -124,7 +125,84 @@ export class TicketTableComponent implements OnInit, OnChanges {
 
     } catch (error) {
       console.error("Error parsing date:", error);
-      return null; // Indicate parsing failure
+      return null;
     }
+  }
+
+  formatDateToValidISO(dateString: string): string | null {
+    if (!dateString) {
+      return null;
+    }
+
+    try {
+      const parts = dateString.split(" - ");
+      if (parts.length !== 2) {
+        return null;
+      }
+
+      const [datePart, timePart] = parts;
+
+      const [day, month, year] = datePart.split("/");
+      const [hours, minutes, seconds] = timePart.split(":");
+
+
+      return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+
+    } catch (error) {
+      console.error("Error formatting to valid ISO:", error);
+      return null;
+    }
+  }
+
+
+  timeSince(dateString: string): string {
+
+    if (!dateString) {
+      return 'Never';
+    }
+
+    try {
+      const parsedDate = new Date(dateString);
+      if (isNaN(parsedDate.getTime())) {
+        return 'Invalid Date';
+      }
+
+      const now = new Date();
+      const diffInSeconds = Math.floor((now.getTime() - parsedDate.getTime()) / 1000);
+
+      if (diffInSeconds < 60) {
+        return `${diffInSeconds}s`;
+      }
+
+      const diffInMinutes = Math.floor(diffInSeconds / 60);
+      if (diffInMinutes < 60) {
+        return `${diffInMinutes}min`;
+      }
+
+      const diffInHours = Math.floor(diffInMinutes / 60);
+      if (diffInHours < 24) {
+        return `${diffInHours}h`;
+      }
+
+      const diffInDays = Math.floor(diffInHours / 24);
+      if (diffInDays < 30) {
+        return `${diffInDays}d`;
+      }
+
+      const diffInMonths = this.diffInMonths(parsedDate, now);
+      return `${diffInMonths}m`;
+    } catch (error) {
+      console.error("Error calculating time since:", error);
+      return 'Invalid Date';
+    }
+  }
+
+
+  private diffInMonths(parsedDate: Date, now: Date): number {
+    let months = (now.getFullYear() - parsedDate.getFullYear()) * 12;
+    months -= parsedDate.getMonth();
+    months += now.getMonth();
+
+    return months <= 0 ? 0 : months;
   }
 }
