@@ -37,16 +37,63 @@ export class TicketTableComponent implements OnInit, OnChanges {
     this.displayedTickets = this.allTickets.slice(startIndex, endIndex);
   }
 
-  columnConfig: { [key: string]: ColumnConfig } = {
+  displayedColumns = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'startDate', 'lastInteraction', 'selection'];
+
+  columnConfig: { [key: string]: { label: string; name: string } } = {
     id: { label: 'id', name: '' },
     status: { label: 'status', name: 'Status' },
-    requestername: { label: 'requesterName', name: 'Solicitante' },
-    request: { label: 'request', name: 'Solicitação' },
-    locationname: { label: 'locationName', name: 'Localização' },
-    locationregion: { label: 'locationRegion', name: 'Região' },
-    startdate: { label: 'startDate', name: 'Data' },
-    lastinteraction: { label: 'lastInteraction', name: '' },
-    selection: { label: 'selection', name: '' },
+    requesterName: { label: 'requesterName', name: 'Requester Name' },
+    request: { label: 'request', name: 'Request' },
+    locationName: { label: 'locationName', name: 'Location Name' },
+    locationRegion: { label: 'locationRegion', name: 'Location Region' },
+    startDate: { label: 'startDate', name: 'Start Date' },
+    lastInteraction: { label: 'lastInteraction', name: '' },
+    selection: { label: 'selection', name: '' }
   };
-  displayedColumns: string[] = Object.keys(this.columnConfig);
+
+  sortColumn: string | null = null;
+  sortAscending: boolean = true;
+
+  sortTable(column: string): void {
+    if (column === 'selection') return; // Skip sorting for 'selection'
+
+    if (this.sortColumn === column) {
+      this.sortAscending = !this.sortAscending; // Toggle sorting order
+    } else {
+      this.sortColumn = column;
+      this.sortAscending = true; // Default to ascending order
+    }
+
+    this.displayedTickets.sort((a, b) => {
+      const valueA = this.getValue(a, column);
+      const valueB = this.getValue(b, column);
+
+      if (valueA < valueB) return this.sortAscending ? -1 : 1;
+      if (valueA > valueB) return this.sortAscending ? 1 : -1;
+      return 0;
+    });
+  }
+
+  private getValue(ticket: any, column: string): any {
+    switch (column) {
+      case 'id':
+        return ticket.id;
+      case 'status':
+        return ticket.status;
+      case 'requesterName':
+        return ticket.requester?.name;
+      case 'request':
+        return ticket.request;
+      case 'locationName':
+        return ticket.location?.locationName;
+      case 'locationRegion':
+        return ticket.location?.region;
+      case 'startDate':
+        return new Date(ticket.startDate);
+      case 'lastInteraction':
+        return new Date(ticket.lastInteraction);
+      default:
+        return '';
+    }
+  }
 }
