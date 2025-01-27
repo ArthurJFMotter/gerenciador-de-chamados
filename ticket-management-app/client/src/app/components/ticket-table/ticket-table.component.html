@@ -61,10 +61,10 @@
           style="color: #6cc173;"
         ></i>
       </td>
-      <td>{{ row.requester?.name }}</td>
+      <td>{{ row.requester.name }}</td>
       <td>{{ row.request }}</td>
-      <td>{{ row.location?.locationName }}</td>
-      <td>{{ row.location?.region }}</td>
+      <td>{{ row.location.locationName }}</td>
+      <td>{{ row.location.region }}</td>
       <td>{{ dateService.formatDateToDayMonthYear(row.startDate)}}</td>
       <td>{{ dateService.timeSince(dateService.formatDateToValidISO(row.lastInteraction) || "") }}</td>
       <td><input type="checkbox" /></td>
