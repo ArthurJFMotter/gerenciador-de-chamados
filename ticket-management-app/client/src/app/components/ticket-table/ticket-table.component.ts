@@ -63,6 +63,15 @@ export class TicketTableComponent implements OnInit, OnChanges {
       const valueA = this.getValue(a, column);
       const valueB = this.getValue(b, column);
 
+      if (column === 'startDate') {
+        const dateA = this.parseDate(valueA);
+        const dateB = this.parseDate(valueB);
+        if (dateA && dateB) {
+          return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
+        }
+        return 0;
+      }
+
       if (typeof valueA === 'number' && typeof valueB === 'number') {
         return this.sortAscending ? valueA - valueB : valueB - valueA;
       }
@@ -71,6 +80,14 @@ export class TicketTableComponent implements OnInit, OnChanges {
       if (valueA > valueB) return this.sortAscending ? 1 : -1;
       return 0;
     });
+  }
+
+  private parseDate(dateString: string | null): Date | null {
+    if (!dateString) {
+      return null
+    }
+    const [day, month, year] = dateString.split('/').map(Number);
+    return new Date(year, month - 1, day);
   }
 
 
