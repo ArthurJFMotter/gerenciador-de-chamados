@@ -1,0 +1,111 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .main-container section {
+    padding: 0rem 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    justify-content: start;
+    width: 20vw;
+  }
+  
+  .search {
+    display: flex;
+    justify-content: start;
+    width: 40vw;
+  }
+  
+  .user-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 20vw;
+  }
+  
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 0rem 0.5rem;
+  }
+  
+  .image-logo {
+    max-width: 3rem;
+    max-height: 3rem;
+  }
+  
+  .text-logo {
+    font-size: large;
+    font-weight: bold;
+  }
+  
+  .quick-search-bar {
+     width: 100%;
+    height: 100%;
+    border-radius: 64px;
+  }
+  
+  .mat-mdc-form-field {
+      width: 100%;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: large;
+    color: #ffffff;
+    text-wrap: nowrap;
+    margin: 0.5rem 0rem;
+    width: fit-content;
+    text-indent: 0.5rem;
+  }
+  
+  .collapsible-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0rem;
+    margin-bottom: 0.5rem;
+    z-index: 10;
+  }
+  
+  .mat-mdc-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin: 0.25rem 0rem;
+      margin-inline: 0.25rem;
+      font-weight: 600;
+      cursor: pointer;
+  }
+  
+  #lock {
+      color: #000000;
+      background-color: #EED202;
+  }
+  
+  #panel {
+      color: #ffffff;
+      background-color: var(--primary-color);
+  }
+  
+  #logout {
+      color: #ffffff;
+      background-color: #FF2C2C;
+  }
+  
+  .aux-container {
+     position: relative;
+     overflow: hidden;
+  }
