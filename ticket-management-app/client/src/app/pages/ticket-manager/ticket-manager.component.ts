@@ -28,18 +28,19 @@ import { ViewButtonsComponent } from '../../components/view-buttons/view-buttons
   styleUrl: './ticket-manager.component.css'
 })
 export class TicketManagerComponent implements OnInit, OnDestroy {
+  ticketService = inject(TicketService);
+
   showTable: boolean = true;
+  loading = true;
   private destroy$ = new Subject<void>();
+  selectedQueue = new BehaviorSubject<string>('remote');
+
   allTickets: Ticket[] = [];
   filteredTickets: Ticket[] = [];
-  selectedQueue = new BehaviorSubject<string>('remote');
-  loading = true;
   error: string | null = null;
-
   currentPage: number = 1;
   pageSize: number = 15;
-
-  ticketService = inject(TicketService);
+  searchTerm = '';
 
   ngOnInit(): void {
     this.loadTickets();

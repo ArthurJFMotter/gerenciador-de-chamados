@@ -1,8 +1,9 @@
 <!-- filter search module start-->
 <div class="filter-search-bar">
-    <input placeholder="Buscar ...">
+    <input placeholder="Buscar ..." (input)="onSearchInput($event)" />
     <button>
-        <i class="fa fa-magnifying-glass"></i>
+      <i class="fa fa-magnifying-glass"></i>
     </button>
-</div>
+  </div>
+  
 <!-- filter search module end-->

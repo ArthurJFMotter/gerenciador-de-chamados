@@ -8,7 +8,7 @@
         <!-- category filter module end -->
         <div class="div-container">
             <!-- ticket filter module start -->
-            <app-ticket-filters></app-ticket-filters>
+            <app-ticket-filters (searchTermChange)="searchTerm = $event"></app-ticket-filters>
             <!-- ticket filter module end -->
             <div class="aux-div-container">
                 <!-- aux view button module start -->
@@ -30,7 +30,7 @@
                     [pageSize]="pageSize">
                 </app-ticket-table>
                 <app-ticket-card *ngIf="!showTable" [allTickets]="filteredTickets" [currentPage]="currentPage"
-                [pageSize]="pageSize">
+                [pageSize]="pageSize" [searchTerm]="searchTerm">
                 </app-ticket-card>
             </div>
             <ng-template #noTickets>
