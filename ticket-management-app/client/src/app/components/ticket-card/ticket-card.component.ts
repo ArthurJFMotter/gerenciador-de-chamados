@@ -1,53 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
-import { FormsModule } from '@angular/forms';
 import { DateService } from '../../services/date.service';
 
 @Component({
   selector: 'app-ticket-card',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
   templateUrl: './ticket-card.component.html',
   styleUrl: './ticket-card.component.css'
 })
-export class TicketCardComponent implements OnInit, OnChanges {
+export class TicketCardComponent implements OnInit {
   ticketService = inject(TicketService);
   dateService = inject(DateService);
 
   @Input() allTickets: Ticket[] = [];
-  filteredTickets: Ticket[] = [];
-
-  filterId: string = '';
-  filterStatus: string = '';
-  filterRequester: string = '';
-  filterRequest: string = '';
-  filterLocation: string = '';
-  filterRegion: string = '';
-  filterStartDate: string = '';
-  filterLastInteraction: string = '';
+  displayedTickets: Ticket[] = [];
+  @Input() currentPage: number = 1;
+  @Input() pageSize: number = 15;
 
   ngOnInit(): void {
-    this.filteredTickets = [...this.allTickets];
+    this.updateDisplayedTickets();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['allTickets']) {
-      this.filteredTickets = [...this.allTickets];
-      this.applyFilters();
+    if (changes['allTickets'] || changes['currentPage'] || changes['pageSize']) {
+      this.updateDisplayedTickets();
     }
   }
 
-  applyFilters(): void {
-    this.filteredTickets = this.allTickets.filter(ticket => {
-      const idMatch = !this.filterId || String(ticket.id).includes(this.filterId);
-      const statusMatch = !this.filterStatus || ticket.status?.toLowerCase().includes(this.filterStatus.toLowerCase());
-      const requesterMatch = !this.filterRequester || ticket.requester?.name?.toLowerCase().includes(this.filterRequester.toLowerCase());
-      const requestMatch = !this.filterRequest || ticket.request?.toLowerCase().includes(this.filterRequest.toLowerCase());
-      const locationMatch = !this.filterLocation || ticket.location?.locationName?.toLowerCase().includes(this.filterLocation.toLowerCase());
-      const regionMatch = !this.filterRegion || ticket.location?.region?.toLowerCase().includes(this.filterRegion.toLowerCase());
-      const startDateMatch = !this.filterStartDate || this.dateService.formatDateToDayMonthYear(ticket.startDate)?.includes(this.filterStartDate);
-
-      return idMatch && statusMatch && requesterMatch && requestMatch && locationMatch && regionMatch && startDateMatch;
-    });
+  updateDisplayedTickets(): void {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.displayedTickets = this.allTickets.slice(startIndex, endIndex);
   }
 }

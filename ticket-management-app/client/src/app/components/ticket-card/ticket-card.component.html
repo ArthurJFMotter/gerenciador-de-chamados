@@ -1,18 +1,6 @@
-<!-- Filter Inputs Start -->
-<div class="filter-inputs">
-    <input type="text" placeholder="Filter by ID" [(ngModel)]="filterId" (input)="applyFilters()">
-    <input type="text" placeholder="Filter by Status" [(ngModel)]="filterStatus" (input)="applyFilters()">
-    <input type="text" placeholder="Filter by Requester" [(ngModel)]="filterRequester" (input)="applyFilters()">
-    <input type="text" placeholder="Filter by Request" [(ngModel)]="filterRequest" (input)="applyFilters()">
-    <input type="text" placeholder="Filter by Location" [(ngModel)]="filterLocation" (input)="applyFilters()">
-    <input type="text" placeholder="Filter by Region" [(ngModel)]="filterRegion" (input)="applyFilters()">
-    <input type="text" placeholder="Filter by Start Date" [(ngModel)]="filterStartDate" (input)="applyFilters()">
-</div>
-<!-- Filter Inputs End -->
-
 <!-- Card Grid Start-->
 <div class="card-grid">
-    <div class="ticket-card" *ngFor="let ticket of filteredTickets">
+    <div class="ticket-card" *ngFor="let ticket of displayedTickets">
         <div class="card-header">
             <h3 class="ticket-id">#{{ticket.id}}</h3>
             <section class="responsible-info">

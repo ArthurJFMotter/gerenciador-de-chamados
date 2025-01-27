@@ -29,7 +29,8 @@
                 <app-ticket-table *ngIf="showTable" [allTickets]="filteredTickets" [currentPage]="currentPage"
                     [pageSize]="pageSize">
                 </app-ticket-table>
-                <app-ticket-card *ngIf="!showTable" [allTickets]="filteredTickets">
+                <app-ticket-card *ngIf="!showTable" [allTickets]="filteredTickets" [currentPage]="currentPage"
+                [pageSize]="pageSize">
                 </app-ticket-card>
             </div>
             <ng-template #noTickets>
