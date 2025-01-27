@@ -46,6 +46,7 @@ thead th:hover {
     }
 
     .table-sort {
+        color: rgba(0, 0, 0, 0.25);
         display: flex;
         flex-direction: column;
         padding: 0rem 0.5rem;
@@ -53,6 +54,14 @@ thead th:hover {
 
         .fa-sort-down {
             margin-top: -0.75rem;
+        }
+
+        .fa-sort-up.active {
+            color: var(--primary-color);
+        }
+
+        .fa-sort-down.active {
+            color: var(--primary-color);
         }
     }
 }
