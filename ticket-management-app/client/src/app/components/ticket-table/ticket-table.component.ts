@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { DateService } from '../../services/date.service';
 
@@ -7,32 +7,18 @@ import { DateService } from '../../services/date.service';
   selector: 'app-ticket-table',
   imports: [CommonModule],
   templateUrl: './ticket-table.component.html',
-  styleUrl: './ticket-table.component.css'
+  styleUrls: ['./ticket-table.component.css']
 })
 export class TicketTableComponent implements OnInit, OnChanges {
   ticketService = inject(TicketService);
   dateService = inject(DateService);
 
   @Input() allTickets: Ticket[] = [];
-  displayedTickets: Ticket[] = [];
   @Input() currentPage: number = 1;
   @Input() pageSize: number = 15;
+  @Input() searchTerm: string = '';
 
-  ngOnInit(): void {
-    this.updateDisplayedTickets();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['allTickets'] || changes['currentPage'] || changes['pageSize']) {
-      this.updateDisplayedTickets();
-    }
-  }
-
-  updateDisplayedTickets(): void {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    this.displayedTickets = this.allTickets.slice(startIndex, endIndex);
-  }
+  displayedTickets: Ticket[] = [];
 
   displayedColumns = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'startDate', 'lastInteraction', 'selection'];
 
@@ -51,6 +37,39 @@ export class TicketTableComponent implements OnInit, OnChanges {
   sortColumn: string | null = null;
   sortAscending: boolean = true;
 
+  ngOnInit(): void {
+    this.updateDisplayedTickets();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['allTickets'] || changes['currentPage'] || changes['pageSize'] || changes['searchTerm']) {
+      this.updateDisplayedTickets();
+    }
+  }
+
+  updateDisplayedTickets(): void {
+    const filteredTickets = this.filterTickets(this.allTickets, this.searchTerm);
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.displayedTickets = filteredTickets.slice(startIndex, endIndex);
+  }
+
+  filterTickets(tickets: Ticket[], term: string): Ticket[] {
+    if (!term) return tickets;
+  
+    const lowerCaseTerm = term.toLowerCase();
+    return tickets.filter(ticket =>
+      ticket.id.toString().includes(lowerCaseTerm) ||
+      ticket.status?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.requester?.name?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.request?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.location?.locationName?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.location?.region?.toLowerCase().includes(lowerCaseTerm) ||
+      (this.dateService.formatDateToDayMonthYear(ticket.startDate) || '').toLowerCase().includes(lowerCaseTerm) ||
+      this.dateService.timeSince(this.dateService.formatDateToValidISO(ticket.lastInteraction) || '').toLowerCase().includes(lowerCaseTerm)
+    );
+  }
+  
   sortTable(column: string): void {
     if (column === 'selection') return; // Skip sorting for 'selection'
 
@@ -65,23 +84,23 @@ export class TicketTableComponent implements OnInit, OnChanges {
       const valueA = this.getValue(a, column);
       const valueB = this.getValue(b, column);
 
-       if (column === 'startDate'){
+      if (column === 'startDate') {
         const dateA = this.dateService.parseDate(valueA);
         const dateB = this.dateService.parseDate(valueB);
-          if (dateA && dateB){
-           return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
+        if (dateA && dateB) {
+          return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
         }
         return 0;
       }
 
-      if (column === 'lastInteraction'){
-         const dateA = this.dateService.parseISOString(this.dateService.formatDateToValidISO(a.lastInteraction));
-         const dateB = this.dateService.parseISOString(this.dateService.formatDateToValidISO(b.lastInteraction));
+      if (column === 'lastInteraction') {
+        const dateA = this.dateService.parseISOString(this.dateService.formatDateToValidISO(a.lastInteraction));
+        const dateB = this.dateService.parseISOString(this.dateService.formatDateToValidISO(b.lastInteraction));
 
         if (dateA && dateB) {
-           return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
-          }
-          return 0;
+          return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
+        }
+        return 0;
       }
 
 
@@ -110,9 +129,9 @@ export class TicketTableComponent implements OnInit, OnChanges {
       case 'locationRegion':
         return ticket.location?.region;
       case 'startDate':
-         return this.dateService.formatDateToDayMonthYear(ticket.startDate);
-        case 'lastInteraction':
-            return ticket.lastInteraction;
+        return this.dateService.formatDateToDayMonthYear(ticket.startDate);
+      case 'lastInteraction':
+        return ticket.lastInteraction;
       default:
         return '';
     }

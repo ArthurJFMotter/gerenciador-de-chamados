@@ -16,7 +16,7 @@ export class TicketCardComponent implements OnInit {
   @Input() allTickets: Ticket[] = [];
   @Input() currentPage: number = 1;
   @Input() pageSize: number = 15;
-  @Input() searchTerm: string = ''; // New input for search term
+  @Input() searchTerm: string = ''; 
 
   displayedTickets: Ticket[] = [];
 

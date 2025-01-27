@@ -27,7 +27,7 @@
         <div *ngIf="!loading && !error">
             <div *ngIf="filteredTickets.length > 0; else noTickets">
                 <app-ticket-table *ngIf="showTable" [allTickets]="filteredTickets" [currentPage]="currentPage"
-                    [pageSize]="pageSize">
+                    [pageSize]="pageSize" [searchTerm]="searchTerm">
                 </app-ticket-table>
                 <app-ticket-card *ngIf="!showTable" [allTickets]="filteredTickets" [currentPage]="currentPage"
                 [pageSize]="pageSize" [searchTerm]="searchTerm">
