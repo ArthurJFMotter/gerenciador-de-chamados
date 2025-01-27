@@ -20,7 +20,7 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-panel',
   imports: [
     CommonModule,
-   // TicketTableComponent,
+    TicketTableComponent,
    // TicketCardComponent,
     MatTabsModule,
     MatChipsModule,
@@ -58,7 +58,6 @@ export class PanelComponent implements OnInit, OnDestroy {
     this.loadTickets();
     this.selectedQueue.pipe(takeUntil(this.destroy$)).subscribe(queue => {
       this.filterTickets(queue);
-      this.paginator.firstPage();
     });
   }
 

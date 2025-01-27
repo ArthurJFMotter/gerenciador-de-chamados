@@ -1,0 +1,87 @@
+/* table-ticket */
+.table {
+    min-width: 95vw;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+.mat-mdc-table {
+    background-color: transparent;
+}
+
+.mat-mdc-header-row {
+    background-color: var(--quartenary-color);
+    color: var(--text-color);
+}
+
+.mat-mdc-header-cell {
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--secondary-color);
+    text-wrap: nowrap;
+}
+
+.mat-mdc-cell {
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--secondary-color);
+    text-wrap: nowrap;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.th-info {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;
+    margin: auto;
+    color: var(--text-color);
+}
+
+.th-info mat-icon {
+    margin-inline: 0.5rem;
+}
+
+.header-label {
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+
+.mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.even-row {
+    background-color: var(--bg-color);
+}
+
+.odd-row {
+    background-color: var(--quartenary-color);
+}
+
+.mat-mdc-row:hover {
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    margin: -1px; /* Adjust margin to visually keep the same row height */
+    z-index: 1; /* Ensure hover border is above other rows */
+    position: relative; /* Needed for z-index to work */
+}
+
+
+/* Responsive adjustments for header label visibility */
+@media (min-width: 1100px) {
+    .header-label {
+        display: block;
+    }
+}

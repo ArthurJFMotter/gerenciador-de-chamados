@@ -56,10 +56,11 @@
         </div>
         <div *ngIf="!loading && !error">
             <div *ngIf="filteredTickets.length > 0; else noTickets">
-                <!--
+                
           <app-ticket-table *ngIf="showTable === 'table'" [allTickets]="filteredTickets" [currentPage]="currentPage"
             [pageSize]="pageSize" [searchTerm]="searchTerm">
           </app-ticket-table>
+          <!--
           <app-ticket-card *ngIf="showTable === 'card'" [allTickets]="filteredTickets" [currentPage]="currentPage"
           [pageSize]="pageSize" [searchTerm]="searchTerm">
           </app-ticket-card>
