@@ -65,8 +65,8 @@
       <td>{{ row.request }}</td>
       <td>{{ row.location?.locationName }}</td>
       <td>{{ row.location?.region }}</td>
-      <td>{{ formatDateToDayMonthYear(row.startDate)}}</td>
-      <td>{{ timeSince(formatDateToValidISO(row.lastInteraction) || "") }}</td>
+      <td>{{ dateService.formatDateToDayMonthYear(row.startDate)}}</td>
+      <td>{{ dateService.timeSince(dateService.formatDateToValidISO(row.lastInteraction) || "") }}</td>
       <td><input type="checkbox" /></td>
     </tr>
   </tbody>

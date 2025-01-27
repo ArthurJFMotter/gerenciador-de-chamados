@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
+import { DateService } from '../../services/date.service';
 
 @Component({
   selector: 'app-ticket-table',
@@ -10,6 +11,7 @@ import { Ticket, TicketService } from '../../services/ticket.service';
 })
 export class TicketTableComponent implements OnInit, OnChanges {
   ticketService = inject(TicketService);
+  dateService = inject(DateService);
 
   @Input() allTickets: Ticket[] = [];
   displayedTickets: Ticket[] = [];
@@ -63,23 +65,23 @@ export class TicketTableComponent implements OnInit, OnChanges {
       const valueA = this.getValue(a, column);
       const valueB = this.getValue(b, column);
 
-      if (column === 'startDate') {
-        const dateA = this.parseDate(valueA);
-        const dateB = this.parseDate(valueB);
-        if (dateA && dateB) {
-          return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
+       if (column === 'startDate'){
+        const dateA = this.dateService.parseDate(valueA);
+        const dateB = this.dateService.parseDate(valueB);
+          if (dateA && dateB){
+           return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
         }
         return 0;
       }
 
-      if (column === 'lastInteraction') {
-        const dateA = this.parseISOString(this.formatDateToValidISO(a.lastInteraction));
-        const dateB = this.parseISOString(this.formatDateToValidISO(b.lastInteraction));
+      if (column === 'lastInteraction'){
+         const dateA = this.dateService.parseISOString(this.dateService.formatDateToValidISO(a.lastInteraction));
+         const dateB = this.dateService.parseISOString(this.dateService.formatDateToValidISO(b.lastInteraction));
 
         if (dateA && dateB) {
-          return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
-        }
-        return 0;
+           return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
+          }
+          return 0;
       }
 
 
@@ -92,23 +94,6 @@ export class TicketTableComponent implements OnInit, OnChanges {
       return 0;
     });
   }
-
-
-  private parseDate(dateString: string | null): Date | null {
-    if (!dateString) {
-      return null
-    }
-    const [day, month, year] = dateString.split('/').map(Number);
-    return new Date(year, month - 1, day);
-  }
-
-  private parseISOString(dateString: string | null): Date | null {
-    if (!dateString) {
-      return null;
-    }
-    return new Date(dateString);
-  }
-
 
   getValue(ticket: any, column: string): any {
     switch (column) {
@@ -125,120 +110,11 @@ export class TicketTableComponent implements OnInit, OnChanges {
       case 'locationRegion':
         return ticket.location?.region;
       case 'startDate':
-        return this.formatDateToDayMonthYear(ticket.startDate);
-      case 'lastInteraction':
-        const formattedDate = this.formatDateToValidISO(ticket.lastInteraction);
-        return formattedDate;
+         return this.dateService.formatDateToDayMonthYear(ticket.startDate);
+        case 'lastInteraction':
+            return ticket.lastInteraction;
       default:
         return '';
     }
-  }
-
-  formatDateToDayMonthYear(dateString: string): string | null {
-    // Expected date string format: "dd/mm/yyyy - hh:mm:ss"
-
-    if (!dateString) {
-      return null;
-    }
-
-    try {
-      // Split the string at the space to separate the date and time parts
-      const parts = dateString.split(" - ");
-      if (parts.length !== 2) {
-        return null;
-      }
-
-      const datePart = parts[0];
-
-      // Validate the date format using a regular expression
-      const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-      if (!dateRegex.test(datePart)) {
-        return null;
-      }
-
-
-      return datePart; // Return only the "dd/mm/yyyy" part
-
-    } catch (error) {
-      console.error("Error parsing date:", error);
-      return null;
-    }
-  }
-
-  formatDateToValidISO(dateString: string): string | null {
-    if (!dateString) {
-      return null;
-    }
-
-    try {
-      const parts = dateString.split(" - ");
-      if (parts.length !== 2) {
-        return null;
-      }
-
-      const [datePart, timePart] = parts;
-
-      const [day, month, year] = datePart.split("/");
-      const [hours, minutes, seconds] = timePart.split(":");
-
-
-      return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
-
-    } catch (error) {
-      console.error("Error formatting to valid ISO:", error);
-      return null;
-    }
-  }
-
-
-  timeSince(dateString: string): string {
-
-    if (!dateString) {
-      return 'Never';
-    }
-
-    try {
-      const parsedDate = new Date(dateString);
-      if (isNaN(parsedDate.getTime())) {
-        return 'Invalid Date';
-      }
-
-      const now = new Date();
-      const diffInSeconds = Math.floor((now.getTime() - parsedDate.getTime()) / 1000);
-
-      if (diffInSeconds < 60) {
-        return `${diffInSeconds}s`;
-      }
-
-      const diffInMinutes = Math.floor(diffInSeconds / 60);
-      if (diffInMinutes < 60) {
-        return `${diffInMinutes}min`;
-      }
-
-      const diffInHours = Math.floor(diffInMinutes / 60);
-      if (diffInHours < 24) {
-        return `${diffInHours}h`;
-      }
-
-      const diffInDays = Math.floor(diffInHours / 24);
-      if (diffInDays < 30) {
-        return `${diffInDays}d`;
-      }
-
-      const diffInMonths = this.diffInMonths(parsedDate, now);
-      return `${diffInMonths}m`;
-    } catch (error) {
-      console.error("Error calculating time since:", error);
-      return 'Invalid Date';
-    }
-  }
-
-
-  private diffInMonths(parsedDate: Date, now: Date): number {
-    let months = (now.getFullYear() - parsedDate.getFullYear()) * 12;
-    months -= parsedDate.getMonth();
-    months += now.getMonth();
-
-    return months <= 0 ? 0 : months;
   }
 }
