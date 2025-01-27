@@ -4,7 +4,7 @@
     "request": "Instalação de Programas",
     "status": "priority",
     "queue": "remote",
-    "startDate": "01/01/2025 - 14:30:45",
+    "createdDate": "01/01/2025 - 14:30:45",
     "lastInteraction": "24/01/2025 - 17:23:14",
     "responsible": null,
     "requester": {
@@ -13,7 +13,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Secretaria de setor X",
+      "name": "Secretaria de setor X",
       "region": "INTERNA",
       "complement": null
     },
@@ -25,7 +25,7 @@
     "request": "Recuperação de Usuário",
     "status": "priority",
     "queue": "on site",
-    "startDate": "04/01/2025 - 14:30:45",
+    "createdDate": "04/01/2025 - 14:30:45",
     "lastInteraction": "24/01/2025 - 11:32:18",
     "responsible": "Fulano de lá",
     "requester": {
@@ -34,7 +34,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Central de tal lugar",
+      "name": "Central de tal lugar",
       "region": "CENTRO",
       "complement": null
     },
@@ -46,7 +46,7 @@
     "request": "Instalação de impressora",
     "status": "open",
     "queue": "maintenance",
-    "startDate": "13/01/2025 - 10:27:59",
+    "createdDate": "13/01/2025 - 10:27:59",
     "lastInteraction": "16/01/2025 - 15:42:46",
     "responsible": null,
     "requester": {
@@ -55,7 +55,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Hospital daquele local",
+      "name": "Hospital daquele local",
       "region": "CENTRO",
       "complement": null
     },
@@ -67,7 +67,7 @@
     "request": "Configuração de conta",
     "status": "open",
     "queue": "network management",
-    "startDate": "11/11/2024 - 16:01:56",
+    "createdDate": "11/11/2024 - 16:01:56",
     "lastInteraction": "20/12/2024 - 18:01:44",
     "responsible": "Ciclana de cá",
     "requester": {
@@ -76,7 +76,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Secretaria de setor Y",
+      "name": "Secretaria de setor Y",
       "region": "NORTE",
       "complement": null
     },
@@ -88,7 +88,7 @@
     "request": "Instalação Pacote Office",
     "status": "open",
     "queue": "telephony management",
-    "startDate": "04/12/2024 - 11:34:47",
+    "createdDate": "04/12/2024 - 11:34:47",
     "lastInteraction": "23/01/2025 - 12:23:11",
     "responsible": null,
     "requester": {
@@ -97,7 +97,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Organização deste lugar aqui",
+      "name": "Organização deste lugar aqui",
       "region": "SUL",
       "complement": null
     },
@@ -109,7 +109,7 @@
     "request": "Configuração de impressora",
     "status": "open",
     "queue": "network maintenance",
-    "startDate": "01/11/2024 - 16:50:33",
+    "createdDate": "01/11/2024 - 16:50:33",
     "lastInteraction": "29/12/2024 - 11:43:17",
     "responsible": null,
     "requester": {
@@ -118,7 +118,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Centro Médico de lugar ABCD",
+      "name": "Centro Médico de lugar ABCD",
       "region": "LESTE",
       "complement": null
     },
@@ -130,7 +130,7 @@
     "request": "Atualização Pacote Office",
     "status": "closed",
     "queue": "telephony maintenance",
-    "startDate": "14/01/2025 - 13:33:15",
+    "createdDate": "14/01/2025 - 13:33:15",
     "lastInteraction": "21/01/2025 - 11:25:44",
     "responsible": "Fulana dali",
     "requester": {
@@ -139,7 +139,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Clínica do estado de tal lugar",
+      "name": "Clínica do estado de tal lugar",
       "region": "INTERNA",
       "complement": null
     },
@@ -151,7 +151,7 @@
     "request": "tranferência Pacote Office",
     "status": "closed",
     "queue": "warrant",
-    "startDate": "04/12/2024 - 16:50:12",
+    "createdDate": "04/12/2024 - 16:50:12",
     "lastInteraction": "27/01/2025 - 08:21:12",
     "responsible": "Ciclano daqui",
     "requester": {
@@ -160,7 +160,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Agência central de tal lugar",
+      "name": "Agência central de tal lugar",
       "region": "LESTE",
       "complement": null
     },
@@ -172,7 +172,7 @@
     "request": "Configuração de Email",
     "status": "open",
     "queue": "on site",
-    "startDate": "01/10/2024 - 14:43:21",
+    "createdDate": "01/10/2024 - 14:43:21",
     "lastInteraction": "02/11/2024 - 17:27:15",
     "responsible": "Carlos Silva",
     "requester": {
@@ -181,7 +181,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Sala de Reuniões",
+      "name": "Sala de Reuniões",
       "region": "INTERNA",
       "complement": "Próximo à recepção"
     },
@@ -193,7 +193,7 @@
     "request": "Manutenção em Impressora",
     "status": "priority",
     "queue": "on site",
-    "startDate": "01/01/2025 - 14:30:45",
+    "createdDate": "01/01/2025 - 14:30:45",
     "lastInteraction": "24/01/2025 - 13:33:54",
     "responsible": "Ana Costa",
     "requester": {
@@ -202,7 +202,7 @@
       "phone": "987654321"
     },
     "location": {
-      "locationName": "Sala de TI",
+      "name": "Sala de TI",
       "region": "INTERNA",
       "complement": "Andar Térreo"
     },
@@ -214,7 +214,7 @@
     "request": "Atualização de Software",
     "status": "open",
     "queue": "remote",
-    "startDate": "05/01/2025 - 15:50:56",
+    "createdDate": "05/01/2025 - 15:50:56",
     "lastInteraction": "24/01/2025 - 08:28:17",
     "responsible": null,
     "requester": {
@@ -223,7 +223,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Setor Administrativo",
+      "name": "Setor Administrativo",
       "region": "INTERNA",
       "complement": null
     },
@@ -235,7 +235,7 @@
     "request": "Recuperação de Senha",
     "status": "priority",
     "queue": "remote",
-    "startDate": "12/01/2025 - 10:31:53",
+    "createdDate": "12/01/2025 - 10:31:53",
     "lastInteraction": "19/01/2025 - 16:23:43",
     "responsible": "Felipe Andrade",
     "requester": {
@@ -244,7 +244,7 @@
       "phone": "3344556677"
     },
     "location": {
-      "locationName": "Secretaria Geral",
+      "name": "Secretaria Geral",
       "region": "INTERNA",
       "complement": null
     },
@@ -256,7 +256,7 @@
     "request": "Conexão de Rede Lenta",
     "status": "closed",
     "queue": "on site",
-    "startDate": "17/01/2025 - 13:45:44",
+    "createdDate": "17/01/2025 - 13:45:44",
     "lastInteraction": "16/01/2025 - 11:34:14",
     "responsible": null,
     "requester": {
@@ -265,7 +265,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Sala de Treinamento",
+      "name": "Sala de Treinamento",
       "region": "EXTERNA",
       "complement": null
     },
@@ -277,7 +277,7 @@
     "request": "Instalação de Projetor",
     "status": "open",
     "queue": "on site",
-    "startDate": "02/01/2025 - 09:23:31",
+    "createdDate": "02/01/2025 - 09:23:31",
     "lastInteraction": "15/01/2025 - 17:42:15",
     "responsible": null,
     "requester": {
@@ -286,7 +286,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Auditório",
+      "name": "Auditório",
       "region": "INTERNA",
       "complement": null
     },
@@ -298,7 +298,7 @@
     "request": "Backup de Arquivos",
     "status": "priority",
     "queue": "remote",
-    "startDate": "07/01/2025 - 10:43:15",
+    "createdDate": "07/01/2025 - 10:43:15",
     "lastInteraction": "09/01/2025 - 12:14:20",
     "responsible": "Thiago Martins",
     "requester": {
@@ -307,7 +307,7 @@
       "phone": "2233445566"
     },
     "location": {
-      "locationName": "Sala de Arquivo",
+      "name": "Sala de Arquivo",
       "region": "INTERNA",
       "complement": "Próximo ao Almoxarifado"
     },
@@ -319,7 +319,7 @@
     "request": "Troca de Monitor",
     "status": "open",
     "queue": "on site",
-    "startDate": "09/12/2025 - 10:45:54",
+    "createdDate": "09/12/2025 - 10:45:54",
     "lastInteraction": "14/01/2025 - 14:22:34",
     "responsible": null,
     "requester": {
@@ -328,7 +328,7 @@
       "phone": null
     },
     "location": {
-      "locationName": "Departamento Financeiro",
+      "name": "Departamento Financeiro",
       "region": "INTERNA",
       "complement": null
     },
@@ -340,7 +340,7 @@
     "request": "Configuração de VPN",
     "status": "closed",
     "queue": "remote",
-    "startDate": "18/12/2024 - 12:37:32",
+    "createdDate": "18/12/2024 - 12:37:32",
     "lastInteraction": "24/01/2025 - 13:53:44",
     "responsible": "Paulo Lima",
     "requester": {
@@ -349,8 +349,29 @@
       "phone": null
     },
     "location": {
-      "locationName": "Home Office",
+      "name": "Home Office",
       "region": "EXTERNA",
+      "complement": null
+    },
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00018",
+    "request": "montagem de computador",
+    "status": "open",
+    "queue": "maintenance",
+    "createdDate": "22/01/2025 - 16:57:26",
+    "lastInteraction": "26/01/2025 - 12:59:41",
+    "responsible": "Roberto de Carvalho",
+    "requester": {
+      "name": "Marina Pimenta",
+      "cellphone": "1234123433",
+      "phone": null
+    },
+    "location": {
+      "name": "Praça daquela república",
+      "region": "SUL",
       "complement": null
     },
     "communication": [],

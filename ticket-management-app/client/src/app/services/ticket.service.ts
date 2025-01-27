@@ -9,10 +9,12 @@ import { catchError, map, retry } from 'rxjs/operators';
 export class TicketService {
   http = inject(HttpClient);
 
+  //PLACEHOLDER FOR ACTUAL DB TO API CALLS
   getTickets(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>('assets/tickets.json');
   }
   
+  //PLACEHOLDER FOR ACTUAL DB TO API CALLS
   getTicketById(id: string): Observable<Ticket | undefined> {
     return this.http.get<Ticket[]>(`assets/tickets.json`).pipe(
       map(tickets => tickets.find(ticket => ticket.id === id))
@@ -25,7 +27,7 @@ export interface Ticket {
   request: string;
   status: string;
   queue: string;
-  startDate: string; //'DD/MM/YYYY'
+  createdDate: string; //'DD/MM/YYYY'
   lastInteraction: string; //'HH:mm:ss'
   responsible?: string;
   requester: Requester;
@@ -44,7 +46,7 @@ export interface Requester {
 }
 
 export interface Location {
-  locationName: string;
+  name: string;
   region: string;
   complement?: string;
 }

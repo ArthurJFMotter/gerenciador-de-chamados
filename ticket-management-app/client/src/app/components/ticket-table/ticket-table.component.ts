@@ -20,16 +20,16 @@ export class TicketTableComponent implements OnInit, OnChanges {
 
   displayedTickets: Ticket[] = [];
 
-  displayedColumns = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'startDate', 'lastInteraction', 'selection'];
+  displayedColumns = ['id', 'status', 'requesterName', 'request', 'name', 'locationRegion', 'createdDate', 'lastInteraction', 'selection'];
 
   columnConfig: { [key: string]: { label: string; name: string } } = {
     id: { label: 'id', name: '' },
     status: { label: 'status', name: 'Status' },
     requesterName: { label: 'requesterName', name: 'Solicitante' },
     request: { label: 'request', name: 'Solicitação' },
-    locationName: { label: 'locationName', name: 'Local' },
+    name: { label: 'name', name: 'Local' },
     locationRegion: { label: 'locationRegion', name: 'Região' },
-    startDate: { label: 'startDate', name: 'Data' },
+    createdDate: { label: 'createdDate', name: 'Data' },
     lastInteraction: { label: 'lastInteraction', name: '' },
     selection: { label: 'selection', name: '' }
   };
@@ -63,9 +63,9 @@ export class TicketTableComponent implements OnInit, OnChanges {
       ticket.status?.toLowerCase().includes(lowerCaseTerm) ||
       ticket.requester?.name?.toLowerCase().includes(lowerCaseTerm) ||
       ticket.request?.toLowerCase().includes(lowerCaseTerm) ||
-      ticket.location?.locationName?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.location?.name?.toLowerCase().includes(lowerCaseTerm) ||
       ticket.location?.region?.toLowerCase().includes(lowerCaseTerm) ||
-      (this.dateService.formatDateToDayMonthYear(ticket.startDate) || '').toLowerCase().includes(lowerCaseTerm) ||
+      (this.dateService.formatDateToDayMonthYear(ticket.createdDate) || '').toLowerCase().includes(lowerCaseTerm) ||
       this.dateService.timeSince(this.dateService.formatDateToValidISO(ticket.lastInteraction) || '').toLowerCase().includes(lowerCaseTerm)
     );
   }
@@ -84,7 +84,7 @@ export class TicketTableComponent implements OnInit, OnChanges {
       const valueA = this.getValue(a, column);
       const valueB = this.getValue(b, column);
 
-      if (column === 'startDate') {
+      if (column === 'createdDate') {
         const dateA = this.dateService.parseDate(valueA);
         const dateB = this.dateService.parseDate(valueB);
         if (dateA && dateB) {
@@ -124,12 +124,12 @@ export class TicketTableComponent implements OnInit, OnChanges {
         return ticket.requester?.name;
       case 'request':
         return ticket.request;
-      case 'locationName':
-        return ticket.location?.locationName;
+      case 'name':
+        return ticket.location?.name;
       case 'locationRegion':
         return ticket.location?.region;
-      case 'startDate':
-        return this.dateService.formatDateToDayMonthYear(ticket.startDate);
+      case 'createdDate':
+        return this.dateService.formatDateToDayMonthYear(ticket.createdDate);
       case 'lastInteraction':
         return ticket.lastInteraction;
       default:

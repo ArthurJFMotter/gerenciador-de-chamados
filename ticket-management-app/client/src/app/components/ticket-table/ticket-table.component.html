@@ -10,10 +10,10 @@
             <i *ngIf="columnConfig[column].label === 'status'" class="fa-solid fa-circle-exclamation"></i>
             <i *ngIf="columnConfig[column].label === 'requesterName'" class="fa fa-user"></i>
             <i *ngIf="columnConfig[column].label === 'request'" class="fa-solid fa-receipt"></i>
-            <i *ngIf="columnConfig[column].label === 'locationName'" class="fa-solid fa-location-dot"></i>
+            <i *ngIf="columnConfig[column].label === 'name'" class="fa-solid fa-location-dot"></i>
             <i *ngIf="columnConfig[column].label === 'locationRegion'" class="fa-solid fa-map-location-dot"></i>
             <i *ngIf="columnConfig[column].label === 'lastInteraction'" class="fa-solid fa-clock"></i>
-            <i *ngIf="columnConfig[column].label === 'startDate'" class="fa fa-calendar-days"></i>
+            <i *ngIf="columnConfig[column].label === 'createdDate'" class="fa fa-calendar-days"></i>
             <i *ngIf="columnConfig[column].label === 'selection'" class="fa-solid fa-list-check"></i>
             <span>{{ columnConfig[column].name }}</span>
           </div>
@@ -63,9 +63,9 @@
       </td>
       <td>{{ row.requester.name }}</td>
       <td>{{ row.request }}</td>
-      <td>{{ row.location.locationName }}</td>
+      <td>{{ row.location.name }}</td>
       <td>{{ row.location.region }}</td>
-      <td>{{ dateService.formatDateToDayMonthYear(row.startDate)}}</td>
+      <td>{{ dateService.formatDateToDayMonthYear(row.createdDate)}}</td>
       <td>{{ dateService.timeSince(dateService.formatDateToValidISO(row.lastInteraction) || "") }}</td>
       <td><input type="checkbox" /></td>
     </tr>
