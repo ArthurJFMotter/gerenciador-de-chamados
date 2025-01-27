@@ -26,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
   //themeService = inject(AplicationThemeService);

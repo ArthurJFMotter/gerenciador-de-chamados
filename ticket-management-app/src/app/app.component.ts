@@ -7,7 +7,7 @@ import { PanelComponent } from './pages/panel/panel.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent, PanelComponent],
+  imports: [FooterComponent, HeaderComponent, PanelComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
