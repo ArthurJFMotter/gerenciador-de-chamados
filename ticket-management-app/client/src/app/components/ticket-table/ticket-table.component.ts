@@ -72,6 +72,17 @@ export class TicketTableComponent implements OnInit, OnChanges {
         return 0;
       }
 
+      if (column === 'lastInteraction') {
+        const dateA = this.parseISOString(this.formatDateToValidISO(a.lastInteraction));
+        const dateB = this.parseISOString(this.formatDateToValidISO(b.lastInteraction));
+
+        if (dateA && dateB) {
+          return this.sortAscending ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
+        }
+        return 0;
+      }
+
+
       if (typeof valueA === 'number' && typeof valueB === 'number') {
         return this.sortAscending ? valueA - valueB : valueB - valueA;
       }
@@ -82,12 +93,20 @@ export class TicketTableComponent implements OnInit, OnChanges {
     });
   }
 
+
   private parseDate(dateString: string | null): Date | null {
     if (!dateString) {
       return null
     }
     const [day, month, year] = dateString.split('/').map(Number);
     return new Date(year, month - 1, day);
+  }
+
+  private parseISOString(dateString: string | null): Date | null {
+    if (!dateString) {
+      return null;
+    }
+    return new Date(dateString);
   }
 
 
@@ -109,7 +128,7 @@ export class TicketTableComponent implements OnInit, OnChanges {
         return this.formatDateToDayMonthYear(ticket.startDate);
       case 'lastInteraction':
         const formattedDate = this.formatDateToValidISO(ticket.lastInteraction);
-        return this.timeSince(formattedDate || "");
+        return formattedDate;
       default:
         return '';
     }
