@@ -21,7 +21,7 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     TicketTableComponent,
-   // TicketCardComponent,
+    TicketCardComponent,
     MatTabsModule,
     MatChipsModule,
     MatFormFieldModule,
