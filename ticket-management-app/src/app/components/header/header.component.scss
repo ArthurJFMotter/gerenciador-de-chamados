@@ -51,17 +51,26 @@
 }
 
 .menu-container {
-  background-color: var(--mat-sys-surface-container-lowest);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
-  border: 1px solid var(--mat-sys-surface-container-lowest);
-  border-top: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 1.25rem 1rem;
+  top: 100%;
+}
+
+.menu-items {
+  background-color: var(--mat-sys-surface-container-lowest);
+  border-radius: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 1rem;
-  top: 100%;
+  padding: 0.5rem;
+  height: fit-content;
+  width: 100%;
 }
 
 .buttons-container{
