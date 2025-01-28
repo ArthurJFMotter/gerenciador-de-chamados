@@ -4,7 +4,6 @@
     margin: 1.5rem auto;
     border-radius: 8px;
     overflow: hidden;
-    background-color: var(--bg-color);
 }
 
 .mat-mdc-table {
@@ -12,21 +11,26 @@
 }
 
 .mat-mdc-header-row {
-    background-color: var(--quartenary-color);
-    color: var(--text-color);
+    background-color: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
 }
 
 .mat-mdc-header-cell {
     padding: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--mat-sys-on-surface);
     text-wrap: nowrap;
+}
+
+.mat-mdc-header-cell:hover{
+    background-color: var(--mat-sys-surface-container);
+    color: var(--mat-sys-on-surface);
 }
 
 .mat-mdc-cell {
     padding: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--mat-sys-on-surface);
     text-wrap: nowrap;
 }
 
@@ -42,7 +46,6 @@
     width: fit-content;
     justify-content: center;
     margin: auto;
-    color: var(--text-color);
 }
 
 .th-info mat-icon {
@@ -55,31 +58,25 @@
     }
 }
 
-
 .mat-sort-header-container {
     display: flex;
     justify-content: center;
 }
 
 .even-row {
-    background-color: var(--bg-color);
+    background-color: var(--mat-sys-surface-container-lowest);
 }
 
 .odd-row {
-    background-color: var(--quartenary-color);
+    background-color: var(--mat-sys-surface);
 }
 
-.mat-mdc-row:hover {
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
+.odd-row:hover, .even-row:hover{
+    background-color: var(--mat-sys-surface-container);
+    color: var(--mat-sys-on-surface);
     cursor: pointer;
-    margin: -1px; /* Adjust margin to visually keep the same row height */
-    z-index: 1; /* Ensure hover border is above other rows */
-    position: relative; /* Needed for z-index to work */
 }
 
-
-/* Responsive adjustments for header label visibility */
 @media (min-width: 1100px) {
     .header-label {
         display: block;
