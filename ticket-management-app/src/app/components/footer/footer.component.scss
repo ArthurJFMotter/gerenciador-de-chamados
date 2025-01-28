@@ -1,77 +1,54 @@
-.main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: small;
-  }
-  
-  .aux-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-  }
-  
-  .divisor {
-    margin: 0 0.5rem;
-  }
-  
-  section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    padding: 0.5rem;
-    margin: 0.1rem;
-  }
-  
-  p {
-      margin: 0rem 0.25rem;
-  }
-  
-  span {
-      margin: 0rem 0.125rem;
-  }
-  
-  #autorization {
-      background-color: #007bff;
-      padding: 0.25rem;
-      border-radius: 4px;
-      color: #fff;
-  }
-  
-  #ambient {
-      background-color: transparent;
-      padding: 0.25rem;
-      border-radius: 4px;
-      border-style: solid;
-      border-width: 1px;
-      border-color: #E8E2E2;
-  }
-  
-  #version {
-      font-style: italic;
-      padding: 0.25rem;
-  }
-  
-  #version-notes {
-     font-size: x-small;
-     margin-left: 0.5rem;
-  }
-  
-  
+mat-toolbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+
+  font-size: 1rem;
+
   @media (max-width: 768px) {
-        .main-container {
-          display: grid;
-        }
-      
-      .aux-container{
-        margin: auto;
-      }
-      
-      .divisor{
-        display: none;
-      }
-  
+    flex-direction: column;
   }
+    
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 0.5rem;
+  gap: 0.25rem;
+}
+
+.divisor {
+  margin: 0 0.5rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+#autorization {
+  background-color: var(--mat-sys-primary);
+  border: 1px solid var(--mat-sys-on-surface);
+  border-radius: 4px;
+  padding: 0.25rem;
+  color: var(--mat-sys-on-primary);
+}
+
+#ambient {
+  background-color: transparent;
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid var(--mat-sys-on-surface);
+}
+
+#version {
+  font-style: italic;
+  padding: 0.25rem;
+}
+
+#version-notes {
+  font-size: small;
+}
