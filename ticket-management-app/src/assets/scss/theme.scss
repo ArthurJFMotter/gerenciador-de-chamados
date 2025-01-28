@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@use '@angular/material/theming' as theming;
 
 // Define your color palette here
 $my-primary-palette: mat.define-palette(mat.$indigo-palette, 500, 300, 700);
