@@ -3,20 +3,20 @@
         <!-- tabs module start -->
         <mat-tab-group mat-stretch-tabs (selectedTabChange)="updateQueue($event)">
             <mat-tab label="Remote"></mat-tab>
-            <mat-tab label="Internal"></mat-tab>
-            <mat-tab label="On Site"></mat-tab>
+            <mat-tab label="On site"></mat-tab>
+            <mat-tab label="Maintenance"></mat-tab>
+            <mat-tab label="warehouse"></mat-tab>
+            <mat-tab label="network management"></mat-tab>
+            <mat-tab label="telephony management"></mat-tab>
+            <mat-tab label="network maintenance"></mat-tab>
+            <mat-tab label="telephony maintenance"></mat-tab>
+            <mat-tab label="warrant"></mat-tab>
+            <mat-tab label="all"></mat-tab>
         </mat-tab-group>
         <!-- tabs module start -->
 
         <!-- category filter module start -->
         <div class="div-container">
-
-            <mat-chip-listbox aria-label="Filter by category">
-                <mat-chip>Remote</mat-chip>
-                <mat-chip>Internal</mat-chip>
-                <mat-chip>On Site</mat-chip>
-            </mat-chip-listbox>
-
             <!-- ticket filter module start -->
             <mat-form-field appearance="outline">
                 <input matInput placeholder="Buscar" (keyup)="searchTerm = $any($event.target).value">

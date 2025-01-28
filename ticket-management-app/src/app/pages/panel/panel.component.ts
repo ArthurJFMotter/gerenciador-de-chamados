@@ -94,7 +94,7 @@ export class PanelComponent implements OnInit, OnDestroy {
   }
 
   updateQueue(event : MatTabChangeEvent){
-    this.selectedQueue.next(event.tab.textLabel.toLocaleLowerCase().replace(' ', '-'));
+    this.selectedQueue.next(event.tab.textLabel.toLocaleLowerCase());
   }
 
   onPageChanged(event: PageEvent): void {
