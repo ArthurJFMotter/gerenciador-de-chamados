@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, ViewChild, HostBinding } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, HostBinding, Output, EventEmitter, Input } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,21 +26,18 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit {
-    isMenuOpen: boolean = false;
-    @ViewChild('drawer') drawer!: MatDrawer;
+export class HeaderComponent {
+  isMenuOpen: boolean = false;
+  @Input() isDarkMode: boolean = false;
+  @Output() themeToggle = new EventEmitter<void>();
+  @ViewChild('drawer') drawer!: MatDrawer;
 
-    @HostBinding('class.dark-theme') isDarkMode = false;
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    this.drawer.toggle();
+  }
 
-    ngOnInit(): void {
-    }
-  
-    toggleMenu() {
-        this.isMenuOpen = !this.isMenuOpen;
-        this.drawer.toggle();
-    }
-
-    toggleTheme(): void {
-        this.isDarkMode = !this.isDarkMode;
-    }
+  toggleTheme() {
+    this.themeToggle.emit();
+  }
 }

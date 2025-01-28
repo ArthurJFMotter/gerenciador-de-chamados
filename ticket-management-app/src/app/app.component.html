@@ -1,5 +1,5 @@
 <app-wrapper>
-    <app-header></app-header>
+    <app-header [isDarkMode]="darkMode()" (themeToggle)="onThemeToggle()"></app-header>
 
     <app-panel></app-panel>
 

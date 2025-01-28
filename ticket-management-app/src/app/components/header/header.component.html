@@ -1,41 +1,37 @@
 <mat-toolbar color="primary">
     <div class="main-container">
-        <!-- logo module start-->
+        <!-- Logo -->
         <section class="logo">
-            <img class="image-logo" src="../../../assets/images/star-alt-com.svg" alt="Logo">
+            <img class="image-logo" src="../../../assets/images/star-alt-com.svg" alt="Logo" />
             <h1 class="text-logo">APLIC</h1>
         </section>
-        <!-- navbar module end-->
 
-        <!-- quick search module start-->
+        <!-- Quick Search -->
         <section class="search">
             <mat-form-field appearance="outline" class="quick-search-bar">
-                <input matInput placeholder="Busca rápida ...">
+                <input matInput placeholder="Busca rápida ..." />
                 <button mat-icon-button matSuffix>
                     <mat-icon>search</mat-icon>
                 </button>
             </mat-form-field>
         </section>
-        <!-- quick search module end-->
 
-        <!-- user actions module start-->
+        <!-- User Actions -->
         <section class="user-actions">
-            <!-- theme button -->
+            <!-- Theme Toggle Button -->
             <button mat-icon-button (click)="toggleTheme()">
                 <mat-icon *ngIf="!isDarkMode">wb_sunny</mat-icon>
                 <mat-icon *ngIf="isDarkMode">nights_stay</mat-icon>
             </button>
-            <!-- theme button -->
-            <!-- colapsable menu button -->
+
+            <!-- Collapsible Menu -->
             <button mat-icon-button (click)="toggleMenu()">
                 <mat-icon>menu</mat-icon>
             </button>
-            <!-- colapsable menu button -->
         </section>
-        <!-- user actions module end-->
-
     </div>
 </mat-toolbar>
+
 <mat-drawer-container class="aux-container" autosize>
     <mat-drawer #drawer mode="over" [opened]="isMenuOpen">
         <div id="collapsible-menu" class="collapsible-menu">
