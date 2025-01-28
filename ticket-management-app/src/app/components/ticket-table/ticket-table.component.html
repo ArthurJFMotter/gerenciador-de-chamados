@@ -24,9 +24,9 @@
         </section>
       </th>
       <td mat-cell *matCellDef="let row">
-        <mat-icon *ngIf="row.status === 'priority'" color="warn">star</mat-icon>
-        <mat-icon *ngIf="row.status === 'open'" color="accent">radio_button_unchecked</mat-icon>
-        <mat-icon *ngIf="row.status === 'closed'" color="primary">check_circle_outline</mat-icon>
+        <mat-icon *ngIf="row.status === 'priority'" style="color: #FF2C2C;">star</mat-icon>
+        <mat-icon *ngIf="row.status === 'open'" style="color: #EED202;">circle</mat-icon>
+        <mat-icon *ngIf="row.status === 'closed'" style="color: #6CC173;">square</mat-icon>
       </td>
     </ng-container>
   

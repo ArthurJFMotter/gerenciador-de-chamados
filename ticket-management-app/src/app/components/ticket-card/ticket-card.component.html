@@ -8,21 +8,21 @@
           </section>
           <mat-icon *ngIf="ticket.status === 'priority'" style="color: #FF2C2C;">star</mat-icon>
           <mat-icon *ngIf="ticket.status === 'open'" style="color: #EED202;">circle</mat-icon>
-          <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;">circle</mat-icon>
+          <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;">square</mat-icon>
       </mat-card-header>
       <mat-card-content>
-        <p class="requester"><strong>Solicitante:</strong> {{ticket.requester.name}}</p>
-        <p class="request"><strong>Solicitação:</strong> {{ticket.request}}</p>
-        <p class="location"><strong>Local:</strong> {{ticket.location.name}}</p>
-        <p class="region"><strong>Região:</strong> {{ticket.location.region}}</p>
-        <p class="date"><strong>Data:</strong> {{ticket.createdDate}}</p>
+        <p><strong>Solicitante:</strong> {{ticket.requester.name}}</p>
+        <p><strong>Solicitação:</strong> {{ticket.request}}</p>
+        <p><strong>Local:</strong> {{ticket.location.name}}</p>
+        <p><strong>Região:</strong> {{ticket.location.region}}</p>
+        <p><strong>Data:</strong> {{ticket.createdDate}}</p>
       </mat-card-content>
-      <mat-card-actions class="card-footer">
+      <mat-card-actions>
         <section>
           <mat-icon>schedule</mat-icon>
           <span class="time">{{dateService.timeSince(dateService.formatDateToValidISO(ticket.lastInteraction) || "")}}</span>
         </section>
-        <mat-checkbox class="card-check"></mat-checkbox>
+        <mat-checkbox></mat-checkbox>
       </mat-card-actions>
     </mat-card>
 </div>
