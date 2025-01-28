@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSidenavModule, MatDrawer } from '@angular/material/sidenav';
+import { MatSidenavModule, MatDrawer } from '@angular/material/sidenav'; // MatDrawer and MatSidenav are not needed anymore
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 
@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule,
+    MatSidenavModule, // Remove if not used elsewhere
     MatListModule,
     FormsModule
   ],
@@ -30,11 +30,9 @@ export class HeaderComponent {
   isMenuOpen: boolean = false;
   @Input() isDarkMode: boolean = false;
   @Output() themeToggle = new EventEmitter<void>();
-  @ViewChild('drawer') drawer!: MatDrawer;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-    this.drawer.toggle();
   }
 
   toggleTheme() {

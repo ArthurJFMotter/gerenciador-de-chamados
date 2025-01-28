@@ -37,3 +37,22 @@
   padding: 0.25rem;
   width: 30vw;
 }
+
+.menu-container {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1rem;
+  top: 100%;
+}
+
+.buttons-container{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
