@@ -10,16 +10,13 @@
 
         <!-- category filter module start -->
         <div class="div-container">
-            <!--
+
             <mat-chip-listbox aria-label="Filter by category">
-                <mat-chip (click)="updateQueue('remote')"
-                    [selected]="selectedQueue.value === 'remote'">Remote</mat-chip>
-                <mat-chip (click)="updateQueue('internal')"
-                    [selected]="selectedQueue.value === 'internal'">Internal</mat-chip>
-                <mat-chip (click)="updateQueue('on-site')" [selected]="selectedQueue.value === 'on-site'">On
-                    Site</mat-chip>
+                <mat-chip>Remote</mat-chip>
+                <mat-chip>Internal</mat-chip>
+                <mat-chip>On Site</mat-chip>
             </mat-chip-listbox>
-        -->
+
             <!-- ticket filter module start -->
             <mat-form-field appearance="outline">
                 <input matInput placeholder="Buscar" (keyup)="searchTerm = $any($event.target).value">
