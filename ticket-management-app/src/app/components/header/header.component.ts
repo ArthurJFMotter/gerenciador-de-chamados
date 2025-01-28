@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
-//import { AplicationThemeService } from '../../services/aplication-theme.service';
+import { Component, inject, OnInit, ViewChild, HostBinding } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,7 +8,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule, MatDrawer } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-header',
@@ -29,19 +27,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  //themeService = inject(AplicationThemeService);
-  isMenuOpen: boolean = false;
+    isMenuOpen: boolean = false;
     @ViewChild('drawer') drawer!: MatDrawer;
 
-  ngOnInit(): void {
-  }
-  
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-    this.drawer.toggle();
-  }
+    @HostBinding('class.dark-theme') isDarkMode = false;
 
-  toggleTheme(): void {
-    //this.themeService.toggleTheme();
-  }
+    ngOnInit(): void {
+    }
+  
+    toggleMenu() {
+        this.isMenuOpen = !this.isMenuOpen;
+        this.drawer.toggle();
+    }
+
+    toggleTheme(): void {
+        this.isDarkMode = !this.isDarkMode;
+    }
 }

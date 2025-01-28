@@ -22,8 +22,8 @@
         <section class="user-actions">
             <!-- theme button -->
             <button mat-icon-button (click)="toggleTheme()">
-                <!--<mat-icon *ngIf="!(themeService.isDarkMode$ | async)">wb_sunny</mat-icon>
-                <mat-icon *ngIf="(themeService.isDarkMode$ | async)">nights_stay</mat-icon>-->
+                <mat-icon *ngIf="!isDarkMode">wb_sunny</mat-icon>
+                <mat-icon *ngIf="isDarkMode">nights_stay</mat-icon>
             </button>
             <!-- theme button -->
             <!-- colapsable menu button -->
