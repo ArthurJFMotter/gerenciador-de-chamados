@@ -4,6 +4,8 @@
   align-items: center;
 
   img {
+    fill: var(--mat-sys-on-surface);
+    color: var(--mat-sys-on-surface);
     width: 2.5rem;
     height: 2.5rem;
   }
@@ -16,20 +18,22 @@
 .quick-search-container {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid var(--mat-sys-on-surface);
   border-radius: 4px;
   padding: 0.25rem 0.5rem;
   width: fit-content;
-  background-color: white;
+  background-color: var(--mat-sys-surface-container-lowest);
 }
 
 .search-icon {
   position: relative;
   margin-inline: 0.125rem;
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--mat-sys-on-surface);
 }
 
 .search-input {
+  background-color: transparent;
+  color: var(--mat-sys-on-surface);
   border: none;
   outline: none;
   flex-grow: 1;
@@ -38,9 +42,18 @@
   width: 30vw;
 }
 
+#toggleMenuBtn{
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate-menu-btn {
+  transform: rotate(-90deg);
+}
+
 .menu-container {
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: var(--mat-sys-surface-container-lowest);
+  color: var(--mat-sys-on-surface);
+  border: 1px solid var(--mat-sys-surface-container-lowest);
   border-top: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;

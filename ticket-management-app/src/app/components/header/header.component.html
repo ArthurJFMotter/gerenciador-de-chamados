@@ -22,7 +22,7 @@
     </button>
 
     <!-- Collapsible Menu -->
-    <button mat-icon-button (click)="toggleMenu()">
+    <button mat-icon-button id="toggleMenuBtn" (click)="toggleMenu()" [ngClass]="{'rotate-menu-btn': isMenuOpen}">
         <mat-icon>menu</mat-icon>
     </button>
 </mat-toolbar>
