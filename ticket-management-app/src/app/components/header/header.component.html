@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
     <!-- Logo Module -->
     <div class="logo">
         <img src="../../../assets/images/star-alt-com.svg" alt="Logo">
@@ -7,11 +7,17 @@
 
     <span class="spacer"></span>
 
-    <!-- Quick Search Module -->
+    <mat-form-field appearance="outline">
+        <input matInput placeholder="Pesquisa Rápida..." >
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <!-- Quick Search Module --
     <div class="quick-search-container">
         <input matInput type="text" placeholder="Pesquisa Rápida..." class="search-input">
         <mat-icon class="search-icon">search</mat-icon>
     </div>
+-->
 
     <span class="spacer"></span>
 
