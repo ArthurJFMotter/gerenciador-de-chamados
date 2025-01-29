@@ -1,84 +1,117 @@
 <div class="main-container">
     <div class="container">
         <!-- tabs module start -->
-        <mat-tab-group mat-stretch-tabs (selectedTabChange)="updateQueue($event)">
-            <mat-tab label="Remote"></mat-tab>
-            <mat-tab label="On site"></mat-tab>
-            <mat-tab label="Maintenance"></mat-tab>
-            <mat-tab label="warehouse"></mat-tab>
-            <mat-tab label="network management"></mat-tab>
-            <mat-tab label="telephony management"></mat-tab>
-            <mat-tab label="network maintenance"></mat-tab>
-            <mat-tab label="telephony maintenance"></mat-tab>
-            <mat-tab label="warrant"></mat-tab>
-            <mat-tab label="all"></mat-tab>
+        <mat-tab-group mat-stretch-tabs>
+            <mat-tab label="Triagem"></mat-tab>
+            <mat-tab label="Chamados"></mat-tab>
+            <mat-tab label="Arquivado"></mat-tab>
         </mat-tab-group>
         <!-- tabs module start -->
-    </div>
-        
-    <div class="panel-options">
-        <!-- category filter module start -->
-        <div class="div-container">
-            <!-- ticket filter module start -->
-            <mat-form-field appearance="outline">
-                <input matInput placeholder="Buscar" (keyup)="searchTerm = $any($event.target).value">
-                <mat-icon matSuffix>search</mat-icon>
-            </mat-form-field>
 
-            <div class="aux-div-container">
-                <!-- aux view button module start -->
-                <mat-button-toggle-group #group="matButtonToggleGroup" (change)="handleShowTableChange(group.value)">
-                    <mat-button-toggle value="table">
-                        <mat-icon>view_list</mat-icon>
-                    </mat-button-toggle>
-                    <mat-button-toggle value="card">
-                        <mat-icon>view_module</mat-icon>
-                    </mat-button-toggle>
-                </mat-button-toggle-group>
-                <!-- aux view button module end -->
-                <!-- aux button module start -->
-                <button mat-mini-fab color="primary">
-                    <mat-icon>print</mat-icon>
-                </button>
-                <!-- aux button module end -->
-            </div>
+        <div class="container">
+            <!-- chips module start -->
+            <mat-chip-listbox aria-label="Queue Categories">
+                <mat-chip value="remote">
+                    <mat-icon matChipAvatar>devices</mat-icon>
+                    Remoto
+                </mat-chip>
+                <mat-chip value="on site">
+                    <mat-icon matChipAvatar>directions_walk</mat-icon>
+                    Presencial
+                </mat-chip>
+                <mat-chip value="maintenance">
+                    <mat-icon matChipAvatar>build</mat-icon>
+                    Manutenção
+                </mat-chip>
+                <mat-chip value="warehouse">
+                    <mat-icon matChipAvatar>store</mat-icon>
+                    Almoxarifado
+                </mat-chip>
+                <mat-chip value="network management">
+                    <mat-icon matChipAvatar>router</mat-icon>
+                    Redes
+                </mat-chip>
+                <mat-chip value="telephony management">
+                    <mat-icon matChipAvatar>phone</mat-icon>
+                    Telefonia
+                </mat-chip>
+                <mat-chip value="warrant">
+                    <mat-icon matChipAvatar>receipt</mat-icon>
+                    Garantia
+                </mat-chip>
+                <mat-chip value="all">
+                    <mat-icon matChipAvatar>view_list</mat-icon>
+                    Todos
+                </mat-chip>
+            </mat-chip-listbox>
+            <!-- chips module end -->
         </div>
-    </div>
-        
-    <!--main-ticket-content module start-->
-    <div class="aux-container">
-        <div *ngIf="loading">
-            <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-        </div>
-        <div *ngIf="error">
-            Error: {{ error }}
-        </div>
-        <div *ngIf="!loading && !error">
-            <div *ngIf="filteredTickets.length > 0; else noTickets">
 
-                <app-ticket-table *ngIf="showTable === 'table'" [allTickets]="filteredTickets"
-                    [currentPage]="currentPage" [pageSize]="pageSize" [searchTerm]="searchTerm">
-                </app-ticket-table>
 
-                <app-ticket-card *ngIf="showTable === 'card'" [allTickets]="filteredTickets" [currentPage]="currentPage"
-                    [pageSize]="pageSize" [searchTerm]="searchTerm">
-                </app-ticket-card>
+        <div class="panel-options">
+            <!-- category filter module start -->
+            <div class="div-container">
+                <!-- ticket filter module start -->
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Buscar" (keyup)="searchTerm = $any($event.target).value">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
 
-            </div>
-            <ng-template #noTickets>
-                <div class="noTickets">
-                    <img src="../../../assets/images/such-empty.png" alt="No Tickets">
-                    <p>Sem Tickets no Momento :P</p>
+                <div class="aux-div-container">
+                    <!-- aux view button module start -->
+                    <mat-button-toggle-group #group="matButtonToggleGroup"
+                        (change)="handleShowTableChange(group.value)">
+                        <mat-button-toggle value="table">
+                            <mat-icon>view_list</mat-icon>
+                        </mat-button-toggle>
+                        <mat-button-toggle value="card">
+                            <mat-icon>view_module</mat-icon>
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <!-- aux view button module end -->
+                    <!-- aux button module start -->
+                    <button mat-mini-fab color="primary">
+                        <mat-icon>print</mat-icon>
+                    </button>
+                    <!-- aux button module end -->
                 </div>
-            </ng-template>
+            </div>
         </div>
+
+        <!--main-ticket-content module start-->
+        <div class="aux-container">
+            <div *ngIf="loading">
+                <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+            </div>
+            <div *ngIf="error">
+                Error: {{ error }}
+            </div>
+            <div *ngIf="!loading && !error">
+                <div *ngIf="filteredTickets.length > 0; else noTickets">
+
+                    <app-ticket-table *ngIf="showTable === 'table'" [allTickets]="filteredTickets"
+                        [currentPage]="currentPage" [pageSize]="pageSize" [searchTerm]="searchTerm">
+                    </app-ticket-table>
+
+                    <app-ticket-card *ngIf="showTable === 'card'" [allTickets]="filteredTickets"
+                        [currentPage]="currentPage" [pageSize]="pageSize" [searchTerm]="searchTerm">
+                    </app-ticket-card>
+
+                </div>
+                <ng-template #noTickets>
+                    <div class="noTickets">
+                        <img src="../../../assets/images/such-empty.png" alt="No Tickets">
+                        <p>Sem Tickets no Momento :P</p>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <!--main-ticket-content module end-->
+        <!-- OBS: este modulo pode mudar de lugar-->
+        <div *ngIf="!loading && !error && filteredTickets.length > 0" class="container">
+            <mat-paginator [length]="filteredTickets.length" [pageSize]="pageSize" [pageIndex]="currentPage-1"
+                (page)="onPageChanged($event)" aria-label="Select page">
+            </mat-paginator>
+        </div>
+        <!-- OBS: este modulo pode mudar de lugar-->
     </div>
-    <!--main-ticket-content module end-->
-    <!-- OBS: este modulo pode mudar de lugar-->
-    <div *ngIf="!loading && !error && filteredTickets.length > 0" class="container">
-        <mat-paginator [length]="filteredTickets.length" [pageSize]="pageSize" [pageIndex]="currentPage-1"
-            (page)="onPageChanged($event)" aria-label="Select page">
-        </mat-paginator>
-    </div>
-    <!-- OBS: este modulo pode mudar de lugar-->
-</div>

@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
 import { BehaviorSubject, catchError, of, Subject, takeUntil } from 'rxjs';
 import { Ticket, TicketService } from '../../services/ticket.service';
-import { MatTabsModule, MatTabChangeEvent} from '@angular/material/tabs';
-import { MatChipsModule } from '@angular/material/chips';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatChipListbox, MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
     TicketCardComponent,
     MatTabsModule,
     MatChipsModule,
+    MatChipListbox,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
@@ -91,10 +92,6 @@ export class PanelComponent implements OnInit, OnDestroy {
 
   handleShowTableChange(showTable: string) {
     this.showTable = showTable;
-  }
-
-  updateQueue(event : MatTabChangeEvent){
-    this.selectedQueue.next(event.tab.textLabel.toLocaleLowerCase());
   }
 
   onPageChanged(event: PageEvent): void {
