@@ -2,7 +2,6 @@ import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { TicketTableComponent } from '../../components/ticket-table/ticket-table.component';
 import { CommonModule } from '@angular/common';
 import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
-import { BehaviorSubject, catchError, of, Subject, takeUntil } from 'rxjs';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { MatTabsModule, MatTabChangeEvent } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -34,13 +33,12 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
-export class PanelComponent implements OnInit, OnDestroy {
+export class PanelComponent implements OnInit {
   ticketService = inject(TicketService);
 
-  showTable: string = 'table';
   loading = true;
-  private destroy$ = new Subject<void>();
-  selectedQueue = new BehaviorSubject<string>('remote');
+  showTable: string = 'table';
+  selectedQueue: string = 'remote';
 
   readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
 
@@ -67,34 +65,24 @@ export class PanelComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadTickets();
-    this.selectedQueue.pipe(takeUntil(this.destroy$)).subscribe(queue => {
-      this.filterTickets(queue);
-    });
   }
 
   loadTickets() {
     this.loading = true;
     this.ticketService.getTickets()
-      .pipe(
-        takeUntil(this.destroy$),
-        catchError((error) => {
-          this.error = 'Failed to load tickets';
-          console.error('Error loading tickets:', error);
-          this.loading = false;
-          return of([]);
-        })
-      )
       .subscribe(tickets => {
         this.allTickets = tickets;
-        this.filterTickets(this.selectedQueue.value);
+        this.filterTickets(this.selectedQueue);
         this.loading = false;
       });
   }
 
-  onTabChange(event: MatTabChangeEvent) {
-    const selectedQueue = this.queues[event.index];
-    this.selectedQueue.next(selectedQueue);
+    onTabChange(event: MatTabChangeEvent) {
+    const tabIndex = event.index;
+    this.selectedQueue = this.queues[tabIndex];
+    this.filterTickets(this.selectedQueue);
   }
+
 
   filterTickets(queue: string) {
     if (queue) {
@@ -103,6 +91,9 @@ export class PanelComponent implements OnInit, OnDestroy {
       this.filteredTickets = [...this.allTickets];
     }
     this.currentPage = 1; // Reset page on filter
+      if(this.paginator) {
+        this.paginator.firstPage();
+    }
   }
 
   handleShowTableChange(showTable: string) {
@@ -114,8 +105,4 @@ export class PanelComponent implements OnInit, OnDestroy {
     this.pageSize = event.pageSize;
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
 }

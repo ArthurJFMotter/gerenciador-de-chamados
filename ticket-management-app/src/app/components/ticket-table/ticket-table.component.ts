@@ -1,5 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+  inject,
+  AfterViewInit
+} from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { DateService } from '../../services/date.service';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -21,7 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   templateUrl: './ticket-table.component.html',
   styleUrls: ['./ticket-table.component.scss']
 })
-export class TicketTableComponent implements OnInit, OnChanges {
+export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
   ticketService = inject(TicketService);
   dateService = inject(DateService);
 
@@ -31,7 +40,7 @@ export class TicketTableComponent implements OnInit, OnChanges {
   @Input() searchTerm: string = '';
 
   displayedTickets = new MatTableDataSource<Ticket>([]);
-  displayedColumns: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'selection'];
+  displayedColumns: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible'];
 
   columnConfig: { [key: string]: { name: string; icon: string } } = {
     id: { name: 'ID', icon: 'tag' },
@@ -43,7 +52,6 @@ export class TicketTableComponent implements OnInit, OnChanges {
     createdDate: { name: 'Data', icon: 'event' },
     lastInteraction: { name: '', icon: 'update' },
     responsible: { name: 'Responsável', icon: 'person' },
-    selection: { name: '', icon: 'checklist' },
   };
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -58,6 +66,12 @@ export class TicketTableComponent implements OnInit, OnChanges {
     }
   }
 
+  ngAfterViewInit(): void {
+        this.displayedTickets.sort = this.sort;
+        // set initial sort if needed
+        // this.displayedTickets.sort.sort({ id: 'createdDate', start: 'desc'})
+  }
+
   updateDisplayedTickets(): void {
     const filteredTickets = this.filterTickets(this.allTickets, this.searchTerm);
 
@@ -65,8 +79,6 @@ export class TicketTableComponent implements OnInit, OnChanges {
     const endIndex = startIndex + this.pageSize;
 
     this.displayedTickets.data = filteredTickets.slice(startIndex, endIndex);
-
-    this.displayedTickets.sort = this.sort;
   }
 
   filterTickets(tickets: Ticket[], term: string): Ticket[] {
