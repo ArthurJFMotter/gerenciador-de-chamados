@@ -8,6 +8,12 @@
         </mat-tab-group>
         <!-- tabs module start -->
 
+        <mat-chip-listbox class="mat-mdc-chip-set" aria-label="Queues">
+            @for (queue of queues; track queue) {
+              <mat-chip-option>{{queue}}</mat-chip-option>
+            }
+          </mat-chip-listbox>
+
         <div class="container">
             <!-- chips module start -->
             <mat-chip-listbox aria-label="Queue Categories">

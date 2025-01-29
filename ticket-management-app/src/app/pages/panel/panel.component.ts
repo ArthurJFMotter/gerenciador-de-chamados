@@ -39,6 +39,7 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class PanelComponent implements OnInit, OnDestroy {
   ticketService = inject(TicketService);
+  readonly queues: string[] = ['remote', 'on site', 'maintenance', 'network', 'telephony', 'warrant'];
 
   showTable: string = 'table';
   loading = true;
