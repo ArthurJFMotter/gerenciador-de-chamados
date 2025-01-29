@@ -44,15 +44,15 @@ export class PanelComponent implements OnInit, OnDestroy {
 
   readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
 
-  queueConfig: { [key: string]: { value: string; name: string; icon: string } } = {
-    remote: { value: 'remote', name: 'Remoto', icon: 'devices' },
-    'on site': { value: 'on site', name: 'Presencial', icon: 'directions_walk' },
-    maintenance: { value: 'maintenance', name: 'Manutenção', icon: 'build' },
-    warehouse: { value: 'warehouse', name: 'Almoxarifado', icon: 'store' },
-    network: { value: 'network', name: 'Redes', icon: 'router' },
-    telephony: { value: 'telephony', name: 'Telefonia', icon: 'phone' },
-    warrant: { value: 'warrant', name: 'Garantia', icon: 'receipt' },
-    '': { value: '', name: 'Todos', icon: 'reorder' },
+  queueConfig: { [key: string]: { name: string; icon: string } } = {
+    'remote': { name: 'Remoto', icon: 'devices' },
+    'on site': { name: 'Presencial', icon: 'directions_walk' },
+    'maintenance': { name: 'Manutenção', icon: 'build' },
+    'warehouse': { name: 'Almoxarifado', icon: 'store' },
+    'network': { name: 'Redes', icon: 'router' },
+    'telephony': { name: 'Telefonia', icon: 'phone' },
+    'warrant': { name: 'Garantia', icon: 'receipt' },
+    '': { name: 'Todos', icon: 'reorder' },
   };
 
   allTickets: Ticket[] = [];
@@ -90,10 +90,10 @@ export class PanelComponent implements OnInit, OnDestroy {
         this.loading = false;
       });
   }
-  
-   onTabChange(event: MatTabChangeEvent) {
-        const selectedQueue = this.queues[event.index];
-        this.selectedQueue.next(selectedQueue);
+
+  onTabChange(event: MatTabChangeEvent) {
+    const selectedQueue = this.queues[event.index];
+    this.selectedQueue.next(selectedQueue);
   }
 
   filterTickets(queue: string) {
