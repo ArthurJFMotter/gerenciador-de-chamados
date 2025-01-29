@@ -6,6 +6,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-ticket-table',
@@ -14,7 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatSortModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   templateUrl: './ticket-table.component.html',
   styleUrls: ['./ticket-table.component.scss']
@@ -47,12 +49,42 @@ export class TicketTableComponent implements OnInit, OnChanges {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.displayedTickets.data = this.allTickets;
+    this.updateDisplayedTickets();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['allTickets'] || changes['currentPage'] || changes['pageSize'] || changes['searchTerm']) {
-      this.displayedTickets.data = this.allTickets;
+      this.updateDisplayedTickets();
     }
+  }
+
+  updateDisplayedTickets(): void {
+    const filteredTickets = this.filterTickets(this.allTickets, this.searchTerm);
+
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+
+    this.displayedTickets.data = filteredTickets.slice(startIndex, endIndex);
+
+    this.displayedTickets.sort = this.sort;
+  }
+
+  filterTickets(tickets: Ticket[], term: string): Ticket[] {
+    if (!term) return tickets;
+
+    const lowerCaseTerm = term.toLowerCase();
+
+    return tickets.filter(ticket =>
+      ticket.id.toString().includes(lowerCaseTerm) ||
+      ticket.responsible?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.requester?.name.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.request?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.location?.name.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.location?.region.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.createdDate?.toLowerCase().includes(lowerCaseTerm) ||
+      this.dateService.timeSince(this.dateService.formatDateToValidISO(ticket.lastInteraction) || '')
+        .toLowerCase()
+        .includes(lowerCaseTerm)
+    );
   }
 }
