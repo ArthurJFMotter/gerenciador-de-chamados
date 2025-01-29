@@ -82,6 +82,11 @@ mat-button-toggle{
   background-color: var(--mat-sys-surface-container-low);
 }
 
+.tab-icon{
+  transform: scale(0.75);
+  margin-inline: 0.25rem;
+}
+
 mat-progress-spinner{
   margin: auto;
   display: flex;

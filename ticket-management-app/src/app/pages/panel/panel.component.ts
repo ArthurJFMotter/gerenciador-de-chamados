@@ -4,8 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
 import { BehaviorSubject, catchError, of, Subject, takeUntil } from 'rxjs';
 import { Ticket, TicketService } from '../../services/ticket.service';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatChipListbox, MatChipsModule } from '@angular/material/chips';
+import { MatTabsModule, MatTabChangeEvent } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,8 +22,6 @@ import { MatCardModule } from '@angular/material/card';
     TicketTableComponent,
     TicketCardComponent,
     MatTabsModule,
-    MatChipsModule,
-    MatChipListbox,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
@@ -39,12 +36,24 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class PanelComponent implements OnInit, OnDestroy {
   ticketService = inject(TicketService);
-  readonly queues: string[] = ['remote', 'on site', 'maintenance', 'network', 'telephony', 'warrant'];
 
   showTable: string = 'table';
   loading = true;
   private destroy$ = new Subject<void>();
   selectedQueue = new BehaviorSubject<string>('remote');
+
+  readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
+
+  queueConfig: { [key: string]: { value: string; name: string; icon: string } } = {
+    remote: { value: 'remote', name: 'Remoto', icon: 'devices' },
+    'on site': { value: 'on site', name: 'Presencial', icon: 'directions_walk' },
+    maintenance: { value: 'maintenance', name: 'Manutenção', icon: 'build' },
+    warehouse: { value: 'warehouse', name: 'Almoxarifado', icon: 'store' },
+    network: { value: 'network', name: 'Redes', icon: 'router' },
+    telephony: { value: 'telephony', name: 'Telefonia', icon: 'phone' },
+    warrant: { value: 'warrant', name: 'Garantia', icon: 'receipt' },
+    '': { value: '', name: 'Todos', icon: 'reorder' },
+  };
 
   allTickets: Ticket[] = [];
   filteredTickets: Ticket[] = [];
@@ -80,6 +89,11 @@ export class PanelComponent implements OnInit, OnDestroy {
         this.filterTickets(this.selectedQueue.value);
         this.loading = false;
       });
+  }
+  
+   onTabChange(event: MatTabChangeEvent) {
+        const selectedQueue = this.queues[event.index];
+        this.selectedQueue.next(selectedQueue);
   }
 
   filterTickets(queue: string) {

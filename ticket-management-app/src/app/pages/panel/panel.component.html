@@ -8,49 +8,19 @@
         </mat-tab-group>
         <!-- tabs module start -->
 
-        <mat-chip-listbox class="mat-mdc-chip-set" aria-label="Queues">
-            @for (queue of queues; track queue) {
-              <mat-chip-option>{{queue}}</mat-chip-option>
-            }
-          </mat-chip-listbox>
-
         <div class="container">
-            <!-- chips module start -->
-            <mat-chip-listbox aria-label="Queue Categories">
-                <mat-chip value="remote">
-                    <mat-icon matChipAvatar>devices</mat-icon>
-                    Remoto
-                </mat-chip>
-                <mat-chip value="on site">
-                    <mat-icon matChipAvatar>directions_walk</mat-icon>
-                    Presencial
-                </mat-chip>
-                <mat-chip value="maintenance">
-                    <mat-icon matChipAvatar>build</mat-icon>
-                    Manutenção
-                </mat-chip>
-                <mat-chip value="warehouse">
-                    <mat-icon matChipAvatar>store</mat-icon>
-                    Almoxarifado
-                </mat-chip>
-                <mat-chip value="network management">
-                    <mat-icon matChipAvatar>router</mat-icon>
-                    Redes
-                </mat-chip>
-                <mat-chip value="telephony management">
-                    <mat-icon matChipAvatar>phone</mat-icon>
-                    Telefonia
-                </mat-chip>
-                <mat-chip value="warrant">
-                    <mat-icon matChipAvatar>receipt</mat-icon>
-                    Garantia
-                </mat-chip>
-                <mat-chip value="all">
-                    <mat-icon matChipAvatar>view_list</mat-icon>
-                    Todos
-                </mat-chip>
-            </mat-chip-listbox>
-            <!-- chips module end -->
+            <!-- tabs module start -->
+            <mat-tab-group mat-stretch-tabs (selectedTabChange)="onTabChange($event)">
+                @for (queue of queues; track queue) {
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon class="tab-icon">{{ queueConfig[queue].icon }}</mat-icon>
+                        {{ queueConfig[queue].name }}
+                    </ng-template>
+                </mat-tab>
+                }
+            </mat-tab-group>
+            <!-- tabs module start -->
         </div>
 
 
