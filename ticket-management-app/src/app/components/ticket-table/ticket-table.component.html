@@ -1,8 +1,7 @@
 <table mat-table [dataSource]="displayedTickets" matSort>
 
   <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-    <th mat-header-cell *matHeaderCellDef
-        [mat-sort-header]="column !== 'selection' ? '' : ''">
+    <th mat-header-cell *matHeaderCellDef [mat-sort-header]="column !== 'selection' ? '' : ''">
       <mat-icon matTooltip="{{ columnConfig[column].name }}">{{ columnConfig[column].icon }}</mat-icon>
       {{ columnConfig[column].name }}
     </th>
@@ -24,5 +23,6 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" class="table-row"
+    [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }"></tr>
 </table>

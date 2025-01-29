@@ -17,3 +17,11 @@ td, th{
 .table-row:hover{
     background-color: var(--mat-sys-surface-container-high);
 }
+
+.even-row{
+    background-color:  var(--mat-sys-surface);
+}
+
+.odd-row{
+    background-color:  var(--mat-sys-surface-container-lowest);
+}
