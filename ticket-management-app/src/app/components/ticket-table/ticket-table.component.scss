@@ -6,14 +6,14 @@ table {
     overflow: hidden;
 }
 
-.table-header-cell{
-    background-color:  var(--mat-sys-surface-container);
+td, th{
+    border: 1px solid var(--mat-sys-surface-container);
+}
+
+.table-header{
+    background-color:  var(--mat-sys-surface-container-low);
 }
 
 .table-row:hover{
-    background-color: var(--mat-sys-surface-container-highest);
-}
-
-td, th{
-    border: 1px solid var(--mat-sys-surface-container);
+    background-color: var(--mat-sys-surface-container-high);
 }
