@@ -5,6 +5,9 @@ mat-toolbar{
   width: 100%;
   height: fit-content;
 
+  position: relative;
+  bottom: 0;
+
   font-size: 1rem;
 
   @media (max-width: 768px) {

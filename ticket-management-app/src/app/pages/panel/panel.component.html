@@ -1,5 +1,5 @@
 <div class="main-container">
-    <mat-card class="container">
+    <div class="container">
         <!-- tabs module start -->
         <mat-tab-group mat-stretch-tabs (selectedTabChange)="updateQueue($event)">
             <mat-tab label="Remote"></mat-tab>
@@ -14,7 +14,9 @@
             <mat-tab label="all"></mat-tab>
         </mat-tab-group>
         <!-- tabs module start -->
-
+    </div>
+        
+    <mat-card class="panel-options">
         <!-- category filter module start -->
         <div class="div-container">
             <!-- ticket filter module start -->
@@ -36,13 +38,13 @@
                 <!-- aux view button module end -->
                 <!-- aux button module start -->
                 <button mat-mini-fab color="primary">
-                    <mat-icon>add</mat-icon>
+                    <mat-icon>print</mat-icon>
                 </button>
                 <!-- aux button module end -->
             </div>
         </div>
-
     </mat-card>
+        
     <!--main-ticket-content module start-->
     <div class="aux-container">
         <div *ngIf="loading">
