@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="displayedTickets" matSort>
 
   <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-    <th mat-header-cell *matHeaderCellDef
+    <th mat-header-cell *matHeaderCellDef class="table-header-cell"
         [mat-sort-header]="column !== 'selection' ? '' : ''">
       <mat-icon matTooltip="{{ columnConfig[column]?.name }}">{{ columnConfig[column]?.icon }}</mat-icon>
       {{ columnConfig[column]?.name }}
@@ -10,7 +10,7 @@
       <ng-container *ngIf="column === 'status'; else defaultCell">
         <mat-icon *ngIf="ticket.status === 'priority'" style="color: red;" matTooltip="Priority">star</mat-icon>
         <mat-icon *ngIf="ticket.status === 'open'" style="color: yellow;" matTooltip="Open">circle</mat-icon>
-        <mat-icon *ngIf="ticket.status === 'closed'" style="color: green;" matTooltip="Closed">stop</mat-icon>
+        <mat-icon *ngIf="ticket.status === 'closed'" style="color: green;" matTooltip="Closed">circle</mat-icon>
       </ng-container>
 
       <ng-template #defaultCell>
@@ -24,5 +24,5 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
 </table>
