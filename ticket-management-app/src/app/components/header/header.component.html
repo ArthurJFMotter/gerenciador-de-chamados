@@ -35,18 +35,22 @@
 <!-- Collapsible Menu Content -->
 <div class="menu-container" *ngIf="isMenuOpen">
     <div class="menu-items">
-        <span>Olá, <strong>Operador Admin</strong>!</span>
+        <h4>Olá, <strong>Operador Admin</strong>!</h4>
 
         <span class="spacer"></span>
 
         <div class="buttons-container">
             <button mat-flat-button id="lock">
-                <span>0</span>
+                <h4>0</h4>
                 <mat-icon>lock</mat-icon>
             </button>
             <button mat-flat-button id="panel">
                 <span>Painel</span>
                 <mat-icon>table_view</mat-icon>
+            </button>
+            <button mat-flat-button id="administration">
+                <span>Administração</span>
+                <mat-icon>security</mat-icon>
             </button>
             <button mat-flat-button id="logout">
                 <span>Sair</span>
