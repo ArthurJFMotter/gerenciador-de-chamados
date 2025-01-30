@@ -1,4 +1,4 @@
-<!----
+
 <div class="card-grid">
     <mat-card class="ticket-card" *ngFor="let ticket of displayedTickets">
       <mat-card-header>
@@ -21,10 +21,9 @@
       <mat-card-actions>
         <section>
           <mat-icon>schedule</mat-icon>
-          <span class="time">{{dateService.timeSince(dateService.formatDateToValidISO(ticket.lastInteraction) || "")}}</span>
+          <span class="time">{{dateService.timeSince(ticket.lastInteraction) || ""}}</span>
         </section>
         <mat-checkbox></mat-checkbox>
       </mat-card-actions>
     </mat-card>
 </div>
--->

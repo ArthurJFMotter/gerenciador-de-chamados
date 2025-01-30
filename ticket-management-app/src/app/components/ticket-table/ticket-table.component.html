@@ -13,9 +13,8 @@
       </ng-container>
 
       <ng-template #defaultCell>
-        {{ column === 'createdDate' ? dateService.formatDate(ticket[column]) : 
-           column === 'lastInteraction' ? dateService.formatDate(ticket[column]) : 
-           (ticket[column] ||
+        {{  column === 'lastInteraction' ? dateService.timeSince(ticket[column]) : 
+            (ticket[column] ||
            (column === 'requesterName' ? ticket.requester?.name : '') ||
            (column === 'locationName' ? ticket.location?.name : '') ||
            (column === 'locationRegion' ? ticket.location?.region : '')) }}

@@ -78,13 +78,10 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
   
     this.displayedTickets.data = filteredTickets.slice(startIndex, endIndex).map(ticket => ({
       ...ticket,
-      createdDate: this.dateService.formatDate(ticket.createdDate), // Format createdDate
-      lastInteraction: this.dateService.formatDate(ticket.lastInteraction) // Format lastInteraction
+      createdDate: this.dateService.formatDate(ticket.createdDate),
     }));
   }
   
-  
-
   filterTickets(tickets: Ticket[], term: string): Ticket[] {
     if (!term) return tickets;
 
@@ -97,7 +94,8 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
       ticket.request?.toLowerCase().includes(lowerCaseTerm) ||
       ticket.location?.name.toLowerCase().includes(lowerCaseTerm) ||
       ticket.location?.region.toLowerCase().includes(lowerCaseTerm) ||
-      ticket.createdDate?.toLowerCase().includes(lowerCaseTerm)
+      ticket.createdDate?.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.lastInteraction?.toLowerCase().includes(lowerCaseTerm)
     );
   }
 }
