@@ -1,16 +1,10 @@
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
   padding: 0rem 0.5rem;
+  overflow-x: hidden;
 }
 
 .aux-container {
