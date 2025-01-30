@@ -11,6 +11,10 @@ mat-form-field {
   height: 3.5rem;
   width: 35vw;
   background-color: var(--mat-sys-surface-container-lowest);
+
+  @media (max-width: 768px) {
+    width: 42vw;
+  }
 }
 
 .logo {
@@ -58,6 +62,10 @@ mat-form-field {
   padding: 0.5rem;
   height: fit-content;
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .buttons-container {
@@ -78,5 +86,20 @@ mat-form-field {
       margin: auto;
     }
   }
+}
 
+.dev-text {
+  background-image: linear-gradient(to right, orange, var(--mat-sys-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.user-text {
+  background-image: linear-gradient(to right, blue, green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
