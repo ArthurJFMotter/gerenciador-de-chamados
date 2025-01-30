@@ -22,33 +22,33 @@
         <!-- tabs module start -->
 
         <div class="panel-options">
-            <!-- category filter module start -->
-            <div class="div-container">
-                <!-- ticket filter module start -->
-                <mat-form-field appearance="outline">
-                    <input matInput placeholder="Buscar" (keyup)="searchTerm = $any($event.target).value">
-                    <mat-icon matSuffix>search</mat-icon>
-                </mat-form-field>
+            <!-- ticket filter module start -->
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Buscar" (keyup)="searchTerm = $any($event.target).value">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+            <!-- ticket filter module end -->
 
-                <div class="aux-div-container">
-                    <!-- aux view button module start -->
-                    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="handleShowTableChange(group.value)"
-                        [value]="showTable">
-                        <mat-button-toggle value="table">
-                            <mat-icon>view_list</mat-icon>
-                        </mat-button-toggle>
-                        <mat-button-toggle value="card">
-                            <mat-icon>view_module</mat-icon>
-                        </mat-button-toggle>
-                    </mat-button-toggle-group>
-                    <!-- aux view button module end -->
-                    <!-- aux button module start -->
-                    <button mat-mini-fab color="primary">
-                        <mat-icon>print</mat-icon>
-                    </button>
-                    <!-- aux button module end -->
-                </div>
-            </div>
+            <section>
+                <!-- view button module start -->
+                <mat-button-toggle-group #group="matButtonToggleGroup" (change)="handleShowTableChange(group.value)"
+                    [value]="showTable">
+                    <mat-button-toggle value="table">
+                        <mat-icon>view_list</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="card">
+                        <mat-icon>view_module</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <!-- view button module end -->
+
+                <!-- aux button module start -->
+                <button mat-mini-fab color="primary">
+                    <mat-icon>print</mat-icon>
+                </button>
+                <!-- aux button module end -->
+            </section>
+
         </div>
 
         <!--main-ticket-content module start-->
