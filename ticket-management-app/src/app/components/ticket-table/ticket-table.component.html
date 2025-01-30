@@ -15,9 +15,9 @@
       <ng-template #defaultCell>
         {{  column === 'lastInteraction' ? dateService.timeSince(ticket[column]) : 
             (ticket[column] ||
-           (column === 'requesterName' ? ticket.requester?.name : '') ||
-           (column === 'locationName' ? ticket.location?.name : '') ||
-           (column === 'locationRegion' ? ticket.location?.region : '')) }}
+           (column === 'requester.name' ? ticket.requester?.name : '') ||
+           (column === 'location.name' ? ticket.location?.name : '') ||
+           (column === 'location.region' ? ticket.location?.region : '')) }}
       </ng-template>
       
     </td>

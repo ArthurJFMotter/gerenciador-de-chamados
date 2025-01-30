@@ -40,15 +40,15 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() searchTerm: string = '';
 
   displayedTickets = new MatTableDataSource<Ticket>([]);
-  displayedColumns: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible'];
+  displayedColumns: string[] = ['id', 'status', 'requester.name', 'request', 'location.name', 'location.region', 'createdDate', 'lastInteraction', 'responsible'];
 
   columnConfig: { [key: string]: { name: string; icon: string } } = {
     id: { name: 'ID', icon: 'tag' },
     status: { name: 'Status', icon: 'flag' },
     request: { name: 'Solicitação', icon: 'assignment' },
-    requesterName: { name: 'Solicitante', icon: 'account_circle' },
-    locationName: { name: 'Localização', icon: 'place' },
-    locationRegion: { name: 'Região', icon: 'map' },
+    'requester.name': { name: 'Solicitante', icon: 'account_circle' },
+    'location.name': { name: 'Localização', icon: 'place' },
+    'location.region': { name: 'Região', icon: 'map' },
     createdDate: { name: 'Data', icon: 'event' },
     lastInteraction: { name: '', icon: 'update' },
     responsible: { name: 'Responsável', icon: 'person' },
