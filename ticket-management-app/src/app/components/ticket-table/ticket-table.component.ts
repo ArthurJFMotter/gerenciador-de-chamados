@@ -68,18 +68,22 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
 
   ngAfterViewInit(): void {
         this.displayedTickets.sort = this.sort;
-        // set initial sort if needed
-        // this.displayedTickets.sort.sort({ id: 'createdDate', start: 'desc'})
   }
 
   updateDisplayedTickets(): void {
     const filteredTickets = this.filterTickets(this.allTickets, this.searchTerm);
-
+  
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-
-    this.displayedTickets.data = filteredTickets.slice(startIndex, endIndex);
+  
+    this.displayedTickets.data = filteredTickets.slice(startIndex, endIndex).map(ticket => ({
+      ...ticket,
+      createdDate: this.dateService.formatDate(ticket.createdDate), // Format createdDate
+      lastInteraction: this.dateService.formatDate(ticket.lastInteraction) // Format lastInteraction
+    }));
   }
+  
+  
 
   filterTickets(tickets: Ticket[], term: string): Ticket[] {
     if (!term) return tickets;
@@ -93,10 +97,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
       ticket.request?.toLowerCase().includes(lowerCaseTerm) ||
       ticket.location?.name.toLowerCase().includes(lowerCaseTerm) ||
       ticket.location?.region.toLowerCase().includes(lowerCaseTerm) ||
-      ticket.createdDate?.toLowerCase().includes(lowerCaseTerm) ||
-      this.dateService.timeSince(this.dateService.formatDateToValidISO(ticket.lastInteraction) || '')
-        .toLowerCase()
-        .includes(lowerCaseTerm)
+      ticket.createdDate?.toLowerCase().includes(lowerCaseTerm)
     );
   }
 }

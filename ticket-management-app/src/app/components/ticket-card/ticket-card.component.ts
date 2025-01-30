@@ -52,8 +52,7 @@ export class TicketCardComponent implements OnInit {
           ticket.request.toLowerCase().includes(lowerCaseTerm) ||
           ticket.location.name.toLowerCase().includes(lowerCaseTerm) ||
           ticket.location.region.toLowerCase().includes(lowerCaseTerm) ||
-          ticket.createdDate.toLowerCase().includes(lowerCaseTerm) ||
-          this.dateService.timeSince(this.dateService.formatDateToValidISO(ticket.lastInteraction) || '').toLowerCase().includes(lowerCaseTerm)
+          ticket.createdDate.toLowerCase().includes(lowerCaseTerm)
       );
   }
 }
