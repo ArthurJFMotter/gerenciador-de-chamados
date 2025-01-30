@@ -43,8 +43,8 @@ export class PanelComponent implements OnInit {
   readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
 
   queueConfig: { [key: string]: { name: string; icon: string } } = {
-    'remote': { name: 'Remoto', icon: 'devices' },
-    'on site': { name: 'Presencial', icon: 'directions_walk' },
+    'remote': { name: 'Remoto', icon: 'headset_mic' },
+    'on site': { name: 'Presencial', icon: 'directions_run' },
     'maintenance': { name: 'Manutenção', icon: 'build' },
     'warehouse': { name: 'Almoxarifado', icon: 'store' },
     'network': { name: 'Redes', icon: 'router' },

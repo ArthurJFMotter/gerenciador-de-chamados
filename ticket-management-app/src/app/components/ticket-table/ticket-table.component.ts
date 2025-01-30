@@ -49,7 +49,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
     'requester.name': { name: 'Solicitante', icon: 'account_circle' },
     'location.name': { name: 'Localização', icon: 'place' },
     'location.region': { name: 'Região', icon: 'map' },
-    createdDate: { name: 'Data', icon: 'event' },
+    createdDate: { name: 'Data', icon: 'today' },
     lastInteraction: { name: '', icon: 'update' },
     responsible: { name: 'Responsável', icon: 'person' },
   };
