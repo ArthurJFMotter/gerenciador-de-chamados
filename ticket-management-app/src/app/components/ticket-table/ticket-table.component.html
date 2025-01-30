@@ -13,17 +13,33 @@
       </ng-container>
 
       <ng-template #defaultCell>
-        {{  column === 'lastInteraction' ? dateService.timeSince(ticket[column]) : 
-            (ticket[column] ||
-           (column === 'requester.name' ? ticket.requester?.name : '') ||
-           (column === 'location.name' ? ticket.location?.name : '') ||
-           (column === 'location.region' ? ticket.location?.region : '')) }}
+
+        <ng-container *ngIf="column !== 'lastInteraction'">
+          {{ (ticket[column]) }}
+        </ng-container>
+
+        <ng-container *ngIf="column === 'lastInteraction'">
+          {{dateService.timeSince(ticket[column]) || ''}}
+        </ng-container>
+
+        <ng-container *ngIf="column === 'requester.name'">
+          {{ticket.requester?.name || ''}}
+        </ng-container>
+
+        <ng-container *ngIf="column === 'location.name'">
+          {{ticket.location?.name || ''}}
+        </ng-container>
+
+        <ng-container *ngIf="column === 'location.region'">
+          {{ticket.location?.region || ''}}
+        </ng-container>
       </ng-template>
-      
+
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" class="table-row"
-    [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }"></tr>
+    [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }">
+  </tr>
 </table>
