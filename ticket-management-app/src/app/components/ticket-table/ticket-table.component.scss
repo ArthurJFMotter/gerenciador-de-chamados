@@ -9,6 +9,11 @@ table {
 td, th{
     border: 1px solid var(--mat-sys-surface-container);
     text-align: center;
+    justify-items: center;
+
+    mat-icon{
+        margin: auto;
+    }
 }
 
 .table-header{

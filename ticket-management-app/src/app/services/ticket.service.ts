@@ -22,6 +22,7 @@ export class TicketService {
 
 }
 export interface Ticket {
+  position: number;
   id: string;
   request: string;
   status: string;

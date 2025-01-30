@@ -16,6 +16,8 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SelectionModel } from '@angular/cdk/collections';
+
 
 @Component({
   selector: 'app-ticket-table',
@@ -30,7 +32,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   templateUrl: './ticket-table.component.html',
   styleUrls: ['./ticket-table.component.scss']
 })
-export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
+export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit{
   ticketService = inject(TicketService);
   dateService = inject(DateService);
 
@@ -39,22 +41,9 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() pageSize: number = 15;
   @Input() searchTerm: string = '';
 
-  displayedTickets = new MatTableDataSource<Ticket>([]);
-  displayedColumns: string[] = ['id', 'status', 'requester.name', 'request', 'location.name', 'location.region', 'createdDate', 'lastInteraction', 'responsible'];
-
-  columnConfig: { [key: string]: { name: string; icon: string } } = {
-    id: { name: 'ID', icon: 'tag' },
-    status: { name: 'Status', icon: 'flag' },
-    request: { name: 'Solicitação', icon: 'assignment' },
-    'requester.name': { name: 'Solicitante', icon: 'account_circle' },
-    'location.name': { name: 'Localização', icon: 'place' },
-    'location.region': { name: 'Região', icon: 'map' },
-    createdDate: { name: 'Data', icon: 'today' },
-    lastInteraction: { name: '', icon: 'update' },
-    responsible: { name: 'Responsável', icon: 'person' },
-  };
-
-  @ViewChild(MatSort) sort!: MatSort;
+  displayedColumns: string[] = ['id', 'status', 'requester.name', 'request', 'location.name', 'location.region', 'createdDate', 'lastInteraction', 'responsible', 'select'];
+  dataSource = new MatTableDataSource<Ticket>();
+  selection = new SelectionModel<Ticket>(true, []);
 
   ngOnInit(): void {
     this.updateDisplayedTickets();
@@ -66,8 +55,10 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
     }
   }
 
+  @ViewChild(MatSort) sort!: MatSort;  
+
   ngAfterViewInit(): void {
-        this.displayedTickets.sort = this.sort;
+    this.dataSource.sort = this.sort;
   }
 
   updateDisplayedTickets(): void {
@@ -76,7 +67,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
   
-    this.displayedTickets.data = filteredTickets.slice(startIndex, endIndex).map(ticket => ({
+    this.dataSource.data = filteredTickets.slice(startIndex, endIndex).map(ticket => ({
       ...ticket,
       createdDate: this.dateService.formatDate(ticket.createdDate),
     }));
@@ -98,4 +89,30 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
       ticket.lastInteraction?.toLowerCase().includes(lowerCaseTerm)
     );
   }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSource.data);
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: Ticket): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+  }
+
 }
