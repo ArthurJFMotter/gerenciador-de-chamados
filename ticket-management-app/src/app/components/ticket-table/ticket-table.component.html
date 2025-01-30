@@ -67,7 +67,7 @@
   <ng-container matColumnDef="lastInteraction">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>update</mat-icon> </th>
     <td mat-cell *matCellDef="let ticket"> 
-      {{dateService.timeSince(ticket.lastInteraction)}} <!--debug {{ticket.lastInteraction}}-->
+      {{ticket.lastInteraction}} <!--debug {{ticket.lastInteraction}}-->
     </td>
     
   </ng-container>

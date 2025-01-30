@@ -53,6 +53,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit{
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['allTickets'] || changes['currentPage'] || changes['pageSize'] || changes['searchTerm']) {
       this.updateDisplayedTickets();
+      this.selection.clear();
     }
   }
 
@@ -71,6 +72,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit{
     this.dataSource.data = filteredTickets.slice(startIndex, endIndex).map(ticket => ({
       ...ticket,
       createdDate: this.dateService.formatDate(ticket.createdDate),
+      lastInteraction: this.dateService.timeSince(ticket.lastInteraction),
     }));
   }
   
