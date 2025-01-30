@@ -13,28 +13,6 @@
   padding: 0rem 0.5rem;
 }
 
-.panel-options{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0.5rem 1rem;
-  width: 95vw;
-
-  @media (max-width: 768px) {
-    width: 92.5vw;
-  }
-
-  section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    width: fit-content;
-    margin-top: 0.25rem;
-  }
-}
-
 .aux-container {
   flex: 1;
   margin: auto;
@@ -64,17 +42,6 @@
     text-align: center;
     font-weight: 600;
   }
-}
-
-mat-form-field {
-  overflow-y: hidden;
-  height: 3.5rem;
-  width: 35vw;
-  background-color: var(--mat-sys-surface-container-lowest);
-}
-
-mat-button-toggle{
-  background-color: var(--mat-sys-surface-container-low);
 }
 
 .tab-icon{

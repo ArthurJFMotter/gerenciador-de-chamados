@@ -1,33 +1,26 @@
-import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { TicketTableComponent } from '../../components/ticket-table/ticket-table.component';
 import { CommonModule } from '@angular/common';
 import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { MatTabsModule, MatTabChangeEvent } from '@angular/material/tabs';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatButtonModule } from '@angular/material/button';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
-
+import { TicketActionsComponent } from '../../components/ticket-actions/ticket-actions.component';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
   imports: [
     CommonModule,
+    TicketActionsComponent,
     TicketTableComponent,
     TicketCardComponent,
     MatTabsModule,
-    MatFormFieldModule,
-    MatInputModule,
     MatIconModule,
-    MatButtonToggleModule,
     MatProgressSpinnerModule,
-    MatButtonModule,
     MatPaginatorModule,
     MatCardModule
   ],
@@ -61,7 +54,6 @@ export class PanelComponent implements OnInit {
   pageSize: number = 15;
   searchTerm = '';
 
-  @ViewChild('group') group!: MatButtonToggleGroup;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit(): void {
@@ -73,37 +65,56 @@ export class PanelComponent implements OnInit {
     this.ticketService.getTickets()
       .subscribe(tickets => {
         this.allTickets = tickets;
+        /*debug*///console.log('allTickets:', this.allTickets);
         this.filterTickets(this.selectedQueue);
         this.loading = false;
       });
   }
 
-    onTabChange(event: MatTabChangeEvent) {
+  onTabChange(event: MatTabChangeEvent) {
     const tabIndex = event.index;
     this.selectedQueue = this.queues[tabIndex];
     this.filterTickets(this.selectedQueue);
   }
 
-
   filterTickets(queue: string) {
+    let filteredByQueue = this.allTickets;
+
     if (queue) {
-      this.filteredTickets = this.allTickets.filter(ticket => ticket.queue === queue);
-    } else {
-      this.filteredTickets = [...this.allTickets];
+      filteredByQueue = this.allTickets.filter(ticket => ticket.queue === queue);
     }
-    this.currentPage = 1; // Reset page on filter
-      if(this.paginator) {
-        this.paginator.firstPage();
+
+
+    if (this.searchTerm) {
+      this.filteredTickets = filteredByQueue.filter(ticket =>
+        Object.values(ticket).some(value =>
+          value && typeof value === 'string' && value.toLowerCase().includes(this.searchTerm.toLowerCase())
+        )
+      );
+    } else {
+      this.filteredTickets = filteredByQueue;
+    }
+
+
+    this.currentPage = 1;
+    if (this.paginator) {
+      this.paginator.firstPage();
     }
   }
 
-  handleShowTableChange(showTable: string) {
-    this.showTable = showTable;
-  }
 
   onPageChanged(event: PageEvent): void {
     this.currentPage = event.pageIndex + 1;
     this.pageSize = event.pageSize;
+  }
+
+  handleSearchChange(searchTerm: string) {
+    /*Debug*///console.log('Search term received:', searchTerm);
+    this.searchTerm = searchTerm;
+    this.filterTickets(this.selectedQueue);
+  }
+  handleShowTableChange(showTable: string) {
+    this.showTable = showTable
   }
 
 }
