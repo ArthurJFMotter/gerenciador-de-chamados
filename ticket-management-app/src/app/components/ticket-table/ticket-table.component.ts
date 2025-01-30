@@ -21,6 +21,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-ticket-table',
+  standalone: true,
   imports: [
     CommonModule,
     MatTableModule,
