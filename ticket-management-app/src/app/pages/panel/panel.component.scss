@@ -61,10 +61,6 @@ mat-paginator {
   width: fit-content;
   border-radius: 8px;
   margin: 1.25rem 0rem;
-
-  @media (max-width: 768px) {
-    width: 14.25rem;
-  }
 }
 
 .ticket-count {
