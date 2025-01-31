@@ -36,13 +36,13 @@ export class TicketCardComponent implements OnInit {
 
   updateDisplayedTickets(): void {
     const filteredTickets = this.filterTickets(this.allTickets, this.searchTerm);
-  
+
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-  
+
     this.displayedTickets = filteredTickets.slice(startIndex, endIndex).map(ticket => ({
       ...ticket,
-      createdDate: this.dateService.formatDate(ticket.createdDate),
+      lastInteraction: this.dateService.timeSince(ticket.lastInteraction),
     }));
   }
 

@@ -33,7 +33,7 @@ import { SelectionModel } from '@angular/cdk/collections';
   templateUrl: './ticket-table.component.html',
   styleUrls: ['./ticket-table.component.scss']
 })
-export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit{
+export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
   ticketService = inject(TicketService);
   dateService = inject(DateService);
 
@@ -57,25 +57,39 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit{
     }
   }
 
-  @ViewChild(MatSort) sort!: MatSort;  
+  @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+
+    this.dataSource.sortingDataAccessor = (data: Ticket, sortHeaderId: string): string | number => {
+      if (sortHeaderId === 'createdDate' || sortHeaderId === 'lastInteraction') {
+        return this.parseDate(data[sortHeaderId])?.getTime() || 0;
+      }
+      return (data as any)[sortHeaderId]; // Type assertion
+    };
   }
 
+  parseDate(dateString: string): Date | null {
+    try {
+      return dateString ? new Date(dateString) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+  
   updateDisplayedTickets(): void {
     const filteredTickets = this.filterTickets(this.allTickets, this.searchTerm);
-  
+
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-  
+
     this.dataSource.data = filteredTickets.slice(startIndex, endIndex).map(ticket => ({
       ...ticket,
-      createdDate: this.dateService.formatDate(ticket.createdDate),
       lastInteraction: this.dateService.timeSince(ticket.lastInteraction),
     }));
   }
-  
+
   filterTickets(tickets: Ticket[], term: string): Ticket[] {
     if (!term) return tickets;
 

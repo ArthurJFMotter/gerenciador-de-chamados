@@ -27,8 +27,8 @@ export interface Ticket {
   request: string;
   status: string;
   queue: string;
-  createdDate: string; //"yyyyMMddHHmmssff"
-  lastInteraction: string; //"yyyyMMddHHmmssff"
+  createdDate: string; // ISO 8601 date string "yyyyMMddHHmmssff"
+  lastInteraction: string; // ISO 8601 date string "yyyyMMddHHmmssff"
   responsible?: string;
   requesterName: string;
   locationName: string;

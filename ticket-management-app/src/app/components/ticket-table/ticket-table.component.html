@@ -60,7 +60,7 @@
   <!-- created date Column -->
   <ng-container matColumnDef="createdDate">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>today</mat-icon> Data </th>
-    <td mat-cell *matCellDef="let ticket"> {{ticket.createdDate}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.createdDate | date:'dd/MM/yyyy'}} </td>
   </ng-container>
 
   <!-- last Interaction Column -->
