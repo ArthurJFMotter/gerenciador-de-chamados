@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import {  MatTooltipModule } from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @Component({
@@ -76,16 +76,16 @@ export class TicketCardComponent implements OnInit {
             this.displayedTickets.sort((a, b) => {
                 let comparison = 0;
                 if (this.sortOption === 'createdDate' || this.sortOption === 'lastInteraction') {
-                    const dateA = this.dateService.parseDate((a as any)[this.sortOption])?.getTime() || 0;
-                    const dateB = this.dateService.parseDate((b as any)[this.sortOption])?.getTime() || 0;
+                    const dateA = this.dateService.parseDate(this.allTickets.find(ticket => ticket.id === a.id)?.[this.sortOption] || '')?.getTime() || 0;
+                    const dateB = this.dateService.parseDate(this.allTickets.find(ticket => ticket.id === b.id)?.[this.sortOption] || '')?.getTime() || 0;
                     comparison = dateA - dateB;
                 }
-                 else {
+                else {
                     const valueA = (a as any)[this.sortOption] || '';
                     const valueB = (b as any)[this.sortOption] || '';
-                     comparison = String(valueA).localeCompare(String(valueB));
+                    comparison = String(valueA).localeCompare(String(valueB));
                 }
-               return this.sortDirection === 'asc' ? comparison : -comparison
+                return this.sortDirection === 'asc' ? comparison : -comparison
             });
         }
     }
@@ -118,10 +118,10 @@ export class TicketCardComponent implements OnInit {
         return this.selectedTickets.size > 0 && this.selectedTickets.size < this.displayedTickets.length
     }
 
-   setSortDirection(direction: string): void {
-    this.sortDirection = direction;
-    this.sortTickets();
-}
+    setSortDirection(direction: string): void {
+        this.sortDirection = direction;
+        this.sortTickets();
+    }
 
     checkboxLabel(ticket?: Ticket): string {
         if (!ticket) {
