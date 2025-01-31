@@ -1,29 +1,28 @@
-
 <div class="card-grid">
-    <mat-card class="ticket-card" *ngFor="let ticket of displayedTickets">
-      <mat-card-header>
-          <mat-card-title class="ticket-id">#{{ticket.id}}</mat-card-title>
-          <section class="responsible-info">
-              <span class="responsible">{{ticket.responsible}}</span>
-              <mat-icon *ngIf="ticket.responsible">lock</mat-icon>
-          </section>
-          <mat-icon *ngIf="ticket.status === 'priority'" style="color: #FF2C2C;">star</mat-icon>
-          <mat-icon *ngIf="ticket.status === 'open'" style="color: #EED202;">circle</mat-icon>
-          <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;">circle</mat-icon>
-      </mat-card-header>
-      <mat-card-content>
-        <p><strong>Solicitante:</strong> {{ticket.requesterName}}</p>
-        <p><strong>Solicitação:</strong> {{ticket.request}}</p>
-        <p><strong>Local:</strong> {{ticket.locationName}}</p>
-        <p><strong>Região:</strong> {{ticket.locationRegion}}</p>
-        <p><strong>Data:</strong> {{ticket.createdDate}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <section>
-          <mat-icon>schedule</mat-icon>
-          <span class="time">{{dateService.timeSince(ticket.lastInteraction) || ""}}</span>
-        </section>
-        <mat-checkbox></mat-checkbox>
-      </mat-card-actions>
-    </mat-card>
+  <mat-card class="ticket-card" *ngFor="let ticket of displayedTickets">
+    <mat-card-header>
+      <mat-card-title class="ticket-id">#{{ticket.id}}</mat-card-title>
+      <section class="responsible-info">
+        <span class="responsible">{{ticket.responsible}}</span>
+        <mat-icon *ngIf="ticket.responsible">lock</mat-icon>
+      </section>
+      <mat-icon *ngIf="ticket.status === 'priority'" style="color: #FF2C2C;">star</mat-icon>
+      <mat-icon *ngIf="ticket.status === 'open'" style="color: #EED202;">circle</mat-icon>
+      <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;">circle</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Solicitante:</strong> {{ticket.requesterName}}</p>
+      <p><strong>Solicitação:</strong> {{ticket.request}}</p>
+      <p><strong>Local:</strong> {{ticket.locationName}}</p>
+      <p><strong>Região:</strong> {{ticket.locationRegion}}</p>
+      <p><strong>Data:</strong> {{ticket.createdDate | date:'dd/MM/yyyy'}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <section>
+        <mat-icon>schedule</mat-icon>
+        <span class="time">{{ticket.lastInteraction || ""}}</span>
+      </section>
+      <mat-checkbox></mat-checkbox>
+    </mat-card-actions>
+  </mat-card>
 </div>
