@@ -1,4 +1,20 @@
-/* card-ticket */
+.sort-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0rem;
+
+  mat-form-field {
+    height: 3.5rem;
+    width: 20vw;
+    background-color: var(--mat-sys-surface-container-lowest);
+
+    @media (max-width: 768px) {
+      width: 35vw;
+    }
+  }
+}
+
 .card-grid {
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
@@ -58,7 +74,7 @@ mat-card-header {
 }
 
 mat-card-content {
- margin: 1rem;
+  margin: 1rem;
 }
 
 mat-card-actions {

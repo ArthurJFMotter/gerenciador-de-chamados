@@ -1,3 +1,20 @@
+<div class="sort-controls">
+  <mat-form-field appearance="outline">
+    <mat-label>Ordenar por</mat-label>
+    <mat-select [(value)]="sortOption" (selectionChange)="sortTickets()">
+      <mat-option value="id">ID</mat-option>
+      <mat-option value="status">Status</mat-option>
+      <mat-option value="requesterName">Solicitante</mat-option>
+      <mat-option value="request">Solicitação</mat-option>
+      <mat-option value="locationName">Local</mat-option>
+      <mat-option value="locationRegion">Região</mat-option>
+      <mat-option value="createdDate">Data</mat-option>
+      <mat-option value="lastInteraction">Última Interação</mat-option>
+      <mat-option value="responsible">Responsável</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
 <div class="card-grid">
   <mat-card class="ticket-card" *ngFor="let ticket of displayedTickets">
     <mat-card-header>
