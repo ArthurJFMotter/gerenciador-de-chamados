@@ -1,19 +1,23 @@
 <div class="sort-controls">
-  <mat-form-field appearance="outline">
-    <mat-label>Ordenar por</mat-label>
-    <mat-select [(value)]="sortOption" (selectionChange)="sortTickets()">
-      <mat-option value="id">ID</mat-option>
-      <mat-option value="status">Status</mat-option>
-      <mat-option value="requesterName">Solicitante</mat-option>
-      <mat-option value="request">Solicitação</mat-option>
-      <mat-option value="locationName">Local</mat-option>
-      <mat-option value="locationRegion">Região</mat-option>
-      <mat-option value="createdDate">Data</mat-option>
-      <mat-option value="lastInteraction">Última Interação</mat-option>
-      <mat-option value="responsible">Responsável</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+    <mat-form-field appearance="outline">
+      <mat-label>Ordenar por</mat-label>
+      <mat-select [(value)]="sortOption" (selectionChange)="sortTickets()">
+        <mat-option value="id">ID</mat-option>
+        <mat-option value="status">Status</mat-option>
+        <mat-option value="requesterName">Solicitante</mat-option>
+        <mat-option value="request">Solicitação</mat-option>
+        <mat-option value="locationName">Local</mat-option>
+        <mat-option value="locationRegion">Região</mat-option>
+        <mat-option value="createdDate">Data</mat-option>
+        <mat-option value="lastInteraction">Última Interação</mat-option>
+        <mat-option value="responsible">Responsável</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-checkbox (change)="$event ? toggleAllCards() : null" [checked]="isAllSelected()"
+      [indeterminate]="isSomeSelected()" [aria-label]="checkboxLabel()">
+    </mat-checkbox>
+  </div>
 
 <div class="card-grid">
   <mat-card class="ticket-card" *ngFor="let ticket of displayedTickets">
@@ -39,7 +43,8 @@
         <mat-icon>schedule</mat-icon>
         <span class="time">{{ticket.lastInteraction || ""}}</span>
       </section>
-      <mat-checkbox></mat-checkbox>
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? toggleCard(ticket) : null"
+        [checked]="isSelected(ticket)" [aria-label]="checkboxLabel(ticket)"></mat-checkbox>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -27,6 +27,7 @@ export class TicketCardComponent implements OnInit {
 
     displayedTickets: Ticket[] = [];
     sortOption: string = 'id';
+    selectedTickets = new Set<Ticket>();
 
     ngOnInit(): void {
         this.updateDisplayedTickets();
@@ -36,6 +37,7 @@ export class TicketCardComponent implements OnInit {
         if (changes['allTickets'] || changes['currentPage'] || changes['pageSize'] || changes['searchTerm']) {
             this.updateDisplayedTickets();
             this.sortTickets();
+            this.selectedTickets.clear();
         }
     }
 
@@ -82,4 +84,38 @@ export class TicketCardComponent implements OnInit {
     }
   }
 
+     toggleCard(ticket: Ticket): void {
+        if (this.selectedTickets.has(ticket)) {
+            this.selectedTickets.delete(ticket);
+        } else {
+            this.selectedTickets.add(ticket);
+        }
+    }
+
+    toggleAllCards(): void {
+        if (this.isAllSelected()) {
+            this.selectedTickets.clear();
+        } else {
+            this.displayedTickets.forEach(ticket => this.selectedTickets.add(ticket));
+        }
+    }
+    isSelected(ticket: Ticket): boolean {
+        return this.selectedTickets.has(ticket);
+    }
+
+    isAllSelected(): boolean {
+        return this.selectedTickets.size === this.displayedTickets.length;
+    }
+
+    isSomeSelected(): boolean {
+      return this.selectedTickets.size > 0 && this.selectedTickets.size < this.displayedTickets.length
+    }
+
+
+    checkboxLabel(ticket?: Ticket): string {
+        if (!ticket) {
+            return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+        }
+        return `${this.isSelected(ticket) ? 'deselect' : 'select'} card ${ticket.id}`;
+    }
 }
