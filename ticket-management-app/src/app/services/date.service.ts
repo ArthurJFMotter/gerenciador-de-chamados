@@ -5,6 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class DateService {
 
+  parseDate(dateString: string | null | undefined): Date | null {
+    if (!dateString) return null;
+    try {
+      return new Date(dateString);
+    } catch (error) {
+      return null;
+    }
+  }
+
   timeSince(isoDateString: string): string {
     if (!isoDateString) {
       return 'N/A';
