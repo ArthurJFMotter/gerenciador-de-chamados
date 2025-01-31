@@ -1,380 +1,254 @@
 [
-    {
-      "id": "00001",
-      "request": "Instalação de Programas",
-      "status": "priority",
-      "queue": "remote",
-      "createdDate": "01/01/2025 - 14:30:45",
-      "lastInteraction": "24/01/2025 - 17:23:14",
-      "responsible": null,
-      "requester": {
-        "name": "Isabela de Melo",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Secretaria de setor X",
-        "region": "INTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00002",
-      "request": "Recuperação de Usuário",
-      "status": "priority",
-      "queue": "on site",
-      "createdDate": "04/01/2025 - 14:30:45",
-      "lastInteraction": "24/01/2025 - 11:32:18",
-      "responsible": "Fulano de lá",
-      "requester": {
-        "name": "Miguel dos Santos",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Central de tal lugar",
-        "region": "CENTRO",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00003",
-      "request": "Instalação de impressora",
-      "status": "open",
-      "queue": "maintenance",
-      "createdDate": "13/01/2025 - 10:27:59",
-      "lastInteraction": "16/01/2025 - 15:42:46",
-      "responsible": null,
-      "requester": {
-        "name": "Bernardo Neto",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Hospital daquele local",
-        "region": "CENTRO",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00004",
-      "request": "Configuração de conta",
-      "status": "open",
-      "queue": "network",
-      "createdDate": "11/11/2024 - 16:01:56",
-      "lastInteraction": "20/12/2024 - 18:01:44",
-      "responsible": "Ciclana de cá",
-      "requester": {
-        "name": "Heitor de Carvalho",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Secretaria de setor Y",
-        "region": "NORTE",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00005",
-      "request": "Instalação Pacote Office",
-      "status": "open",
-      "queue": "telephony",
-      "createdDate": "04/12/2024 - 11:34:47",
-      "lastInteraction": "23/01/2025 - 12:23:11",
-      "responsible": null,
-      "requester": {
-        "name": "Ana Clara Oliveira",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Organização deste lugar aqui",
-        "region": "SUL",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00006",
-      "request": "Configuração de impressora",
-      "status": "open",
-      "queue": "network",
-      "createdDate": "01/11/2024 - 16:50:33",
-      "lastInteraction": "29/12/2024 - 11:43:17",
-      "responsible": null,
-      "requester": {
-        "name": "Helena de Barros",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Centro Médico de lugar ABCD",
-        "region": "LESTE",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00007",
-      "request": "Atualização Pacote Office",
-      "status": "closed",
-      "queue": "telephony",
-      "createdDate": "14/01/2025 - 13:33:15",
-      "lastInteraction": "21/01/2025 - 11:25:44",
-      "responsible": "Fulana dali",
-      "requester": {
-        "name": "Pedro da Silva",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Clínica do estado de tal lugar",
-        "region": "INTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00008",
-      "request": "tranferência Pacote Office",
-      "status": "closed",
-      "queue": "warrant",
-      "createdDate": "04/12/2024 - 16:50:12",
-      "lastInteraction": "27/01/2025 - 08:21:12",
-      "responsible": "Ciclano daqui",
-      "requester": {
-        "name": "Gabriel Lima",
-        "cellphone": null,
-        "phone": null
-      },
-      "location": {
-        "name": "Agência central de tal lugar",
-        "region": "LESTE",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00009",
-      "request": "Configuração de Email",
-      "status": "open",
-      "queue": "on site",
-      "createdDate": "01/10/2024 - 14:43:21",
-      "lastInteraction": "02/11/2024 - 17:27:15",
-      "responsible": "Carlos Silva",
-      "requester": {
-        "name": "João Pereira",
-        "cellphone": "123456789",
-        "phone": null
-      },
-      "location": {
-        "name": "Sala de Reuniões",
-        "region": "INTERNA",
-        "complement": "Próximo à recepção"
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00010",
-      "request": "Manutenção em Impressora",
-      "status": "priority",
-      "queue": "on site",
-      "createdDate": "01/01/2025 - 14:30:45",
-      "lastInteraction": "24/01/2025 - 13:33:54",
-      "responsible": "Ana Costa",
-      "requester": {
-        "name": "Maria Souza",
-        "cellphone": null,
-        "phone": "987654321"
-      },
-      "location": {
-        "name": "Sala de TI",
-        "region": "INTERNA",
-        "complement": "Andar Térreo"
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00011",
-      "request": "Atualização de Software",
-      "status": "open",
-      "queue": "remote",
-      "createdDate": "05/01/2025 - 15:50:56",
-      "lastInteraction": "24/01/2025 - 08:28:17",
-      "responsible": null,
-      "requester": {
-        "name": "Lucas Mendes",
-        "cellphone": "1122334455",
-        "phone": null
-      },
-      "location": {
-        "name": "Setor Administrativo",
-        "region": "INTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00012",
-      "request": "Recuperação de Senha",
-      "status": "priority",
-      "queue": "remote",
-      "createdDate": "12/01/2025 - 10:31:53",
-      "lastInteraction": "19/01/2025 - 16:23:43",
-      "responsible": "Felipe Andrade",
-      "requester": {
-        "name": "Carla Nunes",
-        "cellphone": null,
-        "phone": "3344556677"
-      },
-      "location": {
-        "name": "Secretaria Geral",
-        "region": "INTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00013",
-      "request": "Conexão de Rede Lenta",
-      "status": "closed",
-      "queue": "on site",
-      "createdDate": "17/01/2025 - 13:45:44",
-      "lastInteraction": "16/01/2025 - 11:34:14",
-      "responsible": null,
-      "requester": {
-        "name": "Fernanda Oliveira",
-        "cellphone": "9988776655",
-        "phone": null
-      },
-      "location": {
-        "name": "Sala de Treinamento",
-        "region": "EXTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00014",
-      "request": "Instalação de Projetor",
-      "status": "open",
-      "queue": "on site",
-      "createdDate": "02/01/2025 - 09:23:31",
-      "lastInteraction": "15/01/2025 - 17:42:15",
-      "responsible": null,
-      "requester": {
-        "name": "Rafael Almeida",
-        "cellphone": "5566778899",
-        "phone": null
-      },
-      "location": {
-        "name": "Auditório",
-        "region": "INTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00015",
-      "request": "Backup de Arquivos",
-      "status": "priority",
-      "queue": "remote",
-      "createdDate": "07/01/2025 - 10:43:15",
-      "lastInteraction": "09/01/2025 - 12:14:20",
-      "responsible": "Thiago Martins",
-      "requester": {
-        "name": "Aline Santos",
-        "cellphone": null,
-        "phone": "2233445566"
-      },
-      "location": {
-        "name": "Sala de Arquivo",
-        "region": "INTERNA",
-        "complement": "Próximo ao Almoxarifado"
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00016",
-      "request": "Troca de Monitor",
-      "status": "open",
-      "queue": "on site",
-      "createdDate": "09/12/2025 - 10:45:54",
-      "lastInteraction": "14/01/2025 - 14:22:34",
-      "responsible": null,
-      "requester": {
-        "name": "Victor Silva",
-        "cellphone": "6677889900",
-        "phone": null
-      },
-      "location": {
-        "name": "Departamento Financeiro",
-        "region": "INTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00017",
-      "request": "Configuração de VPN",
-      "status": "closed",
-      "queue": "remote",
-      "createdDate": "18/12/2024 - 12:37:32",
-      "lastInteraction": "24/01/2025 - 13:53:44",
-      "responsible": "Paulo Lima",
-      "requester": {
-        "name": "Elaine Costa",
-        "cellphone": "4455667788",
-        "phone": null
-      },
-      "location": {
-        "name": "Home Office",
-        "region": "EXTERNA",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    },
-    {
-      "id": "00018",
-      "request": "montagem de computador",
-      "status": "open",
-      "queue": "maintenance",
-      "createdDate": "22/01/2025 - 16:57:26",
-      "lastInteraction": "26/01/2025 - 12:59:41",
-      "responsible": "Roberto de Carvalho",
-      "requester": {
-        "name": "Marina Pimenta",
-        "cellphone": "1234123433",
-        "phone": null
-      },
-      "location": {
-        "name": "Praça daquela república",
-        "region": "SUL",
-        "complement": null
-      },
-      "communication": [],
-      "history": []
-    }
-  ]
+  {
+    "id": "00001",
+    "request": "Instalação de Programas",
+    "status": "priority",
+    "queue": "remote",
+    "createdDate": "01/01/2025 - 14:30:45",
+    "lastInteraction": "24/01/2025 - 17:23:14",
+    "responsible": null,
+    "requesterName": "Isabela de Melo",
+    "locationName": "Secretaria de setor X",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00002",
+    "request": "Recuperação de Usuário",
+    "status": "priority",
+    "queue": "on site",
+    "createdDate": "04/01/2025 - 14:30:45",
+    "lastInteraction": "24/01/2025 - 11:32:18",
+    "responsible": "Fulano de lá",
+    "requesterName": "Miguel dos Santos",
+    "locationName": "Central de tal lugar",
+    "locationRegion": "CENTRO",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00003",
+    "request": "Instalação de impressora",
+    "status": "open",
+    "queue": "maintenance",
+    "createdDate": "13/01/2025 - 10:27:59",
+    "lastInteraction": "16/01/2025 - 15:42:46",
+    "responsible": null,
+    "requesterName": "Bernardo Neto",
+    "locationName": "Hospital daquele local",
+    "locationRegion": "CENTRO",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00004",
+    "request": "Configuração de conta",
+    "status": "open",
+    "queue": "network",
+    "createdDate": "11/11/2024 - 16:01:56",
+    "lastInteraction": "20/12/2024 - 18:01:44",
+    "responsible": "Ciclana de cá",
+    "requesterName": "Heitor de Carvalho",
+    "locationName": "Secretaria de setor Y",
+    "locationRegion": "NORTE",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00005",
+    "request": "Instalação Pacote Office",
+    "status": "open",
+    "queue": "telephony",
+    "createdDate": "04/12/2024 - 11:34:47",
+    "lastInteraction": "23/01/2025 - 12:23:11",
+    "responsible": null,
+    "requesterName": "Ana Clara Oliveira",
+    "locationName": "Organização deste lugar aqui",
+    "locationRegion": "SUL",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00006",
+    "request": "Configuração de impressora",
+    "status": "open",
+    "queue": "network",
+    "createdDate": "01/11/2024 - 16:50:33",
+    "lastInteraction": "29/12/2024 - 11:43:17",
+    "responsible": null,
+    "requesterName": "Helena de Barros",
+    "locationName": "Centro Médico de lugar ABCD",
+    "locationRegion": "LESTE",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00007",
+    "request": "Atualização Pacote Office",
+    "status": "closed",
+    "queue": "telephony",
+    "createdDate": "14/01/2025 - 13:33:15",
+    "lastInteraction": "21/01/2025 - 11:25:44",
+    "responsible": "Fulana dali",
+    "requesterName": "Pedro da Silva",
+    "locationName": "Clínica do estado de tal lugar",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00008",
+    "request": "tranferência Pacote Office",
+    "status": "closed",
+    "queue": "warrant",
+    "createdDate": "04/12/2024 - 16:50:12",
+    "lastInteraction": "27/01/2025 - 08:21:12",
+    "responsible": "Ciclano daqui",
+    "requesterName": "Gabriel Lima",
+    "locationName": "Agência central de tal lugar",
+    "locationRegion": "LESTE",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00009",
+    "request": "Configuração de Email",
+    "status": "open",
+    "queue": "on site",
+    "createdDate": "01/10/2024 - 14:43:21",
+    "lastInteraction": "02/11/2024 - 17:27:15",
+    "responsible": "Carlos Silva",
+    "requesterName": "João Pereira",
+    "locationName": "Sala de Reuniões",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00010",
+    "request": "Manutenção em Impressora",
+    "status": "priority",
+    "queue": "on site",
+    "createdDate": "01/01/2025 - 14:30:45",
+    "lastInteraction": "24/01/2025 - 13:33:54",
+    "responsible": "Ana Costa",
+    "requesterName": "Maria Souza",
+    "locationName": "Sala de TI",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00011",
+    "request": "Atualização de Software",
+    "status": "open",
+    "queue": "remote",
+    "createdDate": "05/01/2025 - 15:50:56",
+    "lastInteraction": "24/01/2025 - 08:28:17",
+    "responsible": null,
+    "requesterName": "Lucas Mendes",
+    "locationName": "Setor Administrativo",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00012",
+    "request": "Recuperação de Senha",
+    "status": "priority",
+    "queue": "remote",
+    "createdDate": "12/01/2025 - 10:31:53",
+    "lastInteraction": "19/01/2025 - 16:23:43",
+    "responsible": "Felipe Andrade",
+    "requesterName": "Carla Nunes",
+    "locationName": "Secretaria Geral",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00013",
+    "request": "Conexão de Rede Lenta",
+    "status": "closed",
+    "queue": "on site",
+    "createdDate": "17/01/2025 - 13:45:44",
+    "lastInteraction": "16/01/2025 - 11:34:14",
+    "responsible": null,
+    "requesterName": "Fernanda Oliveira",
+    "locationName": "Sala de Treinamento",
+    "locationRegion": "EXTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00014",
+    "request": "Instalação de Projetor",
+    "status": "open",
+    "queue": "on site",
+    "createdDate": "02/01/2025 - 09:23:31",
+    "lastInteraction": "15/01/2025 - 17:42:15",
+    "responsible": null,
+    "requesterName": "Rafael Almeida",
+    "locationName": "Auditório",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00015",
+    "request": "Backup de Arquivos",
+    "status": "priority",
+    "queue": "remote",
+    "createdDate": "07/01/2025 - 10:43:15",
+    "lastInteraction": "09/01/2025 - 12:14:20",
+    "responsible": "Thiago Martins",
+    "requesterName": "Aline Santos",
+    "locationName": "Sala de Arquivo",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00016",
+    "request": "Troca de Monitor",
+    "status": "open",
+    "queue": "on site",
+    "createdDate": "09/12/2025 - 10:45:54",
+    "lastInteraction": "14/01/2025 - 14:22:34",
+    "responsible": null,
+    "requesterName": "Victor Silva",
+    "locationName": "Departamento Financeiro",
+    "locationRegion": "INTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00017",
+    "request": "Configuração de VPN",
+    "status": "closed",
+    "queue": "remote",
+    "createdDate": "18/12/2024 - 12:37:32",
+    "lastInteraction": "24/01/2025 - 13:53:44",
+    "responsible": "Paulo Lima",
+    "requesterName": "Elaine Costa",
+    "locationName": "Home Office",
+    "locationRegion": "EXTERNA",
+    "communication": [],
+    "history": []
+  },
+  {
+    "id": "00018",
+    "request": "montagem de computador",
+    "status": "open",
+    "queue": "maintenance",
+    "createdDate": "22/01/2025 - 16:57:26",
+    "lastInteraction": "26/01/2025 - 12:59:41",
+    "responsible": "Roberto de Carvalho",
+    "requesterName": "Marina Pimenta",
+    "locationName": "Praça daquela república",
+    "locationRegion": "SUL",
+    "communication": [],
+    "history": []
+  }
+]

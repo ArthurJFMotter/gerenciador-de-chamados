@@ -12,10 +12,10 @@
           <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;">circle</mat-icon>
       </mat-card-header>
       <mat-card-content>
-        <p><strong>Solicitante:</strong> {{ticket.requester.name}}</p>
+        <p><strong>Solicitante:</strong> {{ticket.requesterName}}</p>
         <p><strong>Solicitação:</strong> {{ticket.request}}</p>
-        <p><strong>Local:</strong> {{ticket.location.name}}</p>
-        <p><strong>Região:</strong> {{ticket.location.region}}</p>
+        <p><strong>Local:</strong> {{ticket.locationName}}</p>
+        <p><strong>Região:</strong> {{ticket.locationRegion}}</p>
         <p><strong>Data:</strong> {{ticket.createdDate}}</p>
       </mat-card-content>
       <mat-card-actions>

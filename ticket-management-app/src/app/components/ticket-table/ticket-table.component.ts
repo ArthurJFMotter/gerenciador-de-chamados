@@ -42,7 +42,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit{
   @Input() pageSize: number = 15;
   @Input() searchTerm: string = '';
 
-  displayedColumns: string[] = ['id', 'status', 'requester.name', 'request', 'location.name', 'location.region', 'createdDate', 'lastInteraction', 'responsible', 'select'];
+  displayedColumns: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'select'];
   dataSource = new MatTableDataSource<Ticket>();
   selection = new SelectionModel<Ticket>(true, []);
 
@@ -84,10 +84,10 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit{
     return tickets.filter(ticket =>
       ticket.id.toString().includes(lowerCaseTerm) ||
       ticket.responsible?.toLowerCase().includes(lowerCaseTerm) ||
-      ticket.requester?.name.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.requesterName.toLowerCase().includes(lowerCaseTerm) ||
       ticket.request?.toLowerCase().includes(lowerCaseTerm) ||
-      ticket.location?.name.toLowerCase().includes(lowerCaseTerm) ||
-      ticket.location?.region.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.locationName.toLowerCase().includes(lowerCaseTerm) ||
+      ticket.locationRegion.toLowerCase().includes(lowerCaseTerm) ||
       ticket.createdDate?.toLowerCase().includes(lowerCaseTerm) ||
       ticket.lastInteraction?.toLowerCase().includes(lowerCaseTerm)
     );

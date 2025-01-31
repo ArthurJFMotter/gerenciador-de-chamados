@@ -34,9 +34,9 @@
   </ng-container>
 
   <!-- requester name Column -->
-  <ng-container matColumnDef="requester.name">
+  <ng-container matColumnDef="requesterName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>assignment</mat-icon> Solicitante </th>
-    <td mat-cell *matCellDef="let ticket"> {{ticket.requester.name}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.requesterName}} </td>
   </ng-container>
 
   <!-- request Column -->
@@ -46,15 +46,15 @@
   </ng-container>
 
   <!-- location name Column -->
-  <ng-container matColumnDef="location.name">
+  <ng-container matColumnDef="locationName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>place</mat-icon> Local </th>
-    <td mat-cell *matCellDef="let ticket"> {{ticket.location.name}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.locationName}} </td>
   </ng-container>
 
   <!-- location region Column -->
-  <ng-container matColumnDef="location.region">
+  <ng-container matColumnDef="locationRegion">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>map</mat-icon> Região </th>
-    <td mat-cell *matCellDef="let ticket"> {{ticket.location.region}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.locationRegion}} </td>
   </ng-container>
 
   <!-- created date Column -->

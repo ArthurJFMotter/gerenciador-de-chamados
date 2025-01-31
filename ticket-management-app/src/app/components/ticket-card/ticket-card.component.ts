@@ -53,10 +53,10 @@ export class TicketCardComponent implements OnInit {
       return tickets.filter(ticket =>
           ticket.id.toString().includes(lowerCaseTerm) ||
           ticket.responsible?.toLowerCase().includes(lowerCaseTerm) ||
-          ticket.requester.name.toLowerCase().includes(lowerCaseTerm) ||
+          ticket.requesterName.toLowerCase().includes(lowerCaseTerm) ||
           ticket.request.toLowerCase().includes(lowerCaseTerm) ||
-          ticket.location.name.toLowerCase().includes(lowerCaseTerm) ||
-          ticket.location.region.toLowerCase().includes(lowerCaseTerm) ||
+          ticket.locationName.toLowerCase().includes(lowerCaseTerm) ||
+          ticket.locationRegion.toLowerCase().includes(lowerCaseTerm) ||
           ticket.createdDate.toLowerCase().includes(lowerCaseTerm) ||
           ticket.lastInteraction.toLowerCase().includes(lowerCaseTerm)
       );
