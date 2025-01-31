@@ -7,12 +7,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import {  MatTooltipModule } from '@angular/material/tooltip';
 
 
 @Component({
     selector: 'app-ticket-card',
     standalone: true,
-    imports: [CommonModule, MatCardModule, MatIconModule, MatCheckboxModule, MatFormFieldModule, MatSelectModule],
+    imports: [CommonModule, MatCardModule, MatIconModule, MatCheckboxModule, MatFormFieldModule, MatSelectModule, MatTooltipModule],
     templateUrl: './ticket-card.component.html',
     styleUrls: ['./ticket-card.component.scss']
 })
@@ -27,6 +28,7 @@ export class TicketCardComponent implements OnInit {
 
     displayedTickets: Ticket[] = [];
     sortOption: string = 'id';
+    sortDirection: string = 'asc';
     selectedTickets = new Set<Ticket>();
 
     ngOnInit(): void {
@@ -69,22 +71,26 @@ export class TicketCardComponent implements OnInit {
         );
     }
 
-  sortTickets(): void {
-    if (this.sortOption) {
-      this.displayedTickets.sort((a, b) => {
-          if (this.sortOption === 'createdDate') {
-              const dateA = this.dateService.parseDate(a.createdDate)?.getTime() || 0;
-              const dateB = this.dateService.parseDate(b.createdDate)?.getTime() || 0;
-              return dateA - dateB;
-          }
-        const valueA = (a as any)[this.sortOption] || '';
-        const valueB = (b as any)[this.sortOption] || '';
-        return String(valueA).localeCompare(String(valueB));
-      });
+    sortTickets(): void {
+        if (this.sortOption) {
+            this.displayedTickets.sort((a, b) => {
+                let comparison = 0;
+                if (this.sortOption === 'createdDate' || this.sortOption === 'lastInteraction') {
+                    const dateA = this.dateService.parseDate((a as any)[this.sortOption])?.getTime() || 0;
+                    const dateB = this.dateService.parseDate((b as any)[this.sortOption])?.getTime() || 0;
+                    comparison = dateA - dateB;
+                }
+                 else {
+                    const valueA = (a as any)[this.sortOption] || '';
+                    const valueB = (b as any)[this.sortOption] || '';
+                     comparison = String(valueA).localeCompare(String(valueB));
+                }
+               return this.sortDirection === 'asc' ? comparison : -comparison
+            });
+        }
     }
-  }
 
-     toggleCard(ticket: Ticket): void {
+    toggleCard(ticket: Ticket): void {
         if (this.selectedTickets.has(ticket)) {
             this.selectedTickets.delete(ticket);
         } else {
@@ -99,6 +105,7 @@ export class TicketCardComponent implements OnInit {
             this.displayedTickets.forEach(ticket => this.selectedTickets.add(ticket));
         }
     }
+
     isSelected(ticket: Ticket): boolean {
         return this.selectedTickets.has(ticket);
     }
@@ -108,9 +115,13 @@ export class TicketCardComponent implements OnInit {
     }
 
     isSomeSelected(): boolean {
-      return this.selectedTickets.size > 0 && this.selectedTickets.size < this.displayedTickets.length
+        return this.selectedTickets.size > 0 && this.selectedTickets.size < this.displayedTickets.length
     }
 
+   setSortDirection(direction: string): void {
+    this.sortDirection = direction;
+    this.sortTickets();
+}
 
     checkboxLabel(ticket?: Ticket): string {
         if (!ticket) {
