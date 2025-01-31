@@ -1,24 +1,33 @@
 <div class="container">
     <!-- tabs module start -->
-    <mat-tab-group mat-stretch-tabs>
-        <mat-tab label="Triagem"></mat-tab>
-        <mat-tab label="Chamados"></mat-tab>
-        <mat-tab label="Arquivado"></mat-tab>
+    <mat-tab-group mat-stretch-tabs (selectedTabChange)="onTabChange($event)" [selectedIndex]="selectedTabIndex">
+        @for (tab of tabs; track tab) {
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="tab-icon">{{ tabConfig[tab].icon }}</mat-icon>
+                {{ tabConfig[tab].name }}
+            </ng-template>
+        </mat-tab>
+        }
     </mat-tab-group>
-    <!-- tabs module start -->
+    <!-- tabs module end -->
 
-    <!-- tabs module start -->
-    <mat-tab-group mat-stretch-tabs (selectedTabChange)="onTabChange($event)">
+    <!-- queue module start -->
+    <mat-tab-group mat-stretch-tabs (selectedTabChange)="onQueueChange($event)" [selectedIndex]="selectedQueueIndex">
+
         @for (queue of queues; track queue) {
         <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon class="tab-icon">{{ queueConfig[queue].icon }}</mat-icon>
                 {{ queueConfig[queue].name }}
+                <span *ngIf="queueTicketCounts[queue] > 0" class="ticket-count">
+                    {{queueTicketCounts[queue]}}
+                </span>
             </ng-template>
         </mat-tab>
         }
     </mat-tab-group>
-    <!-- tabs module start -->
+    <!-- queue module start -->
 
     <!-- ticket actions module start-->
     <app-ticket-actions (searchChange)="handleSearchChange($event)"
