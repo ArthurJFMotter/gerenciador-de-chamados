@@ -1,4 +1,4 @@
-.sort-controls {
+.card-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +20,14 @@
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
+
+    mat-icon{
+      color: var(--mat-sys-primary-container);
+    }
+
+    mat-icon.active{
+      color: var(--mat-sys-primary);
+    }
   }
 }
 
