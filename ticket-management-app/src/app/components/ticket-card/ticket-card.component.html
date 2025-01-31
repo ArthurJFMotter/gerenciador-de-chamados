@@ -17,10 +17,12 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-icon (click)="setSortDirection('asc')" [class.active]="sortDirection === 'asc'"
-      matTooltip="Ascendente">arrow_upward</mat-icon>
-    <mat-icon (click)="setSortDirection('desc')" [class.active]="sortDirection === 'desc'"
-      matTooltip="Descendente">arrow_downward</mat-icon>
+    <button mat-icon-button (click)="setSortDirection('asc')">
+      <mat-icon [class.active]="sortDirection === 'asc'" matTooltip="Ascendente">arrow_upward</mat-icon>
+    </button>
+    <button mat-icon-button (click)="setSortDirection('desc')">
+      <mat-icon [class.active]="sortDirection === 'desc'" matTooltip="Descendente">arrow_downward</mat-icon>
+    </button>
   </div>
   <!-- sort module end -->
   <!-- checkbox module start -->

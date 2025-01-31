@@ -5,15 +5,15 @@ import { DateService } from '../../services/date.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
     selector: 'app-ticket-card',
     standalone: true,
-    imports: [CommonModule, MatCardModule, MatIconModule, MatCheckboxModule, MatFormFieldModule, MatSelectModule, MatTooltipModule],
+    imports: [CommonModule, MatCardModule, MatIconModule, MatCheckboxModule, MatSelectModule, MatTooltipModule, MatButtonModule],
     templateUrl: './ticket-card.component.html',
     styleUrls: ['./ticket-card.component.scss']
 })

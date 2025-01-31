@@ -1,12 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, ViewChild, HostBinding, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSidenavModule, MatDrawer } from '@angular/material/sidenav'; // MatDrawer and MatSidenav are not needed anymore
-import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -19,8 +17,6 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule, // Remove if not used elsewhere
-    MatListModule,
     FormsModule
   ],
   templateUrl: './header.component.html',

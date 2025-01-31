@@ -15,17 +15,17 @@
 }
 
 .noTickets {
-  border: 2px solid var(--mat-sys-surface-container);
+  border: solid var(--mat-sys-surface-container-highest);
   border-radius: 8px;
   color: var(--mat-sys-on-surface);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-self: center;
   align-items: center;
-  margin: 2rem 0rem;
+  margin: 1rem auto;
   padding: 2rem;
   width: fit-content;
+  height: fit-content;
 
   img {
     width: 8rem;
@@ -38,16 +38,16 @@
   }
 }
 
-.tab-icon{
+.tab-icon {
   transform: scale(0.75);
   margin-inline: 0.25rem;
 }
 
-mat-tab-group{
+mat-tab-group {
   margin-bottom: 1rem;
 }
 
-mat-progress-spinner{
+mat-progress-spinner {
   margin: auto;
   display: flex;
   justify-self: center;
@@ -67,10 +67,10 @@ mat-paginator {
   }
 }
 
-.ticket-count{
+.ticket-count {
   background-color: var(--mat-sys-primary-container);
   color: var(--mat-sys-on-surface);
   border-radius: 8px;
   margin-inline: 0.5rem;
   padding: 0.25rem 0.5rem;
-  }
+}
