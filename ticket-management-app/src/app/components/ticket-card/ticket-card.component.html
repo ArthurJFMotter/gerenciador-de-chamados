@@ -42,9 +42,11 @@
         <span class="responsible">{{ticket.responsible}}</span>
         <mat-icon *ngIf="ticket.responsible">lock</mat-icon>
       </section>
-      <mat-icon *ngIf="ticket.status === 'priority'" style="color: #FF2C2C;">star</mat-icon>
-      <mat-icon *ngIf="ticket.status === 'open'" style="color: #EED202;">circle</mat-icon>
-      <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;">circle</mat-icon>
+      <ng-container *ngIf="ticket?.status">
+        <mat-icon *ngIf="ticket.status === 'priority'" style="color: #FF2C2C;" matTooltip="Prioridade">star</mat-icon>
+        <mat-icon *ngIf="ticket.status === 'open'" style="color: #EED202;" matTooltip="Aberto">circle</mat-icon>
+        <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;" matTooltip="Fechado">circle</mat-icon>
+      </ng-container>
     </mat-card-header>
     <mat-card-content>
       <p><strong>Solicitante:</strong> {{ticket.requesterName}}</p>

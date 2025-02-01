@@ -4,11 +4,12 @@ import { MatButtonToggleGroup, MatButtonToggleModule } from '@angular/material/b
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
     selector: 'app-ticket-actions',
     standalone: true,
-    imports: [MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatIconModule, MatInputModule,],
+    imports: [MatButtonModule, MatFormFieldModule, MatButtonToggleModule, MatIconModule, MatInputModule, MatTooltipModule],
     templateUrl: './ticket-actions.component.html',
     styleUrl: './ticket-actions.component.scss'
 })

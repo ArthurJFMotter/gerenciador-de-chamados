@@ -11,17 +11,17 @@
         <mat-button-toggle-group #group="matButtonToggleGroup" (change)="handleShowTableChange(group.value)"
             [value]="showTable">
             <mat-button-toggle value="table">
-                <mat-icon>view_list</mat-icon>
+                <mat-icon matTooltip="Tabela">view_list</mat-icon>
             </mat-button-toggle>
             <mat-button-toggle value="card">
-                <mat-icon>view_module</mat-icon>
+                <mat-icon matTooltip="Cartões">view_module</mat-icon>
             </mat-button-toggle>
         </mat-button-toggle-group>
         <!-- view button module end -->
 
         <!-- aux button module start -->
         <button mat-mini-fab color="primary">
-            <mat-icon>print</mat-icon>
+            <mat-icon matTooltip="Imprimir">print</mat-icon>
         </button>
         <!-- aux button module end -->
     </section>
