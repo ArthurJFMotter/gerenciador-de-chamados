@@ -14,8 +14,8 @@
         </div>
         <ng-container *ngIf="!loading && !error">
             <!-- ticket-table -->
-            <app-ticket-table *ngIf="showTable === 'table'" [allTickets]="filteredTickets"
-                [currentPage]="currentPage" [pageSize]="pageSize" [searchTerm]="searchTerm">
+            <app-ticket-table *ngIf="showTable === 'table'" [allTickets]="filteredTickets" [currentPage]="currentPage"
+                [pageSize]="pageSize" [searchTerm]="searchTerm" [columnConfig]="columnConfig">
             </app-ticket-table>
             <!-- ticket-cards -->
             <app-ticket-card *ngIf="showTable === 'card'" [allTickets]="filteredTickets" [currentPage]="currentPage"

@@ -9,7 +9,6 @@ import { PaginatorComponent } from '../../components/paginator/paginator.compone
 import { TicketActionsComponent } from '../../components/ticket-actions/ticket-actions.component';
 import { MatCardModule } from '@angular/material/card';
 
-
 @Component({
   selector: 'app-view-tickets',
   standalone: true,
@@ -39,8 +38,7 @@ export class ViewTicketsComponent implements OnInit, OnChanges {
   pageSize: number = 15;
   searchTerm: string = '';
   showTable: string = 'table';
-  columnConfig: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'select']; // Define the default columns here
-
+  columnConfig: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'select'];
 
   ngOnInit(): void {
     this.filterTickets();
@@ -49,8 +47,7 @@ export class ViewTicketsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['allTickets'] || changes['selectedQueue']) {
       this.filterTickets();
-    }
-
+    } 
   }
 
   filterTickets() {

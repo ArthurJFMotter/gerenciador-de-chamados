@@ -40,6 +40,7 @@ export class ViewScreeningComponent implements OnInit, OnChanges {
   pageSize: number = 15;
   searchTerm: string = '';
   showTable: string = 'table';
+  columnConfig: string[] = ['id', 'requesterName', 'request', 'createdDate', 'select'];
 
   ngOnInit(): void {
     this.ticketService.getTickets().subscribe((tickets) => {
@@ -73,7 +74,6 @@ export class ViewScreeningComponent implements OnInit, OnChanges {
 
     this.currentPage = 1;
   }
-
 
   handleSearchChange(searchTerm: string) {
     this.searchTerm = searchTerm;
