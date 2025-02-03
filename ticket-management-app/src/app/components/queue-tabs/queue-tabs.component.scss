@@ -1,10 +1,15 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    width: 95vw;
+    margin: 1rem 0rem;
+}
+
 .tab-icon {
     transform: scale(0.75);
     margin-inline: 0.25rem;
-}
-
-mat-tab-group {
-    margin-bottom: 1rem;
 }
 
 .ticket-count {
