@@ -1,5 +1,6 @@
-import { Component, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TicketTableComponent } from '../../components/ticket-table/ticket-table.component';
 import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -7,7 +8,6 @@ import { PageEvent } from '@angular/material/paginator';
 import { PaginatorComponent } from '../../components/paginator/paginator.component';
 import { TicketActionsComponent } from '../../components/ticket-actions/ticket-actions.component';
 import { MatCardModule } from '@angular/material/card';
-import { TicketTableComponent } from '../../components/ticket-table/ticket-table.component';
 
 @Component({
   selector: 'app-view-archived',
@@ -53,17 +53,17 @@ export class ViewArchivedComponent implements OnInit, OnChanges {
 
   loadTickets() {
     this.loading = true;
-    this.ticketService.getTickets(true).subscribe({ // Fetch only archived tickets
-      next: (tickets) => {
+    this.ticketService.getTickets(true)
+      .subscribe(tickets => {
         this.allTickets = tickets;
         this.filterTickets();
         this.loading = false;
       },
-      error: (error) => {
-        this.error = error;
-        this.loading = false;
-      }
-    });
+        error => {
+          this.error = error;
+          this.loading = false;
+        }
+      );
   }
 
   filterTickets() {
@@ -71,6 +71,8 @@ export class ViewArchivedComponent implements OnInit, OnChanges {
 
     if (this.selectedQueue) {
       filteredByQueue = this.allTickets.filter(ticket => ticket.queue === this.selectedQueue);
+    } else {
+      filteredByQueue = this.allTickets.filter(ticket => ticket.queue !== 'screening');
     }
 
     if (this.searchTerm) {

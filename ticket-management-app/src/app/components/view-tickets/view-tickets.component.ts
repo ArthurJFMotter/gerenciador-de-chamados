@@ -9,7 +9,6 @@ import { PaginatorComponent } from '../../components/paginator/paginator.compone
 import { TicketActionsComponent } from '../../components/ticket-actions/ticket-actions.component';
 import { MatCardModule } from '@angular/material/card';
 
-
 @Component({
     selector: 'app-view-tickets',
     standalone: true,
@@ -42,7 +41,6 @@ export class ViewTicketsComponent implements OnInit, OnChanges {
     showTable: string = 'table';
     columnConfig: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'select']; // Define the default columns here
 
-
     ngOnInit(): void {
         this.loadTickets();
     }
@@ -53,26 +51,28 @@ export class ViewTicketsComponent implements OnInit, OnChanges {
         }
     }
 
-     loadTickets() {
+    loadTickets() {
         this.loading = true;
-         this.ticketService.getTickets(false).subscribe({ // Fetch only non-archived tickets
-            next: (tickets) => {
+        this.ticketService.getTickets(false)
+            .subscribe(tickets => {
                 this.allTickets = tickets;
                 this.filterTickets();
                 this.loading = false;
             },
-            error: (error) => {
-                this.error = error;
-                this.loading = false;
-            }
-        });
+                error => {
+                    this.error = error;
+                    this.loading = false;
+                }
+            );
     }
-    
+
     filterTickets() {
         let filteredByQueue = this.allTickets;
-        
+
         if (this.selectedQueue) {
             filteredByQueue = this.allTickets.filter(ticket => ticket.queue === this.selectedQueue);
+        } else {
+            filteredByQueue = this.allTickets.filter(ticket => ticket.queue !== 'screening');
         }
 
         if (this.searchTerm) {

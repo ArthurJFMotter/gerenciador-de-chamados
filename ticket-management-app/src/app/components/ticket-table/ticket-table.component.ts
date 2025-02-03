@@ -101,8 +101,10 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
             ticket.requesterName.toLowerCase().includes(lowerCaseTerm) ||
             ticket.request?.toLowerCase().includes(lowerCaseTerm) ||
             ticket.locationName.toLowerCase().includes(lowerCaseTerm) ||
+            ticket.queue.toLowerCase().includes(lowerCaseTerm) ||
             ticket.locationRegion.toLowerCase().includes(lowerCaseTerm) ||
             ticket.createdDate?.toLowerCase().includes(lowerCaseTerm) ||
+            ticket.endDate?.toLowerCase().includes(lowerCaseTerm) ||
             ticket.lastInteraction?.toLowerCase().includes(lowerCaseTerm)
         );
     }

@@ -38,7 +38,7 @@ export class ViewScreeningComponent implements OnInit, OnChanges {
     pageSize: number = 15;
     searchTerm: string = '';
     showTable: string = 'table';
-    columnConfig: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'select']; // Define the default columns here
+    columnConfig: string[] = ['id', 'requesterName', 'request', 'locationName', 'createdDate',  'select'];
 
     ngOnInit(): void {
         this.filterTickets();
@@ -48,7 +48,6 @@ export class ViewScreeningComponent implements OnInit, OnChanges {
         if (changes['allTickets'] || changes['selectedQueue']) {
             this.filterTickets();
         }
-
     }
 
     filterTickets() {
@@ -56,6 +55,8 @@ export class ViewScreeningComponent implements OnInit, OnChanges {
 
         if (this.selectedQueue) {
             filteredByQueue = this.allTickets.filter(ticket => ticket.queue === this.selectedQueue);
+        } else {
+          filteredByQueue = this.allTickets.filter(ticket => ticket.queue === 'screening');
         }
 
         if (this.searchTerm) {

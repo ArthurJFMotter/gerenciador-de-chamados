@@ -11,11 +11,11 @@
         }
     </mat-tab-group>
     <!-- tabs module end -->
-    <!-- queue module start -->
+    <!-- STANDALONE queue module start -->
     <app-queue-tabs *ngIf="selectedTab !== 'screening'" [queues]="queues" [queueConfig]="queueConfig" [allTickets]="allTickets"
-      (queueChange)="onQueueChange($event)" [selectedQueue]="selectedQueue">
+      (queueChange)="onQueueChange($event)" [selectedQueue]="selectedQueue" [selectedTab]="selectedTab">
     </app-queue-tabs>
-    <!-- queue module start -->
+    <!-- STANDALONE queue module start -->
     <!-- Views module start -->
     <ng-container [ngSwitch]="selectedTab">
         <app-view-tickets *ngSwitchCase="'tickets'" [allTickets]="allTickets" [loading]="loading" [error]="error"

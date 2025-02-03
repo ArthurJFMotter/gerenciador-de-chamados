@@ -11,84 +11,88 @@ import { ViewScreeningComponent } from '../../components/view-screening/view-scr
 import { QueueTabsComponent } from '../../components/queue-tabs/queue-tabs.component';
 
 @Component({
-  selector: 'app-panel',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatTabsModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    ViewTicketsComponent,
-    ViewArchivedComponent,
-    ViewScreeningComponent,
-    QueueTabsComponent
-  ],
-  templateUrl: './panel.component.html',
-  styleUrl: './panel.component.scss'
+    selector: 'app-panel',
+    standalone: true,
+    imports: [
+        CommonModule,
+        MatTabsModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        ViewTicketsComponent,
+        ViewArchivedComponent,
+        ViewScreeningComponent,
+        QueueTabsComponent
+    ],
+    templateUrl: './panel.component.html',
+    styleUrl: './panel.component.scss'
 })
 export class PanelComponent implements OnInit {
-  ticketService = inject(TicketService);
+    ticketService = inject(TicketService);
 
-  loading = true;
-  showTable: string = 'table';
-  selectedTab: string = 'tickets';
-  selectedTabIndex: number = 0;
-  selectedQueue: string = 'remote';
+    loading = true;
+    showTable: string = 'table';
+    selectedTab: string = 'tickets';
+    selectedTabIndex: number = 0;
+    selectedQueue: string = 'remote';
 
-  readonly tabs: string[] = ['screening', 'tickets', 'archived'];
-  readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
 
-  tabConfig: { [key: string]: { name: string; icon: string } } = {
-    'screening': { name: 'Triagem', icon: 'filter_alt' },
-    'tickets': { name: 'Chamados', icon: 'local_activity' },
-    'archived': { name: 'Arquivado', icon: 'archive' },
-  };
+    readonly tabs: string[] = ['screening', 'tickets', 'archived'];
+    readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
 
-  queueConfig: { [key: string]: { name: string; icon: string } } = {
-    'remote': { name: 'Remoto', icon: 'headset_mic' },
-    'on site': { name: 'Presencial', icon: 'directions_run' },
-    'maintenance': { name: 'Manutenção', icon: 'build' },
-    'warehouse': { name: 'Almoxarifado', icon: 'store' },
-    'network': { name: 'Redes', icon: 'router' },
-    'telephony': { name: 'Telefonia', icon: 'phone' },
-    'warrant': { name: 'Garantia', icon: 'receipt' },
-    '': { name: 'Todos', icon: 'reorder' },
-  };
+    tabConfig: { [key: string]: { name: string; icon: string } } = {
+        'screening': { name: 'Triagem', icon: 'filter_alt' },
+        'tickets': { name: 'Chamados', icon: 'local_activity' },
+        'archived': { name: 'Arquivado', icon: 'archive' },
+    };
 
-  allTickets: Ticket[] = [];
-  error: string | null = null;
+    queueConfig: { [key: string]: { name: string; icon: string } } = {
+        'remote': { name: 'Remoto', icon: 'headset_mic' },
+        'on site': { name: 'Presencial', icon: 'directions_run' },
+        'maintenance': { name: 'Manutenção', icon: 'build' },
+        'warehouse': { name: 'Almoxarifado', icon: 'store' },
+        'network': { name: 'Redes', icon: 'router' },
+        'telephony': { name: 'Telefonia', icon: 'phone' },
+        'warrant': { name: 'Garantia', icon: 'receipt' },
+        '': { name: 'Todos', icon: 'reorder' },
+    };
 
-  ngOnInit(): void {
-    this.selectedTabIndex = this.tabs.indexOf(this.selectedTab);
-    this.loadTickets();
-  }
+    allTickets: Ticket[] = [];
+    error: string | null = null;
 
-  loadTickets() {
-    this.loading = true;
-    this.ticketService.getTickets()
-      .subscribe(tickets => {
-        this.allTickets = tickets;
-        /*debug*///console.log('allTickets:', this.allTickets);
-        this.loading = false;
-      });
-  }
 
-  onTabChange(event: MatTabChangeEvent) {
-    this.selectedTabIndex = event.index;
-    this.selectedTab = this.tabs[event.index];
-    /*debug*/ //console.log('Tab changed to:', this.selectedTab);
-  }
+    ngOnInit(): void {
+        this.selectedTabIndex = this.tabs.indexOf(this.selectedTab);
+        this.loadTickets();
+    }
 
-  onQueueChange(selectedQueue: string) {
-    this.selectedQueue = selectedQueue;
-    /*debug*/ //console.log('Queue changed to:', this.selectedQueue);
-  }
+    loadTickets() {
+        this.loading = true;
+        this.ticketService.getTickets()
+            .subscribe(tickets => {
+                this.allTickets = tickets;
+                /*debug*///console.log('allTickets:', this.allTickets);
+                this.loading = false;
+            });
+    }
 
-  handleSearchChange(searchTerm: string) {
-    console.log('search term in panel', searchTerm)
-  }
-  handleShowTableChange(showTable: string) {
-    this.showTable = showTable;
-  }
+
+
+    onTabChange(event: MatTabChangeEvent) {
+        this.selectedTabIndex = event.index;
+        this.selectedTab = this.tabs[event.index];
+        /*debug*///console.log('Tab changed to:', this.selectedTab);
+    }
+
+    onQueueChange(selectedQueue: string) {
+        this.selectedQueue = selectedQueue;
+        /*debug*///console.log('Queue changed to:', this.selectedQueue);
+    }
+
+    handleSearchChange(searchTerm: string) {
+        console.log('search term in panel', searchTerm)
+    }
+    handleShowTableChange(showTable: string) {
+        this.showTable = showTable;
+    }
 }
