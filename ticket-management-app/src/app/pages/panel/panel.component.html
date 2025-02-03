@@ -12,7 +12,7 @@
     </mat-tab-group>
     <!-- tabs module end -->
     <!-- STANDALONE queue module start -->
-    <mat-tab-group mat-stretch-tabs (selectedTabChange)="onQueueChange($event)" [selectedIndex]="selectedQueueIndex">
+    <mat-tab-group *ngIf="selectedTab !== 'screening'" mat-stretch-tabs (selectedTabChange)="onQueueChange($event)" [selectedIndex]="selectedQueueIndex">
         @for (queue of queues; track queue) {
         <mat-tab>
             <ng-template mat-tab-label>
