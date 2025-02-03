@@ -7,6 +7,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { ViewTicketsComponent } from '../../components/view-tickets/view-tickets.component';
 import { ViewArchivedComponent } from '../../components/view-archived/view-archived.component';
+import { ViewScreeningComponent } from '../../components/view-screening/view-screening.component';
 
 @Component({
   selector: 'app-panel',
@@ -18,7 +19,8 @@ import { ViewArchivedComponent } from '../../components/view-archived/view-archi
     MatProgressSpinnerModule,
     MatCardModule,
     ViewTicketsComponent,
-    ViewArchivedComponent
+    ViewArchivedComponent,
+    ViewScreeningComponent
   ],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
@@ -93,10 +95,10 @@ export class PanelComponent implements OnInit {
     this.selectedQueue = this.queues[event.index];
     /*debug*/ //console.log('Queue changed to:', this.selectedQueue);
   }
-  handleSearchChange(searchTerm: string){
+   handleSearchChange(searchTerm: string){
     console.log('search term in panel', searchTerm)
   }
-  handleShowTableChange(showTable: string) {
+   handleShowTableChange(showTable: string) {
     this.showTable = showTable;
   }
 }

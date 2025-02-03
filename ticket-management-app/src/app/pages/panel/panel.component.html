@@ -11,7 +11,6 @@
         }
     </mat-tab-group>
     <!-- tabs module end -->
-    <!-- VIEW-TICKETS-->
     <!-- STANDALONE queue module start -->
     <mat-tab-group mat-stretch-tabs (selectedTabChange)="onQueueChange($event)" [selectedIndex]="selectedQueueIndex">
         @for (queue of queues; track queue) {
@@ -27,6 +26,7 @@
         }
     </mat-tab-group>
     <!-- STANDALONE queue module start -->
+    <!-- Views module start -->
     <ng-container [ngSwitch]="selectedTab">
         <app-view-tickets *ngSwitchCase="'tickets'" [allTickets]="allTickets" [loading]="loading" [error]="error"
             [selectedQueue]="selectedQueue" (searchChange)="handleSearchChange($event)"
@@ -34,6 +34,9 @@
         <app-view-archived *ngSwitchCase="'archived'" [allTickets]="allTickets" [loading]="loading" [error]="error"
             [selectedQueue]="selectedQueue" (searchChange)="handleSearchChange($event)"
             (showTableChange)="handleShowTableChange($event)"></app-view-archived>
+        <app-view-screening *ngSwitchCase="'screening'" [allTickets]="allTickets" [loading]="loading" [error]="error"
+            [selectedQueue]="selectedQueue" (searchChange)="handleSearchChange($event)"
+            (showTableChange)="handleShowTableChange($event)"></app-view-screening>
     </ng-container>
-    <!-- VIEW-TICKETS-->
+    <!-- Views module end -->
 </div>

@@ -1,0 +1,39 @@
+.aux-container {
+    flex: 1;
+    margin: auto;
+    width: 95vw;
+    overflow-x: auto;
+  }
+  
+  .noTickets {
+    color: var(--mat-sys-on-surface);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 2rem;
+    width: fit-content;
+    height: 50vh;
+  
+    img {
+      border-radius: 4px;
+      max-width: 24rem;
+  
+      @media (max-width: 768px) {
+        max-width: 20rem;
+      }
+    }
+  
+    p {
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+  
+  mat-progress-spinner {
+    margin: auto;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
