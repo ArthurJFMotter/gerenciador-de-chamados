@@ -26,44 +26,9 @@
         }
     </mat-tab-group>
     <!-- queue module start -->
-    <!-- ticket actions module start-->
-    <app-ticket-actions (searchChange)="handleSearchChange($event)"
-        (showTableChange)="handleShowTableChange($event)"></app-ticket-actions>
-    <!-- ticket actions module end-->
-    <ng-container *ngIf="filteredTickets.length > 0; else noTickets">
-        <!-- main-ticket-content module start -->
-        <div class="aux-container">
-            <div *ngIf="loading">
-                <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-            </div>
-            <div *ngIf="error">
-                Error: {{ error }}
-            </div>
-            <ng-container *ngIf="!loading && !error">
-                <!-- ticket-table -->
-                <app-ticket-table *ngIf="showTable === 'table'" [allTickets]="filteredTickets"
-                    [currentPage]="currentPage" [pageSize]="pageSize" [searchTerm]="searchTerm">
-                </app-ticket-table>
-                <!-- ticket-cards -->
-                <app-ticket-card *ngIf="showTable === 'card'" [allTickets]="filteredTickets" [currentPage]="currentPage"
-                    [pageSize]="pageSize" [searchTerm]="searchTerm">
-                </app-ticket-card>
-            </ng-container>
-        </div>
-        <!-- main-ticket-content module end -->
-        <!-- paginator start -->
-        <ng-container *ngIf="!loading && !error">
-            <app-paginator [length]="filteredTickets.length" [pageSize]="pageSize" [pageIndex]="currentPage-1"
-                (pageChanged)="onPageChanged($event)">
-            </app-paginator>
-        </ng-container>
-        <!-- paginator end -->
-    </ng-container>
-
-    <ng-template #noTickets>
-        <div class="noTickets">
-            <img src="../../../assets/images/such-empty.svg" alt="No Tickets">
-            <p>Sem Tickets no Momento :P</p>
-        </div>
-    </ng-template>
+    <!-- VIEW-TICKETS-->
+    <app-view-tickets [allTickets]="allTickets" [loading]="loading" [error]="error" [selectedQueue]="selectedQueue"
+        (searchChange)="handleSearchChange($event)" (showTableChange)="handleShowTableChange($event)">
+    </app-view-tickets>
+    <!-- VIEW-TICKETS-->
 </div>

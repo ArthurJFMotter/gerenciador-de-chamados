@@ -1,29 +1,22 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
-import { TicketTableComponent } from '../../components/ticket-table/ticket-table.component';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TicketCardComponent } from '../../components/ticket-card/ticket-card.component';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { MatTabsModule, MatTabChangeEvent } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { PageEvent } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
-import { TicketActionsComponent } from '../../components/ticket-actions/ticket-actions.component';
-import { PaginatorComponent } from '../../components/paginator/paginator.component';
+import { ViewTicketsComponent } from '../../components/view-tickets/view-tickets.component';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
   imports: [
     CommonModule,
-    TicketActionsComponent,
-    TicketTableComponent,
-    TicketCardComponent,
-    PaginatorComponent,
     MatTabsModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    ViewTicketsComponent
   ],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
@@ -59,14 +52,9 @@ export class PanelComponent implements OnInit {
   };
 
   allTickets: Ticket[] = [];
-  filteredTickets: Ticket[] = [];
   error: string | null = null;
 
   queueTicketCounts: { [key: string]: number } = {};
-
-  currentPage: number = 1;
-  pageSize: number = 15;
-  searchTerm = '';
 
   ngOnInit(): void {
     this.selectedTabIndex = this.tabs.indexOf(this.selectedTab);
@@ -81,7 +69,6 @@ export class PanelComponent implements OnInit {
         this.allTickets = tickets;
         /*debug*///console.log('allTickets:', this.allTickets);
         this.calculateQueueTicketCounts();
-        this.filterTickets(this.selectedQueue);
         this.loading = false;
       });
   }
@@ -91,42 +78,6 @@ export class PanelComponent implements OnInit {
       this.queueTicketCounts[queue] = this.allTickets.filter(ticket => ticket.queue === queue).length;
     });
     this.queueTicketCounts[''] = this.allTickets.length;
-  }
-
-  filterTickets(queue: string) {
-    let filteredByQueue = this.allTickets;
-
-    if (queue) {
-      filteredByQueue = this.allTickets.filter(ticket => ticket.queue === queue);
-    }
-
-    if (this.searchTerm) {
-      this.filteredTickets = filteredByQueue.filter(ticket =>
-        Object.values(ticket).some(value =>
-          value && typeof value === 'string' && value.toLowerCase().includes(this.searchTerm.toLowerCase())
-        )
-      );
-    } else {
-      this.filteredTickets = filteredByQueue;
-    }
-
-    this.currentPage = 1;
-
-  }
-
-  handleSearchChange(searchTerm: string) {
-    /*Debug*///console.log('Search term received:', searchTerm);
-    this.searchTerm = searchTerm;
-    this.filterTickets(this.selectedQueue);
-  }
-
-  handleShowTableChange(showTable: string) {
-    this.showTable = showTable;
-  }
-
-  onPageChanged(event: PageEvent): void {
-    this.currentPage = event.pageIndex + 1;
-    this.pageSize = event.pageSize;
   }
 
   onTabChange(event: MatTabChangeEvent) {
@@ -139,6 +90,11 @@ export class PanelComponent implements OnInit {
     this.selectedQueueIndex = event.index;
     this.selectedQueue = this.queues[event.index];
     /*debug*/ //console.log('Queue changed to:', this.selectedQueue);
-    this.filterTickets(this.selectedQueue);
+  }
+  handleSearchChange(searchTerm: string){
+    console.log('search term in panel', searchTerm)
+  }
+  handleShowTableChange(showTable: string) {
+    this.showTable = showTable;
   }
 }
