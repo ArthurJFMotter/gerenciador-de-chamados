@@ -30,7 +30,7 @@ export class ViewScreeningComponent implements OnInit, OnChanges {
   @Input() allTickets: Ticket[] = [];
   @Input() loading: boolean = true;
   @Input() error: string | null = null;
-  @Input() selectedQueue: string = '';
+  selectedQueue: string = 'screening';
   @Output() queueChange = new EventEmitter<string>();
   @Output() searchChange = new EventEmitter<string>();
   @Output() showTableChange = new EventEmitter<string>();

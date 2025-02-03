@@ -26,7 +26,6 @@ import { TicketTableComponent } from '../../components/ticket-table/ticket-table
 })
 export class ViewArchivedComponent implements OnInit, OnChanges {
   ticketService = inject(TicketService);
-
   @Input() allTickets: Ticket[] = [];
   @Input() loading: boolean = true;
   @Input() error: string | null = null;
@@ -41,19 +40,30 @@ export class ViewArchivedComponent implements OnInit, OnChanges {
   searchTerm: string = '';
   showTable: string = 'table';
   columnConfig: string[] = ['id', 'requesterName', 'request', 'locationName', 'queue', 'endDate', 'responsible', 'select'];
-  
-  ngOnInit(): void {
-    this.ticketService.getTickets().subscribe((tickets) => {
-      this.allTickets = tickets
-      this.filterTickets()
-    })
 
+  ngOnInit(): void {
+    this.loadTickets();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['allTickets'] || changes['selectedQueue']) {
       this.filterTickets();
     }
+  }
+
+  loadTickets() {
+    this.loading = true;
+    this.ticketService.getTickets(true).subscribe({ // Fetch only archived tickets
+      next: (tickets) => {
+        this.allTickets = tickets;
+        this.filterTickets();
+        this.loading = false;
+      },
+      error: (error) => {
+        this.error = error;
+        this.loading = false;
+      }
+    });
   }
 
   filterTickets() {
