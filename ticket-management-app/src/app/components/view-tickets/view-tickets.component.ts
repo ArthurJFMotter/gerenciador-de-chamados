@@ -39,6 +39,8 @@ export class ViewTicketsComponent implements OnInit, OnChanges {
   pageSize: number = 15;
   searchTerm: string = '';
   showTable: string = 'table';
+  columnConfig: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'select']; // Define the default columns here
+
 
   ngOnInit(): void {
     this.filterTickets();

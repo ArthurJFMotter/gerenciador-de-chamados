@@ -41,17 +41,20 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
     @Input() currentPage: number = 1;
     @Input() pageSize: number = 15;
     @Input() searchTerm: string = '';
+    @Input() columnConfig: string[] = []; // Receive the column config
 
-    displayedColumns: string[] = ['id', 'status', 'requesterName', 'request', 'locationName', 'locationRegion', 'createdDate', 'lastInteraction', 'responsible', 'select'];
+    displayedColumns: string[] = [];
     dataSource = new MatTableDataSource<Ticket>([]);
     selection = new SelectionModel<Ticket>(true, []);
 
     ngOnInit(): void {
+        this.displayedColumns = [...this.columnConfig]; // set the columns from the received configuration
         this.updateDisplayedTickets();
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes['allTickets'] || changes['currentPage'] || changes['pageSize'] || changes['searchTerm']) {
+        if (changes['allTickets'] || changes['currentPage'] || changes['pageSize'] || changes['searchTerm'] || changes['columnConfig']) {
+            this.displayedColumns = [...this.columnConfig];
             this.updateDisplayedTickets();
             this.selection.clear();
         }
