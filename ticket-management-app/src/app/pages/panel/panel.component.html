@@ -11,10 +11,8 @@
         }
     </mat-tab-group>
     <!-- tabs module end -->
-
     <!-- queue module start -->
     <mat-tab-group mat-stretch-tabs (selectedTabChange)="onQueueChange($event)" [selectedIndex]="selectedQueueIndex">
-
         @for (queue of queues; track queue) {
         <mat-tab>
             <ng-template mat-tab-label>
@@ -28,12 +26,11 @@
         }
     </mat-tab-group>
     <!-- queue module start -->
-
+    <!-- ticket actions module start-->
+    <app-ticket-actions (searchChange)="handleSearchChange($event)"
+        (showTableChange)="handleShowTableChange($event)"></app-ticket-actions>
+    <!-- ticket actions module end-->
     <ng-container *ngIf="filteredTickets.length > 0; else noTickets">
-        <!-- ticket actions module start-->
-        <app-ticket-actions (searchChange)="handleSearchChange($event)"
-            (showTableChange)="handleShowTableChange($event)"></app-ticket-actions>
-        <!-- ticket actions module end-->
         <!-- main-ticket-content module start -->
         <div class="aux-container">
             <div *ngIf="loading">
