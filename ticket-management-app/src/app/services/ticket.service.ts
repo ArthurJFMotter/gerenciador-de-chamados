@@ -34,5 +34,6 @@ export interface Ticket {
   locationName: string;
   locationRegion: string;
   //communication: Communication[];
-  //history: History[];
+  history: History[];
+  isArchived: boolean;
 }
