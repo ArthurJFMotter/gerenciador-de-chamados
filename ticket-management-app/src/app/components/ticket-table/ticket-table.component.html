@@ -35,13 +35,13 @@
 
   <!-- requester name Column -->
   <ng-container matColumnDef="requesterName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>assignment</mat-icon> Solicitante </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>account_circle</mat-icon> Solicitante </th>
     <td mat-cell *matCellDef="let ticket"> {{ticket.requesterName}} </td>
   </ng-container>
 
   <!-- request Column -->
   <ng-container matColumnDef="request">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>account_circle</mat-icon> Solicitação </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>assignment</mat-icon> Solicitação </th>
     <td mat-cell *matCellDef="let ticket"> {{ticket.request}} </td>
   </ng-container>
 
