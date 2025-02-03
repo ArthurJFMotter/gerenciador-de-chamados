@@ -11,7 +11,7 @@ mat-toolbar{
 
   font-size: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     flex-direction: column;
   }
     
@@ -28,7 +28,7 @@ mat-toolbar{
 .divisor {
   margin: 0 0.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     display: none;
   }
 }
