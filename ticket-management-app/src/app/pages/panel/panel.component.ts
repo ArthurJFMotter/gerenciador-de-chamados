@@ -6,9 +6,10 @@ import { Ticket, TicketService } from '../../services/ticket.service';
 import { MatTabsModule, MatTabChangeEvent } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { TicketActionsComponent } from '../../components/ticket-actions/ticket-actions.component';
+import { PaginatorComponent } from '../../components/paginator/paginator.component';
 
 @Component({
   selector: 'app-panel',
@@ -18,10 +19,10 @@ import { TicketActionsComponent } from '../../components/ticket-actions/ticket-a
     TicketActionsComponent,
     TicketTableComponent,
     TicketCardComponent,
+    PaginatorComponent,
     MatTabsModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule,
     MatCardModule
   ],
   templateUrl: './panel.component.html',
@@ -60,14 +61,12 @@ export class PanelComponent implements OnInit {
   allTickets: Ticket[] = [];
   filteredTickets: Ticket[] = [];
   error: string | null = null;
-  
+
   queueTicketCounts: { [key: string]: number } = {};
 
   currentPage: number = 1;
   pageSize: number = 15;
   searchTerm = '';
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit(): void {
     this.selectedTabIndex = this.tabs.indexOf(this.selectedTab);
@@ -112,9 +111,7 @@ export class PanelComponent implements OnInit {
     }
 
     this.currentPage = 1;
-    if (this.paginator) {
-      this.paginator.firstPage();
-    }
+
   }
 
   handleSearchChange(searchTerm: string) {
@@ -133,11 +130,11 @@ export class PanelComponent implements OnInit {
   }
 
   onTabChange(event: MatTabChangeEvent) {
-    this.selectedTabIndex = event.index; 
-    this.selectedTab = this.tabs[event.index]; 
+    this.selectedTabIndex = event.index;
+    this.selectedTab = this.tabs[event.index];
     /*debug*/ //console.log('Tab changed to:', this.selectedTab);
   }
-  
+
   onQueueChange(event: MatTabChangeEvent) {
     this.selectedQueueIndex = event.index;
     this.selectedQueue = this.queues[event.index];

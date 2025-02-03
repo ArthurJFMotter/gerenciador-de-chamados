@@ -56,26 +56,6 @@ mat-progress-spinner {
   align-self: center;
 }
 
-.paginator-container{
-  display: flex; 
-  justify-content: flex-end;
-}
-
-mat-paginator {
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1.5rem auto;
-  padding: 0.25rem;
-  text-wrap: nowrap;
-  width: 100%;
-
-  @media (max-width: 768px) {
-    width: 57.5%;
-  }
-}
-
 .ticket-count {
   background-color: var(--mat-sys-primary-container);
   color: var(--mat-sys-on-surface);

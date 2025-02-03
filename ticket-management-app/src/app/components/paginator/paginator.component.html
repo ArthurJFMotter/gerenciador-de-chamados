@@ -1,0 +1,9 @@
+<div class="paginator-container">
+    <mat-paginator
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"
+        (page)="onPageChange($event)"
+        [pageSizeOptions]="pageSizeOptions">
+    </mat-paginator>
+</div>
