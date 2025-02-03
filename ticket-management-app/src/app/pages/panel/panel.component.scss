@@ -15,21 +15,23 @@
 }
 
 .noTickets {
-  border: solid var(--mat-sys-surface-container-highest);
-  border-radius: 8px;
   color: var(--mat-sys-on-surface);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem auto;
+  margin: auto;
   padding: 2rem;
   width: fit-content;
-  height: fit-content;
+  height: 50vh;
 
   img {
     border-radius: 4px;
     max-width: 24rem;
+
+    @media (max-width: 768px) {
+      max-width: 20rem;
+    }
   }
 
   p {
@@ -54,13 +56,24 @@ mat-progress-spinner {
   align-self: center;
 }
 
+.paginator-container{
+  display: flex; 
+  justify-content: flex-end;
+}
+
 mat-paginator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
   border-radius: 8px;
-  margin: 1.25rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem auto;
+  padding: 0.25rem;
+  text-wrap: nowrap;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    width: 57.5%;
+  }
 }
 
 .ticket-count {
