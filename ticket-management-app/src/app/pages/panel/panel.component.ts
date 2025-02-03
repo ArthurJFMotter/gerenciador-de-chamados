@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { ViewTicketsComponent } from '../../components/view-tickets/view-tickets.component';
+import { ViewArchivedComponent } from '../../components/view-archived/view-archived.component';
 
 @Component({
   selector: 'app-panel',
@@ -16,7 +17,8 @@ import { ViewTicketsComponent } from '../../components/view-tickets/view-tickets
     MatIconModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    ViewTicketsComponent
+    ViewTicketsComponent,
+    ViewArchivedComponent
   ],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
