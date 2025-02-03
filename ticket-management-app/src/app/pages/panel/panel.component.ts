@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ViewTicketsComponent } from '../../components/view-tickets/view-tickets.component';
 import { ViewArchivedComponent } from '../../components/view-archived/view-archived.component';
 import { ViewScreeningComponent } from '../../components/view-screening/view-screening.component';
+import { QueueTabsComponent } from '../../components/queue-tabs/queue-tabs.component';
 
 @Component({
   selector: 'app-panel',
@@ -20,7 +21,8 @@ import { ViewScreeningComponent } from '../../components/view-screening/view-scr
     MatCardModule,
     ViewTicketsComponent,
     ViewArchivedComponent,
-    ViewScreeningComponent
+    ViewScreeningComponent,
+    QueueTabsComponent
   ],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
@@ -33,7 +35,6 @@ export class PanelComponent implements OnInit {
   selectedTab: string = 'tickets';
   selectedTabIndex: number = 0;
   selectedQueue: string = 'remote';
-  selectedQueueIndex: number = 0;
 
   readonly tabs: string[] = ['screening', 'tickets', 'archived'];
   readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
@@ -58,11 +59,8 @@ export class PanelComponent implements OnInit {
   allTickets: Ticket[] = [];
   error: string | null = null;
 
-  queueTicketCounts: { [key: string]: number } = {};
-
   ngOnInit(): void {
     this.selectedTabIndex = this.tabs.indexOf(this.selectedTab);
-    this.selectedQueueIndex = this.queues.indexOf(this.selectedQueue);
     this.loadTickets();
   }
 
@@ -72,16 +70,8 @@ export class PanelComponent implements OnInit {
       .subscribe(tickets => {
         this.allTickets = tickets;
         /*debug*///console.log('allTickets:', this.allTickets);
-        this.calculateQueueTicketCounts();
         this.loading = false;
       });
-  }
-
-  calculateQueueTicketCounts() {
-    this.queues.forEach(queue => {
-      this.queueTicketCounts[queue] = this.allTickets.filter(ticket => ticket.queue === queue).length;
-    });
-    this.queueTicketCounts[''] = this.allTickets.length;
   }
 
   onTabChange(event: MatTabChangeEvent) {
@@ -90,15 +80,15 @@ export class PanelComponent implements OnInit {
     /*debug*/ //console.log('Tab changed to:', this.selectedTab);
   }
 
-  onQueueChange(event: MatTabChangeEvent) {
-    this.selectedQueueIndex = event.index;
-    this.selectedQueue = this.queues[event.index];
+  onQueueChange(selectedQueue: string) {
+    this.selectedQueue = selectedQueue;
     /*debug*/ //console.log('Queue changed to:', this.selectedQueue);
   }
-   handleSearchChange(searchTerm: string){
+
+  handleSearchChange(searchTerm: string) {
     console.log('search term in panel', searchTerm)
   }
-   handleShowTableChange(showTable: string) {
+  handleShowTableChange(showTable: string) {
     this.showTable = showTable;
   }
 }

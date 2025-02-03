@@ -11,21 +11,11 @@
         }
     </mat-tab-group>
     <!-- tabs module end -->
-    <!-- STANDALONE queue module start -->
-    <mat-tab-group *ngIf="selectedTab !== 'screening'" mat-stretch-tabs (selectedTabChange)="onQueueChange($event)" [selectedIndex]="selectedQueueIndex">
-        @for (queue of queues; track queue) {
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <mat-icon class="tab-icon">{{ queueConfig[queue].icon }}</mat-icon>
-                {{ queueConfig[queue].name }}
-                <span *ngIf="queueTicketCounts[queue] > 0" class="ticket-count">
-                    {{queueTicketCounts[queue]}}
-                </span>
-            </ng-template>
-        </mat-tab>
-        }
-    </mat-tab-group>
-    <!-- STANDALONE queue module start -->
+    <!-- queue module start -->
+    <app-queue-tabs *ngIf="selectedTab !== 'screening'" [queues]="queues" [queueConfig]="queueConfig" [allTickets]="allTickets"
+      (queueChange)="onQueueChange($event)" [selectedQueue]="selectedQueue">
+    </app-queue-tabs>
+    <!-- queue module start -->
     <!-- Views module start -->
     <ng-container [ngSwitch]="selectedTab">
         <app-view-tickets *ngSwitchCase="'tickets'" [allTickets]="allTickets" [loading]="loading" [error]="error"
@@ -35,7 +25,7 @@
             [selectedQueue]="selectedQueue" (searchChange)="handleSearchChange($event)"
             (showTableChange)="handleShowTableChange($event)"></app-view-archived>
         <app-view-screening *ngSwitchCase="'screening'" [allTickets]="allTickets" [loading]="loading" [error]="error"
-            [selectedQueue]="selectedQueue" (searchChange)="handleSearchChange($event)"
+            [selectedQueue]="'screening'" (searchChange)="handleSearchChange($event)"
             (showTableChange)="handleShowTableChange($event)"></app-view-screening>
     </ng-container>
     <!-- Views module end -->
