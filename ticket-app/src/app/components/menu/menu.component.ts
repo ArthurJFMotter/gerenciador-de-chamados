@@ -33,8 +33,4 @@ export class MenuComponent implements OnChanges {
   close(): void {
     this.closeMenu.emit();
   }
-
-  goToPanel(): void {
-    this.router.navigate(['/panel']);
-  }
 }
