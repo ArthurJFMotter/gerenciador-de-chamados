@@ -33,7 +33,7 @@
 </ng-container>
 
 <ng-template #noTickets>
-    <div class="noTickets">
+    <div *ngIf="!loading && !error" class="noTickets">
         <img src="../../../assets/images/such-empty.svg" alt="No Tickets">
         <p>Sem Tickets no Momento :P</p>
     </div>

@@ -30,12 +30,13 @@ import { QueueTabsComponent } from '../../components/queue-tabs/queue-tabs.compo
 export class PanelComponent implements OnInit {
     ticketService = inject(TicketService);
 
-    loading = true;
+    loading: boolean = true;
     showTable: string = 'table';
     selectedTab: string = 'tickets';
     selectedTabIndex: number = 0;
     selectedQueue: string = 'remote';
-
+    allTickets: Ticket[] = [];
+    error: string | null = null;
 
     readonly tabs: string[] = ['screening', 'tickets', 'archived'];
     readonly queues: string[] = ['remote', 'on site', 'maintenance', 'warehouse', 'network', 'telephony', 'warrant', ''];
@@ -57,10 +58,6 @@ export class PanelComponent implements OnInit {
         '': { name: 'Todos', icon: 'reorder' },
     };
 
-    allTickets: Ticket[] = [];
-    error: string | null = null;
-
-
     ngOnInit(): void {
         this.selectedTabIndex = this.tabs.indexOf(this.selectedTab);
         this.loadTickets();
@@ -75,8 +72,6 @@ export class PanelComponent implements OnInit {
                 this.loading = false;
             });
     }
-
-
 
     onTabChange(event: MatTabChangeEvent) {
         this.selectedTabIndex = event.index;
