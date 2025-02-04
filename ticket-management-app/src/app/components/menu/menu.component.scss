@@ -6,7 +6,6 @@
   z-index: 15;
   width: 100%;
   height: fit-content;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.125);
 }
 
 .menu-container {
@@ -23,6 +22,7 @@
   z-index: 15;
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.125);
 
   @media (max-width: 768px) {
     gap: 0.25rem;
