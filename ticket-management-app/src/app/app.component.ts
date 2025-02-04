@@ -3,11 +3,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PanelComponent } from './pages/panel/panel.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, PanelComponent, WrapperComponent],
+  imports: [FooterComponent, HeaderComponent, PanelComponent, WrapperComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

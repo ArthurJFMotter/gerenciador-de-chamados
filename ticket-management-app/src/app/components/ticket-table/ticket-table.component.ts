@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import {
-  Component,
-  Input,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  ViewChild,
-  inject,
-  AfterViewInit
+    Component,
+    Input,
+    OnInit,
+    OnChanges,
+    SimpleChanges,
+    ViewChild,
+    inject,
+    AfterViewInit
 } from '@angular/core';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { DateService } from '../../services/date.service';
@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SelectionModel } from '@angular/cdk/collections';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -36,19 +37,20 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
     ticketService = inject(TicketService);
     dateService = inject(DateService);
+    router = inject(Router);
 
     @Input() allTickets: Ticket[] = [];
     @Input() currentPage: number = 1;
     @Input() pageSize: number = 15;
     @Input() searchTerm: string = '';
-    @Input() columnConfig: string[] = []; // Receive the column config
+    @Input() columnConfig: string[] = []; 
 
     displayedColumns: string[] = [];
     dataSource = new MatTableDataSource<Ticket>([]);
     selection = new SelectionModel<Ticket>(true, []);
 
     ngOnInit(): void {
-        this.displayedColumns = [...this.columnConfig]; // set the columns from the received configuration
+        this.displayedColumns = [...this.columnConfig];
         this.updateDisplayedTickets();
     }
 
@@ -66,7 +68,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
         this.dataSource.sort = this.sort;
 
         this.dataSource.sortingDataAccessor = (data: Ticket, sortHeaderId: string): string | number => {
-            if (sortHeaderId === 'createdDate' ) {
+            if (sortHeaderId === 'createdDate') {
                 return this.dateService.parseDate(data[sortHeaderId])?.getTime() || 0;
             }
             if (sortHeaderId === 'lastInteraction') {
@@ -87,7 +89,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
             ...ticket,
             lastInteraction: this.dateService.timeSince(ticket.lastInteraction),
         }));
-         this.dataSource._updateChangeSubscription();
+        this.dataSource._updateChangeSubscription();
     }
 
     filterTickets(tickets: Ticket[], term: string): Ticket[] {
@@ -133,4 +135,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
         return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
     }
 
+    goToTicket(): void {
+        this.router.navigate(['/ticket']);
+    }
 }

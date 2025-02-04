@@ -1,8 +1,7 @@
 <app-wrapper>
     <app-header [isDarkMode]="darkMode()" (themeToggle)="onThemeToggle()"></app-header>
 
-    <app-panel>
-    </app-panel>
+    <router-outlet></router-outlet>
 
     <span class="spacer"></span>
 
