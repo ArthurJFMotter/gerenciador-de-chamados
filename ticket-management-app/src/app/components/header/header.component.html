@@ -8,7 +8,7 @@
     <span class="spacer"></span>
 
     <mat-form-field appearance="outline">
-        <input matInput placeholder="Pesquisa Rápida..." >
+        <input matInput placeholder="Pesquisa Rápida...">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
@@ -21,7 +21,9 @@
     </button>
 
     <!-- Open Bottom Sheet -->
-    <button mat-icon-button id="toggleMenuBtn" (click)="openMenu()">
+    <button mat-icon-button id="toggleMenuBtn" (click)="toggleMenu()">
         <mat-icon matTooltip="Menu">menu</mat-icon>
     </button>
 </mat-toolbar>
+
+<app-menu [isMenuOpen]="isMenuOpen" (closeMenu)="onMenuClose()"></app-menu>

@@ -3,6 +3,9 @@ mat-toolbar {
   min-height: 4rem;
   height: fit-content;
   padding: 0.5rem 0.75rem;
+  position: relative;
+  z-index: 18;
+  width: 100%;
 }
 
 mat-form-field {

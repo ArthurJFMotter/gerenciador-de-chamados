@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MenuComponent } from '../menu/menu.component';
 
 @Component({
@@ -22,22 +21,25 @@ import { MenuComponent } from '../menu/menu.component';
     MatInputModule,
     FormsModule,
     MatTooltipModule,
-    MatBottomSheetModule
+    MenuComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   @Input() isDarkMode: boolean = false;
+  isMenuOpen: boolean = false; // Use a variable to track menu state (no @Input)
   @Output() themeToggle = new EventEmitter<void>();
 
-  constructor(private bottomSheet: MatBottomSheet) {}
-
-  openMenu(): void {
-    this.bottomSheet.open(MenuComponent);
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen; // Toggle the local state
   }
 
   toggleTheme(): void {
     this.themeToggle.emit();
+  }
+
+  onMenuClose(): void {
+    this.isMenuOpen = false; // Handle menu closing from the child
   }
 }
