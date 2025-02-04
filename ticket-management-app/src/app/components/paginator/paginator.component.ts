@@ -1,11 +1,15 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
+import { CustomPaginatorIntl } from '../../services/customPaginatorIntl';
 
 @Component({
   selector: 'app-paginator',
   standalone: true,
   imports: [MatPaginatorModule, CommonModule],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
+  ],
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss']
 })
