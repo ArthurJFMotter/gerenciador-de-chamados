@@ -2,40 +2,43 @@
     <h2>Abrir Chamado</h2>
 
     <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline">
+        <mat-form-field>
             <mat-label>Solicitação</mat-label>
             <input matInput formControlName="request" required>
             <mat-error *ngIf="ticketForm.get('request')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field>
             <mat-label>Nome do Solicitante</mat-label>
             <input matInput formControlName="requesterName" required>
             <mat-error *ngIf="ticketForm.get('requesterName')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field>
             <mat-label>Localização</mat-label>
             <input matInput formControlName="locationName" required>
             <mat-error *ngIf="ticketForm.get('locationName')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field>
             <mat-label>Região</mat-label>
             <mat-select formControlName="locationRegion" required>
-                <mat-option *ngFor="let regiao of regioes" [value]="regiao">{{regiao}}</mat-option>
+                <mat-option *ngFor="let region of regions" [value]="region">{{region}}</mat-option>
             </mat-select>
             <mat-error *ngIf="ticketForm.get('locationRegion')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field>
             <mat-label>Fila</mat-label>
             <mat-select formControlName="queue" required>
-                <mat-option *ngFor="let fila of filas" [value]="fila">{{fila}}</mat-option>
+                <mat-option *ngFor="let queue of queues" [value]="queue">{{queue}}</mat-option>
             </mat-select>
             <mat-error *ngIf="ticketForm.get('queue')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit">Criar Chamado</button>
+        <div class="buttons-row">
+            <button mat-raised-button type="submit" (click)="onSubmit()">Criar Chamado</button>
+            <button mat-raised-button type="button" (click)="cancelSubmit()">Cancelar Chamado</button>
+        </div>
     </form>
 </div>

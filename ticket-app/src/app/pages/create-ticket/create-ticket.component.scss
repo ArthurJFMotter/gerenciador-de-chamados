@@ -1,0 +1,19 @@
+.container{
+    color: var(--mat-sys-on-surface);
+    display: grid;
+    justify-content: center;
+    padding: 0.25rem 1rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+
+.buttons-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
