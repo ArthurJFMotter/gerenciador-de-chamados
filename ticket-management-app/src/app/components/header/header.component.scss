@@ -24,6 +24,7 @@ mat-form-field {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   img {
     fill: var(--mat-sys-on-surface);

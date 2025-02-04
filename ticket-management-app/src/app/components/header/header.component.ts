@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MenuComponent } from '../menu/menu.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -27,6 +28,8 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  router = inject(Router);
+
   @Input() isDarkMode: boolean = false;
   isMenuOpen: boolean = false; // Use a variable to track menu state (no @Input)
   @Output() themeToggle = new EventEmitter<void>();
@@ -41,5 +44,9 @@ export class HeaderComponent {
 
   onMenuClose(): void {
     this.isMenuOpen = false; // Handle menu closing from the child
+  }
+
+  goToPanel(): void {
+    this.router.navigate(['/panel']);
   }
 }

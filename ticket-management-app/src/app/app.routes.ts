@@ -4,7 +4,7 @@ import { TicketComponent } from './pages/ticket/ticket.component';
 
 export const routes: Routes = [
     { path: 'panel', component: PanelComponent },
-    { path: 'ticket', component: TicketComponent },
+    { path: 'ticket/:id', component: TicketComponent }, // Route for individual ticket details
     { path: '', redirectTo: '/panel', pathMatch: 'full' }, // Default
     { path: '**', redirectTo: '/panel' } // Handle unknown routes
   ];

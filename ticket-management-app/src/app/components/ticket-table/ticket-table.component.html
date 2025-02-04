@@ -84,7 +84,7 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" (click)="goToTicket()"
+  <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" (click)="goToTicket(row)"
     class="table-row" [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }">
   </tr>
 </table>

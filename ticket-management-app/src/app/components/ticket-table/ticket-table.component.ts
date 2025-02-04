@@ -135,7 +135,7 @@ export class TicketTableComponent implements OnInit, OnChanges, AfterViewInit {
         return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
     }
 
-    goToTicket(): void {
-        this.router.navigate(['/ticket']);
+    goToTicket(row: Ticket): void {
+        this.router.navigate(['/ticket', row.id]); // Navigate to ticket details page
     }
 }
