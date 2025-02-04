@@ -39,7 +39,7 @@ export class ViewArchivedComponent implements OnInit, OnChanges {
   pageSize: number = 15;
   searchTerm: string = '';
   showTable: string = 'table';
-  columnConfig: string[] = ['id', 'requesterName', 'request', 'locationName', 'endDate', 'responsible', 'select'];
+  columnConfig: string[] = ['id', 'requesterName', 'request', 'locationName', 'createdDate', 'endDate', 'responsible', 'select'];
 
   ngOnInit(): void {
     this.loadTickets();
