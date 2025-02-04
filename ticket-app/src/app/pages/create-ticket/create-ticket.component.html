@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Abrir Chamado</h2>
+
+    <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Solicitação</mat-label>
+            <input matInput formControlName="request" required>
+            <mat-error *ngIf="ticketForm.get('request')?.hasError('required')">Campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nome do Solicitante</mat-label>
+            <input matInput formControlName="requesterName" required>
+            <mat-error *ngIf="ticketForm.get('requesterName')?.hasError('required')">Campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Localização</mat-label>
+            <input matInput formControlName="locationName" required>
+            <mat-error *ngIf="ticketForm.get('locationName')?.hasError('required')">Campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Região</mat-label>
+            <mat-select formControlName="locationRegion" required>
+                <mat-option *ngFor="let regiao of regioes" [value]="regiao">{{regiao}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="ticketForm.get('locationRegion')?.hasError('required')">Campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fila</mat-label>
+            <mat-select formControlName="queue" required>
+                <mat-option *ngFor="let fila of filas" [value]="fila">{{fila}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="ticketForm.get('queue')?.hasError('required')">Campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Criar Chamado</button>
+    </form>
+</div>

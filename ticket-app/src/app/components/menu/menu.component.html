@@ -1,0 +1,26 @@
+<div class="menu-container" [class.open]="isMenuOpen">
+    <div class="menu">
+        <h4 matTooltip="Operador atual">Olá, <strong class="user-text">Operador Admin</strong>!</h4>
+    
+        <span class="spacer"></span>
+    
+        <div class="buttons-container">
+            <button mat-flat-button id="lock" matTooltip="Chamados Bloqueados">
+                <h4>0</h4>
+                <mat-icon>lock</mat-icon>
+            </button>
+            <button mat-flat-button id="panel" matTooltip="Painel" (click)="goToPanel()">
+                <span>Painel</span>
+                <mat-icon>table_view</mat-icon>
+            </button>
+            <button mat-flat-button id="administration" matTooltip="Administração">
+                <span>Administração</span>
+                <mat-icon>security</mat-icon>
+            </button>
+            <button mat-flat-button id="logout" matTooltip="Sair" (click)="close()">
+                <span>Sair</span>
+                <mat-icon>logout</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

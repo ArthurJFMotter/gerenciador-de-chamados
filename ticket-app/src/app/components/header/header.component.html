@@ -1,0 +1,29 @@
+<mat-toolbar>
+    <!-- Logo Module -->
+    <div class="logo">
+        <img src="../../../assets/images/star-alt-com.svg" alt="Logo">
+        <h1>APLIC <span class="dev-text">DEV</span></h1>
+    </div>
+
+    <span class="spacer"></span>
+
+    <mat-form-field appearance="outline">
+        <input matInput placeholder="Pesquisa Rápida...">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <span class="spacer"></span>
+
+    <!-- Theme Toggle Button -->
+    <button mat-icon-button (click)="toggleTheme()">
+        <mat-icon *ngIf="!isDarkMode" matTooltip="Claro">wb_sunny</mat-icon>
+        <mat-icon *ngIf="isDarkMode" matTooltip="Escuro">nights_stay</mat-icon>
+    </button>
+
+    <!-- Open Bottom Sheet -->
+    <button mat-icon-button id="toggleMenuBtn" (click)="toggleMenu()">
+        <mat-icon matTooltip="Menu">menu</mat-icon>
+    </button>
+</mat-toolbar>
+
+<app-menu [isMenuOpen]="isMenuOpen" (closeMenu)="onMenuClose()"></app-menu>
