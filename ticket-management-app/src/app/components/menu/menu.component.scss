@@ -1,0 +1,38 @@
+.menu-container {
+  background-color: var(--mat-sys-surface-container-low);
+  color: var(--mat-sys-on-surface);
+  padding: 1.25rem 1rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    button {
+      width: fit-content;
+    }
+
+    span {
+      display: none;
+    }
+
+    mat-icon {
+      margin: auto;
+    }
+  }
+}
+
+.user-text {
+  background-image: linear-gradient(to right, royalblue, green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}

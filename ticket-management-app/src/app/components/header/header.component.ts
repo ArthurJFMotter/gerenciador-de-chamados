@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-header',
@@ -19,21 +21,23 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatBottomSheetModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  isMenuOpen: boolean = false;
   @Input() isDarkMode: boolean = false;
   @Output() themeToggle = new EventEmitter<void>();
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+  constructor(private bottomSheet: MatBottomSheet) {}
+
+  openMenu(): void {
+    this.bottomSheet.open(MenuComponent);
   }
 
-  toggleTheme() {
+  toggleTheme(): void {
     this.themeToggle.emit();
   }
 }
