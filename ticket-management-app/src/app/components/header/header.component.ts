@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Output, EventEmitter, Input, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatBadgeModule} from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,7 +23,8 @@ import { Router } from '@angular/router';
     MatInputModule,
     FormsModule,
     MatTooltipModule,
-    MenuComponent
+    MenuComponent,
+    MatBadgeModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
