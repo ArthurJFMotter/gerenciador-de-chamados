@@ -52,3 +52,14 @@ textarea {
         }
     }
 }
+
+.ticket-details{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+}
+
+mat-stepper{
+    border-radius: 1rem;
+    pointer-events: none;
+}

@@ -34,7 +34,7 @@ export class CreateTicketComponent implements OnInit {
 
   ticketForm!: FormGroup;
   regions: string[] = ['CENTRO', 'LESTE', 'INTERNA', 'NORTE', 'OESTE', 'SUL'];
-  queues: string[] = ['remoto', 'presencial', 'manutenção', 'redes', 'telefonia', 'garantia'];
+  queues: string[] = ['remote', 'on site', 'manteinance', 'network', 'telephony', 'warrant'];
   
   ngOnInit(): void {
     this.ticketForm = this.fb.group({
@@ -45,7 +45,7 @@ export class CreateTicketComponent implements OnInit {
       locationName: ['', Validators.required],
       locationRegion: ['', Validators.required],
       locationComplement: [''],
-      //queue: ['', Validators.required]
+      queue: ['screening', Validators.required]
     });
   }
 
@@ -74,6 +74,8 @@ export class CreateTicketComponent implements OnInit {
 
   cancelSubmit() {
     this.snackBar.open('Chamado Cancelado!', 'Fechar', { duration: 3000 });
+    this.ticketForm.reset();
+    this.goToConsult();
   }
 
   goToConsult(){

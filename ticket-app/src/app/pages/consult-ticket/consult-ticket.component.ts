@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Ticket, TicketService } from '../../services/ticket.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -9,6 +9,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { MatStepperModule } from '@angular/material/stepper'; // Import MatStepperModule
 
 @Component({
   selector: 'app-consult-ticket',
@@ -22,7 +23,9 @@ import { Router } from '@angular/router';
       MatInputModule,
       MatOptionModule,
       MatSelectModule,
-      MatButtonModule],
+      MatButtonModule,
+      MatStepperModule,
+      ],
   templateUrl: './consult-ticket.component.html',
   styleUrls: ['./consult-ticket.component.scss']
 })
@@ -35,6 +38,11 @@ export class ConsultTicketComponent implements OnInit {
   consultForm!: FormGroup;
   ticketFound: Ticket | null = null;
   submitted: boolean = false;
+
+  stepperLabels: string[] = ['Triagem', 'Separado', 'Em andamento', 'Finalizado'];
+  currentStepIndex: number = 0;
+  stepperOrientation: 'horizontal' | 'vertical' = 'horizontal';
+  private readonly breakpoint: number = 768;
 
   ngOnInit(): void {
     this.consultForm = this.fb.group({
@@ -57,6 +65,9 @@ export class ConsultTicketComponent implements OnInit {
     this.ticketService.consultTicket(ticketId, ticketPassword).subscribe({
       next: (ticket: Ticket | null) => {
         this.ticketFound = ticket;
+        if (ticket) { // Check if ticket is not null
+          this.updateStepper(ticket);
+        }
       },
       error: (error: any) => {
         console.error('Erro ao consultar ticket:', error);
@@ -68,6 +79,37 @@ export class ConsultTicketComponent implements OnInit {
 
   goToCreate(){
     this.router.navigate(["/create"]);
+  }
+
+  updateStepper(ticket: Ticket) {
+    if (ticket.isArchived) {
+      this.currentStepIndex = 3;
+    }
+    else {
+      switch (ticket.queue) {
+        case 'screening':
+          this.currentStepIndex = 0;
+          break;
+        case 'remote':
+          this.currentStepIndex = 1;
+          break;
+        case 'on site':
+          this.currentStepIndex = 2;
+          break;
+        default:
+          this.currentStepIndex = 0;
+          break;
+      }
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkStepperOrientation();
+  }
+
+  private checkStepperOrientation(): void {
+    this.stepperOrientation = (window.innerWidth < this.breakpoint) ? 'vertical' : 'horizontal';
   }
 
 }

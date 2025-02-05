@@ -25,12 +25,20 @@
     </form>
 
     <ng-container *ngIf="consultForm.valid && submitted">
-        <div *ngIf="ticketFound; else noTicketFound" class="ticket-detalhes">
+        <div *ngIf="ticketFound; else noTicketFound" class="ticket-details">
             <h3>Detalhes do Chamado</h3>
+            <!--
             <p><strong>ID:</strong> {{ ticketFound.id }}</p>
             <p><strong>Solicitação:</strong> {{ ticketFound.request }}</p>
             <p><strong>Status:</strong> {{ ticketFound.status }}</p>
-            <!-- TODO: mais campos -->
+             TODO: mais campos -->
+
+             <mat-stepper [orientation]="stepperOrientation" [selectedIndex]="currentStepIndex" linear>
+                <mat-step [label]="stepperLabels[0]"></mat-step>
+                <mat-step [label]="stepperLabels[1]"></mat-step>
+                <mat-step [label]="stepperLabels[2]"></mat-step>
+                <mat-step [label]="stepperLabels[3]"></mat-step>
+            </mat-stepper>
         </div>
 
         <ng-template #noTicketFound>
