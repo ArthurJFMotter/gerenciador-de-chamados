@@ -1,0 +1,35 @@
+<div class="container">
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title> Criar Fila </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form [formGroup]="queueForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error *ngIf="queueForm.get('name')?.hasError('required')">Campo requerido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Descrição</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+
+            <div class="buttons-row">
+                <button mat-stroked-button color="primary" type="submit" [disabled]="!queueForm.valid">Criar
+                    fila</button>
+                <button mat-stroked-button color="primary" type="button">Cancelar fila</button>
+            </div>
+        </form>
+    </mat-expansion-panel>
+
+    <ng-container *ngIf="queues.length > 0">
+        <h2>Filas</h2>
+        <mat-selection-list *ngFor="let queue of queues">
+            <mat-list-option>
+                <span matListItemTitle>{{ queue.name }}</span>
+                <span matListItemLine>{{ queue.description }}</span>
+            </mat-list-option>
+        </mat-selection-list>
+    </ng-container>
+</div>

@@ -8,6 +8,7 @@ import { map, Observable, switchMap } from 'rxjs';
 export class TicketService {
   http = inject(HttpClient);
 
+  //PLACEHOLDER LOGIC
   getTickets(): Observable<Ticket[]> {
     return new Observable<Ticket[]>(observer => {
       const tickets: Ticket[] = JSON.parse(localStorage.getItem('tickets') || '[]');
@@ -23,6 +24,7 @@ export class TicketService {
     )
   }
 
+  //PLACEHOLDER LOGIC
   consultTicket(ticketId: string, ticketPassword: string): Observable<Ticket | null> {
     return new Observable<Ticket | null>(observer => {
       const tickets: Ticket[] = JSON.parse(localStorage.getItem('tickets') || '[]');
@@ -38,7 +40,7 @@ export class TicketService {
     });
   }
   
-
+  //PLACEHOLDER LOGIC
   createTicket(newTicket: Omit<Ticket, 'id' | 'position' | 'status' | 'createdDate' | 'endDate' | 'lastInteraction' | 'history' | 'isArchived'>): Observable<Ticket> {
     const now = new Date().toISOString();
     const ticketToCreate: Ticket = {
@@ -63,6 +65,7 @@ export class TicketService {
     });
   }
 
+  //PLACEHOLDER LOGIC
   private generateId(): string {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }

@@ -1,0 +1,47 @@
+.container {
+    color: var(--mat-sys-on-surface);
+    display: grid;
+    justify-content: center;
+    padding: 0.25rem 1rem;
+}
+
+form {
+    display: grid;
+}
+
+textarea {
+    max-height: 42vh;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0rem;
+
+    button {
+        padding: 1.5rem 1.75rem;
+    }
+
+    @media (max-width: 768px) {
+        button {
+            width: 100%;
+        }
+
+        span {
+            display: none;
+        }
+    }
+}
+
+mat-expansion-panel {
+    margin: 1rem 0rem;
+}
+
+mat-list-option {
+    height: fit-content;
+    background-color: var(--mat-sys-surface-container-low);
+    border-radius: 8px;
+    width: 75vw;
+}

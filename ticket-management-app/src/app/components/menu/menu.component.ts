@@ -37,4 +37,8 @@ export class MenuComponent implements OnChanges {
   goToPanel(): void {
     this.router.navigate(['/panel']);
   }
+
+  goToAdmin(): void {
+    this.router.navigate(['/createQueue']);
+  }
 }
