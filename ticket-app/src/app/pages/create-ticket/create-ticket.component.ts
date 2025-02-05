@@ -59,7 +59,7 @@ export class CreateTicketComponent implements OnInit {
           console.log("Ticket created successfully:", ticketCreated);
           this.snackBar.open('Chamado criado com sucesso!', 'Fechar', { duration: 3000 });
           this.ticketForm.reset();
-          this.router.navigate(["/consult"]);
+          this.goToConsult();
         },
         error: (error: any) => {
           console.error('Erro ao criar chamado:', error);
@@ -76,4 +76,7 @@ export class CreateTicketComponent implements OnInit {
     this.snackBar.open('Chamado Cancelado!', 'Fechar', { duration: 3000 });
   }
 
+  goToConsult(){
+    this.router.navigate(["/consult"]);
+  }
 }
