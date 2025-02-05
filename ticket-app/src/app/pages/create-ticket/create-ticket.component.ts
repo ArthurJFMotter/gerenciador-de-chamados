@@ -8,6 +8,7 @@ import { Ticket, TicketService } from '../../services/ticket.service';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-ticket',
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./create-ticket.component.scss']
 })
 export class CreateTicketComponent implements OnInit {
+  router = inject(Router);
   fb = inject(FormBuilder);
   ticketService = inject(TicketService);
   snackBar = inject(MatSnackBar);
@@ -50,13 +52,14 @@ export class CreateTicketComponent implements OnInit {
   onSubmit(): void {
     if (this.ticketForm.valid) {
       const newTicket = this.ticketForm.value;
-      console.log("Submitting ticket:", newTicket); // Add this
+      console.log("Submitting ticket:", newTicket);
 
       this.ticketService.createTicket(newTicket).subscribe({
         next: (ticketCreated) => {
-          console.log("Ticket created successfully:", ticketCreated); // Add this
+          console.log("Ticket created successfully:", ticketCreated);
           this.snackBar.open('Chamado criado com sucesso!', 'Fechar', { duration: 3000 });
           this.ticketForm.reset();
+          this.router.navigate(["/consult"]);
         },
         error: (error: any) => {
           console.error('Erro ao criar chamado:', error);

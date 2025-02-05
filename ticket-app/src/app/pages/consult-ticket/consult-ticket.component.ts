@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consult-ticket',
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./consult-ticket.component.scss']
 })
 export class ConsultTicketComponent implements OnInit {
+  router = inject(Router);
   fb = inject(FormBuilder);
   ticketService = inject(TicketService);
   snackBar = inject(MatSnackBar);
@@ -62,6 +64,10 @@ export class ConsultTicketComponent implements OnInit {
         this.snackBar.open('Ticket não encontrado ou credenciais inválidas.', 'Fechar', { duration: 5000 });
       }
     });
+  }
+
+  goToCreate(){
+    this.router.navigate(["/create"]);
   }
 
 }
