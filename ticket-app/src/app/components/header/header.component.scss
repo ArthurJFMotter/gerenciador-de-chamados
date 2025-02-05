@@ -1,52 +1,39 @@
 mat-toolbar {
-    background-color: var(--mat-sys-surface-container-low);
-    min-height: 4rem;
-    height: fit-content;
-    padding: 0.5rem 0.75rem;
-    position: relative;
-    z-index: 18;
-    width: 100%;
+  background-color: var(--mat-sys-surface-container-low);
+  min-height: 4rem;
+  height: fit-content;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  z-index: 18;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    fill: var(--mat-sys-on-surface);
+    color: var(--mat-sys-on-surface);
+    width: 2.5rem;
+    height: 2.5rem;
   }
-  
-  mat-form-field {
-    transform: scale(0.8);
-    overflow-y: hidden;
-    height: 3.5rem;
-    width: 35vw;
-    background-color: var(--mat-sys-surface-container-lowest);
-  
-    @media (max-width: 768px) {
-      width: 42vw;
-    }
-  }
-  
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  
-    img {
-      fill: var(--mat-sys-on-surface);
-      color: var(--mat-sys-on-surface);
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-  }
-  
-  .spacer {
-    flex: 1 1 auto;
-  }
-  
-  #toggleMenuBtn {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .dev-text {
-    background-image: linear-gradient(to right, orange, var(--mat-sys-primary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-  }
-  
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+#toggleMenuBtn {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dev-text {
+  background-image: linear-gradient(to right, orange, var(--mat-sys-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}

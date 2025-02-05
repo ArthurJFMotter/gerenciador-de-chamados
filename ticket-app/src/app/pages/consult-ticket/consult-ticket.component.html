@@ -14,14 +14,25 @@
             <mat-error *ngIf="consultForm.get('password')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit">Consultar</button>
+        <div class="buttons-row">
+            <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="consultForm.invalid">
+                Consultar Ticket
+            </button>
+        </div>
     </form>
 
-    <div *ngIf="ticketFound" class="ticket-detalhes">
-        <h3>Detalhes do Chamado</h3>
-        <p><strong>ID:</strong> {{ ticketFound.id }}</p>
-        <p><strong>Solicitação:</strong> {{ ticketFound.request }}</p>
-        <p><strong>Status:</strong> {{ ticketFound.status }}</p>
-        <!-- Exiba outros campos conforme necessário -->
-    </div>
+    <ng-container *ngIf="consultForm.valid && submitted">
+        <div *ngIf="ticketFound; else noTicketFound" class="ticket-detalhes">
+            <h3>Detalhes do Chamado</h3>
+            <p><strong>ID:</strong> {{ ticketFound.id }}</p>
+            <p><strong>Solicitação:</strong> {{ ticketFound.request }}</p>
+            <p><strong>Status:</strong> {{ ticketFound.status }}</p>
+            <!-- TODO: mais campos -->
+        </div>
+
+        <ng-template #noTicketFound>
+            <p> não foi possível achar este ticket</p>
+        </ng-template>
+    </ng-container>
+
 </div>

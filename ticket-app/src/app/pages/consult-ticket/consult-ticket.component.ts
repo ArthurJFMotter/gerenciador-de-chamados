@@ -12,16 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-consult-ticket',
   standalone: true,
-    imports:
-      [CommonModule,
-        ReactiveFormsModule,
-        MatSnackBarModule,
-        MatFormFieldModule,
-        MatError,
-        MatInputModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatButtonModule],
+  imports:
+    [CommonModule,
+      ReactiveFormsModule,
+      MatSnackBarModule,
+      MatFormFieldModule,
+      MatError,
+      MatInputModule,
+      MatOptionModule,
+      MatSelectModule,
+      MatButtonModule],
   templateUrl: './consult-ticket.component.html',
   styleUrls: ['./consult-ticket.component.scss']
 })
@@ -32,6 +32,7 @@ export class ConsultTicketComponent implements OnInit {
 
   consultForm!: FormGroup;
   ticketFound: Ticket | null = null;
+  submitted: boolean = false;
 
   ngOnInit(): void {
     this.consultForm = this.fb.group({
@@ -41,20 +42,26 @@ export class ConsultTicketComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.consultForm.valid) {
-      const ticketId = this.consultForm.get('id')?.value;
-      const ticketPassword = this.consultForm.get('password')?.value;
-
-      this.ticketService.consultTicket(ticketId, ticketPassword).subscribe({
-        next: (ticket: Ticket | null) => {
-          this.ticketFound = ticket;
-        },
-        error: (error: any) => {
-          console.error('Erro ao consultar ticket:', error);
-          this.ticketFound = null;
-          this.snackBar.open('ticket não encontrado ou credenciais inválidas.', 'Fechar', { duration: 5000 });
-        }
-      });
+    if (this.consultForm.invalid) {
+      this.snackBar.open('Por favor, preencha todos os campos obrigatórios.', 'Fechar', { duration: 3000 });
+      return;
     }
+
+    this.submitted = true;
+
+    const ticketId = this.consultForm.get('id')?.value;
+    const ticketPassword = this.consultForm.get('password')?.value;
+
+    this.ticketService.consultTicket(ticketId, ticketPassword).subscribe({
+      next: (ticket: Ticket | null) => {
+        this.ticketFound = ticket;
+      },
+      error: (error: any) => {
+        console.error('Erro ao consultar ticket:', error);
+        this.ticketFound = null;
+        this.snackBar.open('Ticket não encontrado ou credenciais inválidas.', 'Fechar', { duration: 5000 });
+      }
+    });
   }
+
 }
