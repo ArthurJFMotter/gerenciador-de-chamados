@@ -29,4 +29,12 @@ export class MenuComponent implements OnChanges {
       this.menuOpenClass = this.isMenuOpen ? 'open' : '';
     }
   }
+
+  goToConsult(): void {
+    this.router.navigate(['/consult']);
+  }
+
+  goToCreate(): void {
+    this.router.navigate(['/create']);
+  }
 }

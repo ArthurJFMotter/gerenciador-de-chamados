@@ -5,11 +5,11 @@
         <span class="spacer"></span>
     
         <div class="buttons-container">
-            <button mat-flat-button id="myTickets" matTooltip="Ver Chamados">
-                <span>Meus Chamados</span>
+            <button mat-flat-button id="myTickets" matTooltip="Consultar Chamado" (click)="goToConsult()">
+                <span>Consultar Chamado</span>
                 <mat-icon>receipt</mat-icon>
             </button>
-            <button mat-flat-button id="addTicket" matTooltip="Criar Chamado">
+            <button mat-flat-button id="addTicket" matTooltip="Criar Chamado" (click)="goToCreate()">
                 <span>Criar Chamado</span>
                 <mat-icon>note_add</mat-icon>
             </button>

@@ -31,11 +31,11 @@ export class HeaderComponent {
   router = inject(Router);
 
   @Input() isDarkMode: boolean = false;
-  isMenuOpen: boolean = false; // Use a variable to track menu state (no @Input)
+  isMenuOpen: boolean = false;
   @Output() themeToggle = new EventEmitter<void>();
 
   toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen; // Toggle the local state
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   toggleTheme(): void {
@@ -43,7 +43,10 @@ export class HeaderComponent {
   }
 
   onMenuClose(): void {
-    this.isMenuOpen = false; // Handle menu closing from the child
+    this.isMenuOpen = false;
   }
 
+  goToConsult(): void {
+    this.router.navigate(['/consult']);
+  }
 }
