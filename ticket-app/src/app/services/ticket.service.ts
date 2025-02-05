@@ -48,8 +48,11 @@ export interface Ticket {
   lastInteraction: string; // ISO 8601 date string "yyyyMMddHHmmssff"
   responsible?: string;
   requesterName: string;
+  requesterCellphone?: string;
+  requesterPhone?: string;
   locationName: string;
   locationRegion: string;
+  locationComplement?: string;
   //communication: Communication[];
   history: History[];
   isArchived: boolean;

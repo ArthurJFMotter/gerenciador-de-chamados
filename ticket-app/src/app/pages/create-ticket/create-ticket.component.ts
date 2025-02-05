@@ -38,13 +38,16 @@ export class CreateTicketComponent implements OnInit {
     this.ticketForm = this.fb.group({
       request: ['', Validators.required],
       requesterName: ['', Validators.required],
+      requesterCellphone: [''],
+      requesterPhone: [''],
       locationName: ['', Validators.required],
       locationRegion: ['', Validators.required],
-      queue: ['', Validators.required]
+      locationComplement: [''],
+      //queue: ['', Validators.required]
     });
   }
 
-  onSubmit() {
+  onSubmit():void {
     if (this.ticketForm.valid) {
       const newTicket: Ticket = this.ticketForm.value;
       console.log("valores do ticket: ", newTicket);

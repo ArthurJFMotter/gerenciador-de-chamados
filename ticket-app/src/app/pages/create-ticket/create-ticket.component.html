@@ -4,7 +4,7 @@
     <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
             <mat-label>Solicitação</mat-label>
-            <input matInput formControlName="request" required>
+            <textarea matInput formControlName="request" required></textarea>
             <mat-error *ngIf="ticketForm.get('request')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
@@ -14,20 +14,38 @@
             <mat-error *ngIf="ticketForm.get('requesterName')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
+        <div class="grouper">
+            <mat-form-field>
+                <mat-label>Celular</mat-label>
+                <input matInput formControlName="requesterCellphone">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Telefone</mat-label>
+                <input matInput formControlName="requesterPhone">
+            </mat-form-field>
+        </div>
+
         <mat-form-field>
             <mat-label>Localização</mat-label>
             <input matInput formControlName="locationName" required>
             <mat-error *ngIf="ticketForm.get('locationName')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Região</mat-label>
-            <mat-select formControlName="locationRegion" required>
-                <mat-option *ngFor="let region of regions" [value]="region">{{region}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="ticketForm.get('locationRegion')?.hasError('required')">Campo obrigatório</mat-error>
-        </mat-form-field>
+        <div class="grouper">
+            <mat-form-field>
+                <mat-label>Região</mat-label>
+                <mat-select formControlName="locationRegion" required>
+                    <mat-option *ngFor="let region of regions" [value]="region">{{region}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="ticketForm.get('locationRegion')?.hasError('required')">Campo obrigatório</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Complemento</mat-label>
+                <input matInput formControlName="locationComplement">
+            </mat-form-field>
+        </div>
 
+        <!-- DEV
         <mat-form-field>
             <mat-label>Fila</mat-label>
             <mat-select formControlName="queue" required>
@@ -35,10 +53,11 @@
             </mat-select>
             <mat-error *ngIf="ticketForm.get('queue')?.hasError('required')">Campo obrigatório</mat-error>
         </mat-form-field>
+        -->
 
         <div class="buttons-row">
-            <button mat-raised-button type="submit" (click)="onSubmit()">Criar Chamado</button>
-            <button mat-raised-button type="button" (click)="cancelSubmit()">Cancelar Chamado</button>
+            <button mat-raised-button type="submit">Criar <span>Chamado</span></button>
+            <button mat-raised-button type="button" (click)="cancelSubmit()">Cancelar <span>Chamado</span></button>
         </div>
     </form>
 </div>

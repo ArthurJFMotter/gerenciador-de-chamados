@@ -29,8 +29,4 @@ export class MenuComponent implements OnChanges {
       this.menuOpenClass = this.isMenuOpen ? 'open' : '';
     }
   }
-
-  close(): void {
-    this.closeMenu.emit();
-  }
 }
