@@ -47,14 +47,14 @@ export class CreateTicketComponent implements OnInit {
     });
   }
 
-  onSubmit():void {
+  onSubmit(): void {
     if (this.ticketForm.valid) {
-      const newTicket: Ticket = this.ticketForm.value;
-      console.log("valores do ticket: ", newTicket);
-      this.snackBar.open('Chamado criado com sucesso!', 'Fechar', { duration: 3000 }); //placeholder
-      /* TODO
+      const newTicket = this.ticketForm.value;
+      console.log("Submitting ticket:", newTicket); // Add this
+
       this.ticketService.createTicket(newTicket).subscribe({
         next: (ticketCreated) => {
+          console.log("Ticket created successfully:", ticketCreated); // Add this
           this.snackBar.open('Chamado criado com sucesso!', 'Fechar', { duration: 3000 });
           this.ticketForm.reset();
         },
@@ -63,7 +63,7 @@ export class CreateTicketComponent implements OnInit {
           this.snackBar.open('Erro ao criar chamado. Tente novamente.', 'Fechar', { duration: 5000 });
         }
       });
-      */
+
     } else {
       this.snackBar.open('Por favor, preencha todos os campos obrigatórios.', 'Fechar', { duration: 3000 });
     }

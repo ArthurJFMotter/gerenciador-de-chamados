@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +32,37 @@ export class TicketService {
     )
   }
 
-  createTicket(newTicket: Ticket) {
-    throw new Error('Method not implemented.');
+  createTicket(newTicket: Omit<Ticket, 'id'|'position'|'status'|'createdDate'|'endDate'|'lastInteraction'|'history'|'isArchived'>): Observable<Ticket> {
+    const url = 'assets/tickets.json';
+    const now = new Date().toISOString();
+    const ticketToCreate: Ticket = {
+        ...newTicket,
+        id: this.generateId(), // generate a unique id
+        position: 0, //you need to fix this if you're using material table
+        status: 'Aberto',
+        createdDate: now,
+        endDate: null,
+        lastInteraction: now,
+        history: [],
+        isArchived: false
+    }
+
+    console.log("Creating ticket:", ticketToCreate); // Add this
+    return this.http.get<Ticket[]>(url).pipe(
+      switchMap(existingTickets => {
+        console.log("Existing tickets:", existingTickets); // Add this
+        const updatedTickets = [...existingTickets, ticketToCreate];
+        console.log("Updated tickets:", updatedTickets); // Add this
+        return this.http.put(url, updatedTickets);
+      }),
+      map(() => {
+        return ticketToCreate; // Return the created ticket
+      })
+    );
+  }
+
+  private generateId(): string {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }
 }
 
