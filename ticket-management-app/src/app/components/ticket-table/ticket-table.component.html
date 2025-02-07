@@ -25,9 +25,9 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>flag</mat-icon> Status </th>
     <td mat-cell *matCellDef="let ticket">
       <ng-container *ngIf="ticket?.status">
-        <mat-icon *ngIf="ticket.status === 'priority'" style="color: #FF2C2C;" matTooltip="Prioridade">star</mat-icon>
-        <mat-icon *ngIf="ticket.status === 'open'" style="color: #EED202;" matTooltip="Aberto">circle</mat-icon>
-        <mat-icon *ngIf="ticket.status === 'closed'" style="color: #6CC173;" matTooltip="Fechado">circle</mat-icon>
+        <mat-icon *ngIf="ticket.status === 'priority'" matTooltip="Prioridade">error</mat-icon>
+        <mat-icon *ngIf="ticket.status === 'open'" matTooltip="Aberto">watch_later</mat-icon>
+        <mat-icon *ngIf="ticket.status === 'closed'" matTooltip="Fechado">check_circle</mat-icon>
       </ng-container>
       <!--debug {{ticket.status}}-->
     </td>
@@ -66,7 +66,7 @@
   <!-- end date Column -->
   <ng-container matColumnDef="endDate">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon>event</mat-icon> Término </th>
-    <td mat-cell *matCellDef="let ticket"> {{ticket.endDate | date:'dd/MM/yyyy HH:mm:SS'}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.endDate | date:'dd/MM/yyyy HH:mm'}} </td>
   </ng-container>
 
   <!-- last Interaction Column -->
