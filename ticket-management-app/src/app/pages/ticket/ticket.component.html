@@ -4,6 +4,7 @@
     <p>Request: {{ ticket.request }}</p>
     <p>Status: {{ ticket.status }}</p>
     <!-- Add more fields as needed -->
+     <button mat-flat-button (click)="goToReport()">Acessar relatório</button>
 </div>
 <div *ngIf="!ticket">
     <p>Ticket not found.</p>

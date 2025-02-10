@@ -1,21 +1,24 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Observable, of, switchMap } from 'rxjs';
 import { Ticket, TicketService } from '../../services/ticket.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button'; 
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule], 
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.scss'
 })
-export class TicketComponent {
-  ticket$: Observable<Ticket | undefined> = of(undefined); // Use observable to handle async data, initialize as undefined
-  ticket: Ticket | undefined;
+export class TicketComponent implements OnInit { 
+
+  ticket$: Observable<Ticket | undefined> = of(undefined);
+  ticket: Ticket | undefined; 
 
   route = inject(ActivatedRoute);
+  router = inject(Router);
   ticketService = inject(TicketService);
 
   ngOnInit(): void {
@@ -23,7 +26,7 @@ export class TicketComponent {
       switchMap(params => {
         const id = params.get('id');
         if (id) {
-          return this.ticketService.getTicketById(id); // Replace with your actual service method
+          return this.ticketService.getTicketById(id);
         } else {
           return of(undefined);
         }
@@ -31,7 +34,17 @@ export class TicketComponent {
     );
 
     this.ticket$.subscribe(ticket => {
-      this.ticket = ticket; // Assign the ticket to your component's property
+      this.ticket = ticket; 
     });
+  }
+
+
+  goToReport(): void {
+    if (this.ticket && this.ticket.id) {
+      this.router.navigate(['/report-builder', this.ticket.id]); // Navigate to report builder with ticket ID
+    } else {
+      console.warn('Ticket ID is not available.'); // Handle the case where ticket or ID is missing
+      // Optionally display an error message to the user.
+    }
   }
 }

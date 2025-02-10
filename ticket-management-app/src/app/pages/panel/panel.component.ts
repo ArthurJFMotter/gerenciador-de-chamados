@@ -87,6 +87,7 @@ export class PanelComponent implements OnInit {
     handleSearchChange(searchTerm: string) {
         console.log('search term in panel', searchTerm)
     }
+    
     handleShowTableChange(showTable: string) {
         this.showTable = showTable;
     }
